@@ -12,12 +12,9 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"],
-      "@asset/*": ["asset/*"],
-      "@common/*": ["common/*"],
       "@component/*": ["component/*"],
       "@container/*": ["container/*"],
-      "@view/*": ["view/*"],
-      "@modules/*": ["modules/*"]
+      "@view/*": ["view/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

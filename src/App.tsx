@@ -1,23 +1,26 @@
 import React from "react";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
-const App: React.FC = () => {
+import MainPage from "@view/main";
+import BoardPage from "@view/board";
+import Layout from "@component/common/layout";
+import GlobalStyles from "@component/common/global-styles";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <BrowserRouter>
+        <Layout>
+          <Switch>
+            <Route path="/board/:boardId" component={BoardPage} />
+            <Route path="/" component={MainPage} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </Layout>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
