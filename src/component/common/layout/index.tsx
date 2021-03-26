@@ -12,7 +12,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <S.Layout>
       <Header />
+      <S.LayoutContainer>
       {children}
+      </S.LayoutContainer>
       <Footer />
     </S.Layout>
   );
