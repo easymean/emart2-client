@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 @font-face{
-  font-family: 'NanumSquare', sans-serif !important;
+  font-family: NanumSquare;
+  font-style: normal;
   font-display: 'block';
 }
 

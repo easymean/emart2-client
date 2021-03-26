@@ -2,7 +2,10 @@ export const BREAKPOINT = 640;
 
 export const STATIC_URL = {};
 
-export const THEME_COLOR = {};
+export const THEME_COLOR = {
+  GRAY: "gray",
+  BLACK: "black",
+};
 
 export const BLOSSOM_URL = "https://blossom.shinsegae.com/";
 export const XWIKI_URL = "";
