@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { THEME_COLOR } from "@asset/constant";
 
 export const Hashtag = styled.div`
-  width: 35%;
-  heigth: 5rem;
+  width: 100%;
 
   font-size: 1.3rem;
   font-color: ${THEME_COLOR.BLACK};

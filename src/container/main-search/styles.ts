@@ -16,3 +16,9 @@ export const HashtagContainer = styled.div`
 
   margin: 0.5rem 0rem;
 `;
+
+export const HashtagItemWrapper = styled.div`
+  display: flex;
+  width: 35%;
+  heigth: 5rem;
+`;

@@ -11,7 +11,7 @@ const MainSearch = () => {
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
     setHashtags(data);
-  }, hashtags);
+  }, [hashtags]);
   return (
     <S.SearchContainer>
       <SearchBar
@@ -19,10 +19,17 @@ const MainSearch = () => {
         setData={setSearchText}
       />
       <S.HashtagContainer>
-        {hashtags &&
-          hashtags.map((el) => {
-            return <HashtagItem hashtag={el} />;
-          })}
+        {hashtags.length !== 0 ? (
+          hashtags.map((el, idx) => {
+            return (
+              <S.HashtagItemWrapper key={idx}>
+                <HashtagItem hashtag={el} />
+              </S.HashtagItemWrapper>
+            );
+          })
+        ) : (
+          <></>
+        )}
       </S.HashtagContainer>
     </S.SearchContainer>
   );
