@@ -12,6 +12,7 @@ module.exports = {
       "@component": path.resolve(__dirname, "src/component/"),
       "@container": path.resolve(__dirname, "src/container/"),
       "@view": path.resolve(__dirname, "src/view/"),
+      "@module": path.resolve(__dirname, "src/module/"),
     },
   },
   module: {

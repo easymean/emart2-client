@@ -15,7 +15,8 @@
       "@asset/*": ["asset/*"],
       "@component/*": ["component/*"],
       "@container/*": ["container/*"],
-      "@view/*": ["view/*"]
+      "@view/*": ["view/*"],
+      "@module/*":["module/*"],
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
