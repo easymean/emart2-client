@@ -3,7 +3,8 @@ export const BREAKPOINT = 640;
 export const STATIC_URL = {};
 
 export const THEME_COLOR = {
-  GRAY: "gray",
+  GRAYER: "gray",
+  LIGHT_GRAY: "silver",
   BLACK: "black",
 };
 
