@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import MainPage from "@view/main";
-import BoardPage from "@view/board";
+import CategoryPage from "@/view/category";
 import Layout from "@component/common/layout";
 import GlobalStyles from "@component/common/global-styles";
 import { BLOSSOM_URL, CONFL_URL, JIRA_URL, XWIKI_URL } from "@asset/constant";
@@ -14,7 +14,11 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Layout>
           <Switch>
-            <Route path="/board/:boardId" component={BoardPage} />
+            <Route
+              path="/category/:categoryId"
+              exact
+              component={CategoryPage}
+            />
             <Route
               path="/blossom"
               component={() => {
