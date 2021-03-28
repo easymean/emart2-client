@@ -1,23 +1,19 @@
-import React from 'react';
-import * as S from './styles';
+import React from "react";
+import * as S from "./styles";
 
-interface SearchProps{
+interface SearchBarProps {
   placeholder: string;
-  setData: (e:any) => void;
+  setData: (e: any) => void;
 }
 
-const SearchBar = (props: SearchProps) => {
-
-  const {placeholder, setData} = props;
+const SearchBar = ({ placeholder, setData }: SearchBarProps) => {
   return (
     <S.SearchBar
-    placeholder = {placeholder}
-    onChange = {(e)=> {
-      setData(e.target.value);
-    }}
-    >
-        <S.GlassImage/>
-    </S.SearchBar>
+      placeholder={placeholder}
+      onChange={(e) => {
+        setData(e.target.value);
+      }}
+    />
   );
 };
 
