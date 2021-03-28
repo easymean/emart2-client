@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 
 import CategoryContainerProps from "./types";
-import BoardContents from "@container/borad-contents";
-import { BoardModel } from "@module/model/boardModel";
+import SiteList from "@/container/site-list";
+import { SiteModel } from "@/module/model/siteModel";
 import { data } from "./data";
 import { data as categoryData } from "@container/main-cateogory-list/data";
 
 const CategoryContainer = ({ categoryId }: CategoryContainerProps) => {
-  const [contents, setContent] = useState([] as BoardModel[]);
+  const [contents, setContent] = useState([] as SiteModel[]);
   const [title, setTitle] = useState("");
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const CategoryContainer = ({ categoryId }: CategoryContainerProps) => {
   return contents.length !== 0 ? (
     <S.CategoryContainer>
       <S.CategoryTitle>{title}</S.CategoryTitle>
-      <BoardContents />
+      <SiteList />
     </S.CategoryContainer>
   ) : (
     <></>

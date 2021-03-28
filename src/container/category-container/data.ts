@@ -1,6 +1,6 @@
-import { BoardModel } from "@module/model/boardModel";
+import { SiteModel } from "@/module/model/siteModel";
 
-export const data: BoardModel[] = [
+export const data: SiteModel[] = [
   {
     id: 1,
     categoryId: 1,
