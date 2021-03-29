@@ -4,13 +4,7 @@ import * as S from "./styles";
 import { data } from "./data";
 import CategoryItem from "@/component/category-item";
 
-const MainCateogoryList = () => {
-  // const [categoryList, setCategory] = useState([] as CategoryModel[]);
-
-  // useEffect(() => {
-  //   setCategory(data);
-  // }, [categoryList]);
-
+const CateogoryContainer = () => {
   const categoryList = useMemo(() => {
     return data;
   }, [data]);
@@ -28,4 +22,4 @@ const MainCateogoryList = () => {
   );
 };
 
-export default MainCateogoryList;
+export default CateogoryContainer;

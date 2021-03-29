@@ -17,4 +17,12 @@ export const data: SiteModel[] = [
     dev: false,
     url: "ad.emart.com",
   },
+  {
+    id: 3,
+    categoryId: 2,
+    categoryName: "MMS쿠폰",
+    serviceName: "FRONT",
+    dev: false,
+    url: "ad.emart.com",
+  },
 ];

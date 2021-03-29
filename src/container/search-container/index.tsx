@@ -6,7 +6,7 @@ import HashtagItem from "@component/hashtag-item/index";
 import SearchBar from "@component/search-bar/index";
 import HashtagModel from "@module/model/hashtagModel";
 
-const MainSearch = () => {
+const SearchContainer = () => {
   const [hashtags, setHashtags] = useState([] as HashtagModel[]);
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
@@ -35,4 +35,4 @@ const MainSearch = () => {
   );
 };
 
-export default MainSearch;
+export default SearchContainer;

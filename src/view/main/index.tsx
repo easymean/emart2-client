@@ -1,15 +1,15 @@
 import React from "react";
 import * as S from "./styles";
 
-import MainSearch from "@/container/main-search";
-import MainCateogoryList from "@/container/main-cateogory-list";
+import SearchContainer from "@/container/search-container";
+import CateogoryContainer from "@/container/cateogory-container";
 
 const MainPage = () => {
   return (
     <S.MainContainer>
       <S.Title>이마트 2팀에 오신걸 환영합니다.</S.Title>
-      <MainSearch />
-      <MainCateogoryList />
+      <SearchContainer />
+      <CateogoryContainer />
     </S.MainContainer>
   );
 };
