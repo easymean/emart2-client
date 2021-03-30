@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import * as S from "./styles";
 
-import { data } from "./data";
+import { categoryData } from "../../module/data/categoryData";
 import CategoryItem from "@/component/category-item";
 
 const CateogoryContainer = () => {
   const categoryList = useMemo(() => {
-    return data;
-  }, [data]);
+    return categoryData;
+  }, [categoryData]);
 
   return categoryList.length !== 0 ? (
     <S.CategoryListContainer>

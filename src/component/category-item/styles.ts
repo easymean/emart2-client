@@ -27,6 +27,5 @@ export const CategoryTitle = styled.div`
   text-decoration: none;
   font-size: 2rem;
   font-weight: 300;
-  border: none;
   font-color: ${THEME_COLOR.BLACK};
 `;

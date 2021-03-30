@@ -1,23 +1,32 @@
 import styled from "styled-components";
 
 export const SiteContainer = styled.div`
+  width: 100%;
+  heigth: 100%;
+
+  display: flex;
+  flex-direction: row;
+`;
+export const SideBarWrapper = styled.div`
+  width: 15%;
+  hegith: 100%;
+`;
+
+export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
-  width: 70%;
+  width: 60%;
   padding: 2rem 2rem;
 `;
 
-export const CategoryTitleWrapper = styled.div`
+export const CategoryTitle = styled.div`
   display: flex;
   flex-direction: row;
   justfy-content: flex-start;
 
   padding: 1rem 1rem;
-`;
-export const CategoryTitle = styled.div`
   font-size: 3rem;
 `;
 

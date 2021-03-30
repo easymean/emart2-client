@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 
-import { data } from "./data";
+import { hashtagData } from "../../module/data/hashtagData";
 import HashtagItem from "@component/hashtag-item/index";
 import SearchBar from "@component/search-bar/index";
 import HashtagModel from "@module/model/hashtagModel";
@@ -11,7 +11,7 @@ const SearchContainer = () => {
   const [hashtags, setHashtags] = useState([] as HashtagModel[]);
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
-    setHashtags(data);
+    setHashtags(hashtagData);
   }, [hashtags]);
 
   const onClick = () => {};

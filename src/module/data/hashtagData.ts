@@ -1,6 +1,6 @@
 import HashtagModel from "@module/model/hashtagModel";
 
-export const data: HashtagModel[] = [
+export const hashtagData: HashtagModel[] = [
   {
     id: 1,
     category: "챗봇API",
@@ -9,8 +9,8 @@ export const data: HashtagModel[] = [
   },
   {
     id: 2,
-    category: '광고제휴',
+    category: "광고제휴",
     redirect: "hello",
-    dev: false
-  }
+    dev: false,
+  },
 ];

@@ -3,12 +3,12 @@ import CategoryModel from "@module/model/cateoryModel";
 export const getCategoryData = (): Promise<CategoryModel[]> => {
   return new Promise((res) => {
     setTimeout(() => {
-      res(data);
+      res(categoryData);
     }, 1000);
   });
 };
 
-export const data: CategoryModel[] = [
+export const categoryData: CategoryModel[] = [
   {
     id: 1,
     name: "광고제휴",

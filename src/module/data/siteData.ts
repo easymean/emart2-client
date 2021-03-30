@@ -1,6 +1,6 @@
 import { SiteModel } from "@/module/model/siteModel";
 
-export const data: SiteModel[] = [
+export const siteData: SiteModel[] = [
   {
     id: 1,
     categoryId: 1,
