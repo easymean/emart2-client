@@ -11,4 +11,3 @@ export const SearchBar = styled.input`
   padding: 1rem 2rem;
 `;
 
-export const GlassImage = styled.img``;
