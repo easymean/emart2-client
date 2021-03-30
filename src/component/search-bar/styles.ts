@@ -3,7 +3,7 @@ import { THEME_COLOR } from "@asset/constant";
 
 export const SearchBar = styled.input`
   width: 100%;
-  heigth: 5rem;
+  heigth: 100%;
 
   font-size: 1.8rem;
   border: 1px solid ${THEME_COLOR.GRAYER};

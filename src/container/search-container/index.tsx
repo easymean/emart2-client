@@ -12,12 +12,23 @@ const SearchContainer = () => {
   useEffect(() => {
     setHashtags(data);
   }, [hashtags]);
+
+  const onClick = () => {};
   return (
     <S.SearchContainer>
-      <SearchBar
-        placeholder="검색예시: 챗봇 API 개발"
-        setData={setSearchText}
-      />
+      <S.SeachBarContainer>
+        <SearchBar
+          placeholder="검색예시: 챗봇 API 개발"
+          setData={setSearchText}
+        />
+        <S.SearchButtonContainer>
+          <S.SearchButton
+            onClick={onClick}
+            src="/src/asset/images/glass.jpg"
+            alt="glass"
+          ></S.SearchButton>
+        </S.SearchButtonContainer>
+      </S.SeachBarContainer>
       <S.HashtagContainer>
         {hashtags.length !== 0 ? (
           hashtags.map((el, idx) => {

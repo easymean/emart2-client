@@ -19,6 +19,7 @@ export const CategoryItem = styled(Link)`
   }
 
   background-color: ${THEME_COLOR.LIGHT_GRAY};
+  color: black;
   padding: 1rem 1rem;
 `;
 

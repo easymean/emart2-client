@@ -1,4 +1,4 @@
-export const BREAKPOINT = 640;
+export const BREAKPOINT = 800;
 
 export const STATIC_URL = {};
 
