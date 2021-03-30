@@ -1,6 +1,9 @@
 export const BREAKPOINT = 800;
 
-export const STATIC_URL = {};
+export const STATIC_URL = {
+  LOGO: `https://user-images.githubusercontent.com/44545922/112952843-e55ac900-9177-11eb-98b1-284cfb1e820c.png`,
+  GLASS: `https://user-images.githubusercontent.com/44545922/112952626-a88ed200-9177-11eb-97f5-9c4530146725.jpg`,
+};
 
 export const THEME_COLOR = {
   GRAYER: "gray",

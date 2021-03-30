@@ -5,6 +5,7 @@ import { data } from "./data";
 import HashtagItem from "@component/hashtag-item/index";
 import SearchBar from "@component/search-bar/index";
 import HashtagModel from "@module/model/hashtagModel";
+import { STATIC_URL } from "../../asset/constant";
 
 const SearchContainer = () => {
   const [hashtags, setHashtags] = useState([] as HashtagModel[]);
@@ -24,7 +25,7 @@ const SearchContainer = () => {
         <S.SearchButtonContainer>
           <S.SearchButton
             onClick={onClick}
-            src="/src/asset/images/glass.jpg"
+            src={STATIC_URL.GLASS}
             alt="glass"
           ></S.SearchButton>
         </S.SearchButtonContainer>

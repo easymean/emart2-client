@@ -1,4 +1,5 @@
 import React from "react";
+import { STATIC_URL } from "../../asset/constant";
 import * as S from "./styles";
 
 const Header = () => {
@@ -8,10 +9,7 @@ const Header = () => {
         <S.HeaderContainer>
           <S.LogoContainer>
             <S.DesktopLink to="/">
-              <S.EmartLogo
-                src="/src/asset/images/emart_logo.png"
-                alt="emart logo"
-              ></S.EmartLogo>
+              <S.EmartLogo src={STATIC_URL.LOGO} alt="emart logo"></S.EmartLogo>
             </S.DesktopLink>
           </S.LogoContainer>
 
