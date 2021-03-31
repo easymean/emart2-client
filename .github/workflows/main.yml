@@ -11,7 +11,7 @@ jobs: # Job 설정
       - name: checkout source code # Step 이름
         uses: actions/checkout@master # Uses를 통한 외부 설정 가져오기: 자신의 레포지토리 소스 받아오기
 
-      -name: Cache node modules
+      - name: Cache node modules
         uses: actions/cache@v1
         with:
           path: node_modules
