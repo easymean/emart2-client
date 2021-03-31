@@ -17,8 +17,8 @@ jobs: # Job 설정
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-key: |
-          ${{ runner.OS }}-build-
-          ${{ runner.OS }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
 
       - name: Install Dependencies
         run: npm install
