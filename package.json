@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -15,9 +16,11 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "start": "npx webpack serve --config webpack.dev.js --open",
     "build": "npm run type-check && webpack --config webpack.prod.js",
+    "start": "npx webpack serve --config webpack.dev.js --open && npm run lint",
     "type-check": "tsc",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
+    "clean": "del dist",
     "test": "react-scripts test"
   },
   "browserslist": {
@@ -47,11 +50,13 @@
     "@typescript-eslint/parser": "^4.19.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-macros": "^3.0.1",
+    "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.22.0",
     "eslint-plugin-react": "^7.23.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "styled-reset": "^4.3.4",
+    "typesafe-actions": "^5.1.0",
     "typescript": "^4.2.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.27.2",
