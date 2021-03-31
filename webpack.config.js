@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: ["@babel/polyfill", "./src/index.tsx"],
@@ -38,8 +38,8 @@ module.exports = {
     ],
   },
   output: {
-    filename: "build.js",
-    path: path.join(__dirname + "dist"),
+    filename: "main.[fullhash].js",
+    path: path.resolve(__dirname, "./dist"),
     publicPath: "/",
   },
 
