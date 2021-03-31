@@ -4,10 +4,22 @@
 
 ---
 
-npm install
+`npm install`
+
+# Start
+
+---
+
+`npm run start`
+
+# Build
+
+---
+
+`npm run build`
 
 # Author
 
 ---
 
-Jimin Lee
+`Jimin Lee`
