@@ -2,8 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: "./src/index.tsx",
-  devtool: "eval-source-map",
+  entry: ["@babel/polyfill", "./src/index.tsx"],
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
@@ -15,11 +14,12 @@ module.exports = {
       "@module": path.resolve(__dirname, "src/module/"),
     },
   },
+
   module: {
     rules: [
       {
-        loader: "babel-loader",
         test: /\.tsx?$/,
+        loader: "babel-loader",
         exclude: /node_modules/,
       },
       {
@@ -38,11 +38,10 @@ module.exports = {
     ],
   },
   output: {
-    filename: "bundle.js",
+    filename: "build.js",
     path: path.join(__dirname + "dist"),
     publicPath: "/",
   },
-  mode: "none",
 
   plugins: [
     new HtmlWebpackPlugin({
