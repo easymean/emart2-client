@@ -20,7 +20,6 @@
     "start": "npx webpack serve --config webpack.dev.js --open && npm run lint",
     "type-check": "tsc",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
-    "clean": "del dist",
     "test": "react-scripts test"
   },
   "browserslist": {
@@ -51,6 +50,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-macros": "^3.0.1",
     "babel-plugin-styled-components": "^1.12.0",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.22.0",
     "eslint-plugin-react": "^7.23.0",
     "file-loader": "^6.2.0",
