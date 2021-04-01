@@ -12,6 +12,7 @@ export const THEME_COLOR = {
 };
 
 export const BLOSSOM_URL = "https://blossom.shinsegae.com/";
-export const XWIKI_URL = "";
+export const XWIKI_URL =
+  "http://xwiki.shinsegae.com/xwiki/bin/view/%EC%9D%B4%EB%A7%88%ED%8A%B82";
 export const JIRA_URL = "https://jira.sinc.co.kr/";
 export const CONFL_URL = "https://confl.sinc.co.kr/";
