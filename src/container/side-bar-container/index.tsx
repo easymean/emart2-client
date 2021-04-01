@@ -6,16 +6,17 @@ import { categoryData } from "../../module/data/categoryData";
 
 const SideBarContainer = () => {
   const categoryList = categoryData;
-  return (
+
+  return categoryList.length !== 0 ? (
     <S.SideBarListContainer>
-      {categoryList.length !== 0 ? (
-        categoryList.map((item) => {
-          return <SideBarItem category={item} />;
-        })
-      ) : (
-        <></>
-      )}
+      {categoryList.map((item) => (
+        <S.SideBarItemWrapper key={item.id}>
+          <SideBarItem category={item} />
+        </S.SideBarItemWrapper>
+      ))}
     </S.SideBarListContainer>
+  ) : (
+    <S.SideBarListContainer></S.SideBarListContainer>
   );
 };
 export default SideBarContainer;

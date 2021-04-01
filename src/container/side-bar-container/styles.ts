@@ -15,4 +15,6 @@ export const SideBarListContainer = styled.div`
   }
 `;
 
-export const SideBarItemWrapper = styled.div``;
+export const SideBarItemWrapper = styled.div`
+  display: flex;
+`;
