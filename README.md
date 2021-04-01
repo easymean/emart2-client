@@ -6,13 +6,13 @@
 
 `npm install`
 
-# Start
+# Start in development
 
 ---
 
 `npm run start`
 
-# Build
+# Build in production
 
 ---
 
