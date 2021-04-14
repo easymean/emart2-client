@@ -17,6 +17,7 @@
       "@container/*": ["container/*"],
       "@view/*": ["view/*"],
       "@module/*":["module/*"],
+      "@model/*": ["model/*"],
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
