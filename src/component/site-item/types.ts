@@ -1,5 +1,5 @@
-import { SiteModel } from "@/module/model/siteModel";
+import { WebsiteModel } from "@/model/websiteModel";
 
 export interface SiteItemProps {
-  site: SiteModel;
+  site: WebsiteModel;
 }

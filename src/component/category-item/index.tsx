@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-import CategoryModel from "@module/model/cateoryModel";
+import CategoryModel from "@/model/cateoryModel";
 
 interface CategoryItemProps {
   category: CategoryModel;

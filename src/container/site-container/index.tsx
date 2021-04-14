@@ -1,16 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
-import * as S from "./styles";
 
-import { siteData } from "../../module/data/siteData";
+import * as S from "./styles";
 import CategoryContainerProps from "./types";
-import { SiteModel } from "@/module/model/siteModel";
+import { WebsiteModel } from "@/model/websiteModel";
 import SiteItem from "@component/site-item";
 import SideBarContainer from "@container/side-bar-container";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const [title, setTitle] = useState("");
 
-  const getSiteListByCategoryId = (): SiteModel[] => {
+  const getSiteListByCategoryId = (): WebsiteModel[] => {
     return siteData.filter((el) => el.categoryId === categoryId);
   };
   const siteList = useMemo(() => getSiteListByCategoryId(), [siteData]);

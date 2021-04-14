@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 
-import { hashtagData } from "../../module/data/hashtagData";
 import HashtagItem from "@component/hashtag-item/index";
 import SearchBar from "@component/search-bar/index";
-import HashtagModel from "@module/model/hashtagModel";
-import { STATIC_URL } from "../../asset/constant";
+import HashtagModel from "@model/hashtagModel";
+import { STATIC_URL } from "@asset/constant";
 
 const SearchContainer = () => {
   const [hashtags, setHashtags] = useState([] as HashtagModel[]);

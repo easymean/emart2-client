@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-import HashtagModel from "@module/model/hashtagModel";
+import HashtagModel from "@/model/hashtagModel";
 
 interface HashtagItemProps {
   hashtag: HashtagModel;
