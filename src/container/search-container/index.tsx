@@ -9,9 +9,9 @@ import { STATIC_URL } from "@asset/constant";
 const SearchContainer = () => {
   const [hashtags, setHashtags] = useState([] as HashtagModel[]);
   const [searchText, setSearchText] = useState("");
-  useEffect(() => {
-    setHashtags(hashtagData);
-  }, [hashtags]);
+  // useEffect(() => {
+  //   setHashtags(hashtagData);
+  // }, [hashtags]);
 
   const onClick = () => {};
   return (

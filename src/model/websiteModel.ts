@@ -1,4 +1,4 @@
-export interface WebsiteModel {
+export default interface WebsiteModel {
   id: number;
   name: string;
   categoryId: number;
