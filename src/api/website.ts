@@ -1,13 +1,15 @@
-import axios from "axios";
+import axios from "./axios";
 
 import endpoints from "./endpoints";
-import WebsiteModel from "@model/websiteModel";
+import SiteModel from "@model/siteModel";
 
-const websiteAPI = {
-  getWebsiteList: async (categoryId: number): Promise<WebsiteModel[]> => {
-    const { data: siteList } = await axios.get<WebsiteModel[]>(
-      `${endpoints.WEBSITE_API}?categoryId=${categoryId}`
+const siteAPI = {
+  getSiteList: async (categoryId: number): Promise<SiteModel[]> => {
+    const { data: siteList } = await axios.get<SiteModel[]>(
+      `${endpoints.SITE_API}?categoryId=${categoryId}`
     );
     return siteList;
   },
 };
+
+export default siteAPI;

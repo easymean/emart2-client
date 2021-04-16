@@ -1,11 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-import CategoryModel from "@/model/cateoryModel";
-
-interface CategoryItemProps {
-  category: CategoryModel;
-}
+import { CategoryItemProps } from "./types";
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
   return (

@@ -1,18 +1,29 @@
 import React, { useEffect, useMemo, useState } from "react";
 
 import * as S from "./styles";
-import CategoryContainerProps from "./types";
-import { WebsiteModel } from "@/model/websiteModel";
+import siteAPI from "@/api/website";
+import SiteModel from "@model/siteModel";
 import SiteItem from "@component/site-item";
+import CategoryContainerProps from "./types";
 import SideBarContainer from "@container/side-bar-container";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const [title, setTitle] = useState("");
-
-  const getSiteListByCategoryId = (): WebsiteModel[] => {
-    return siteData.filter((el) => el.categoryId === categoryId);
+  const [siteList, setSiteList] = useState([] as SiteModel[]);
+  const getSiteListByCategoryId = async () => {
+    const siteList = await siteAPI.getSiteList(categoryId);
+    if (siteList.length <= 0) {
+      console.log("no data");
+      return;
+    }
+    setSiteList(siteList);
   };
-  const siteList = useMemo(() => getSiteListByCategoryId(), [siteData]);
+
+  useEffect(() => {
+    getSiteListByCategoryId();
+    setTitle("");
+    console.log(title);
+  }, []);
 
   return (
     <S.SiteContainer>
@@ -20,7 +31,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         <SideBarContainer />
       </S.SideBarWrapper>
       <S.ContentWrapper>
-        <S.CategoryTitle>광고제휴</S.CategoryTitle>
+        <S.CategoryTitle>{title}</S.CategoryTitle>
         <S.SiteListContainter>
           <S.Line />
           {siteList.length !== 0 ? (
