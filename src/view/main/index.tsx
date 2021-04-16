@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 
 import SearchContainer from "@/container/search-container";
-import CateogoryContainer from "@/container/cateogory-container";
+import CateogoryContainer from "@/container/category-container";
 
 const MainPage = () => {
   return (

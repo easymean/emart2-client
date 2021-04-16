@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import MainPage from "@view/main";
-import SiteListPage from "@/view/site-list";
+import SiteListPage from "@view/site-list";
 import Layout from "@component/common/layout";
 import GlobalStyles from "@component/common/global-styles";
 import { BLOSSOM_URL, CONFL_URL, JIRA_URL, XWIKI_URL } from "@asset/constant";

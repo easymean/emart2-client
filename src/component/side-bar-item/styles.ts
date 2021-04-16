@@ -8,7 +8,7 @@ export const SideBarItem = styled(Link)`
   text-decoration: none;
 
   padding: 1rem 2rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-wieght: 500;
   color: ${THEME_COLOR.BLACK};
 
