@@ -4,7 +4,7 @@ import reset from "styled-reset";
 const GlobalStyles = createGlobalStyle`
 ${reset};
 *{
-  font-family: 'NanumSquare', sans-serif;
+  font-family: 'NanumSquare', sans-serif !important;
   font-display: 'block';
   box-sizing: border-box; /* 테두리를 기준으로 박스의 크기를 결정함 */
   -webkit-font-smoothing: antialiased; /* 폰트를 부드럽게 해줌 */
