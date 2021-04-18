@@ -1,24 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React from "react";
 
 import * as S from "./styles";
-import categoryAPI from "@api/category";
 import CategoryItem from "@component/category-item";
-import CategoryModel from "@model/cateoryModel";
+import { useCategory } from "./hooks";
 
 const CateogoryContainer = () => {
-  const [categoryList, setCategoryList] = useState([] as CategoryModel[]);
-  const getCategoryList = async () => {
-    const categoryList = await categoryAPI.getCategoryList();
-    if (categoryList.length <= 0) {
-      console.log("데이터 로드 실패");
-      return;
-    }
-    setCategoryList(categoryList);
-  };
-
-  useEffect(() => {
-    getCategoryList();
-  }, []);
+  const { categoryList } = useCategory();
   return categoryList.length !== 0 ? (
     <S.CategoryListContainer>
       {categoryList.map((category, idx) => (

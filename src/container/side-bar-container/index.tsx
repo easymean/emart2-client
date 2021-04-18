@@ -1,26 +1,11 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./styles";
 
-import SideBarItem from "@/component/side-bar-item";
-import CategoryModel from "@/model/cateoryModel";
-import categoryAPI from "@/api/category";
+import * as S from "./styles";
+import { useCategory } from "./hooks";
+import SideBarItem from "@component/side-bar-item";
 
 const SideBarContainer = () => {
-  const [categoryList, setCategoryList] = useState([] as CategoryModel[]);
-
-  const getCategoryList = async () => {
-    const categoryList = await categoryAPI.getCategoryList();
-    if (categoryList.length <= 0) {
-      console.log("데이터 로드 실패");
-      return;
-    }
-    setCategoryList(categoryList);
-  };
-  console.log(categoryList);
-
-  useEffect(() => {
-    getCategoryList();
-  }, []);
+  const { categoryList } = useCategory();
 
   return categoryList.length !== 0 ? (
     <S.SideBarListContainer>
