@@ -10,6 +10,21 @@ const siteAPI = {
     );
     return siteList;
   },
+
+  searchSitebyKeyword: async (keyword: string): Promise<SiteModel[]> => {
+    const { data: siteList } = await axios.get<SiteModel[]>(
+      `${endpoints.SITE_API}/search?keyword=${keyword}`
+    );
+    console.log(siteList);
+    return siteList;
+  },
+
+  getSiteListbyFreq: async (): Promise<SiteModel[]> => {
+    const { data: siteList } = await axios.get<SiteModel[]>(
+      `${endpoints.SITE_API}/freq`
+    );
+    return siteList;
+  },
 };
 
 export default siteAPI;

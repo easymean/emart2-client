@@ -12,7 +12,7 @@ const categoryAPI = {
     return categoryList;
   },
 
-  getCategoryInfo: async (categoryId: number): Promise<CategoryModel> => {
+  getCategory: async (categoryId: number): Promise<CategoryModel> => {
     const { data: categoryData } = await axios.get<CategoryModel>(
       `${endpoints.CATEGORY_API}/${categoryId}`
     );
