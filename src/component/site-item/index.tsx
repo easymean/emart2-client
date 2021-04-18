@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 
 import { SiteItemProps } from "./types";
 
 const SiteItem = React.forwardRef(
   ({ site }: SiteItemProps, ref: React.Ref<HTMLDivElement>) => {
-    const [url, setUrl] = useState(site.url);
+    const [url, setUrl] = useState("");
+
+    useEffect(() => {
+      setUrl(site.url);
+    }, [url]);
+
     const onClick = (e) => {
-      window.location.href = `https://${url}`;
+      window.open(url);
       return;
     };
     return (
-      <S.SiteItemWrapper onClick={onClick}>
-        <S.CategoryName>{site.categoryName}</S.CategoryName>
-        <S.ServiceName>{site.serviceName}</S.ServiceName>
-        <S.Dev>{site.dev ? "개발" : "운영"}</S.Dev>
-      </S.SiteItemWrapper>
+      <S.SiteItem onClick={onClick}>
+        <S.CardContainer>
+          {site.name}
+          <S.Description>{site.dev ? "개발" : "운영"}</S.Description>
+        </S.CardContainer>
+      </S.SiteItem>
     );
   }
 );
