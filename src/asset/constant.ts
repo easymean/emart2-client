@@ -1,4 +1,4 @@
-export const BREAKPOINT = 800;
+export const BREAKPOINT = 640;
 
 export const STATIC_URL = {
   LOGO: `https://user-images.githubusercontent.com/44545922/112952843-e55ac900-9177-11eb-98b1-284cfb1e820c.png`,
@@ -9,6 +9,7 @@ export const THEME_COLOR = {
   GRAYER: "gray",
   LIGHT_GRAY: "silver",
   BLACK: "black",
+  WHITE_SMOKE: "whitesmoke",
 };
 
 export const BLOSSOM_URL = "https://blossom.shinsegae.com/";
