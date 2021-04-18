@@ -1,29 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
-
+import React from "react";
 import * as S from "./styles";
-import siteAPI from "@/api/website";
-import SiteModel from "@model/siteModel";
-import SiteItem from "@component/site-item";
+
+import { useSite } from "./hooks";
 import CategoryContainerProps from "./types";
+import SiteItem from "@component/site-item";
 import SideBarContainer from "@container/side-bar-container";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
-  const [title, setTitle] = useState("");
-  const [siteList, setSiteList] = useState([] as SiteModel[]);
-  const getSiteListByCategoryId = async () => {
-    const siteList = await siteAPI.getSiteList(categoryId);
-    if (siteList.length <= 0) {
-      console.log("no data");
-      return;
-    }
-    setSiteList(siteList);
-  };
-
-  useEffect(() => {
-    getSiteListByCategoryId();
-    setTitle("");
-    console.log(title);
-  }, []);
+  const { title, description, siteList } = useSite(categoryId);
 
   return (
     <S.SiteContainer>
@@ -31,15 +15,17 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         <SideBarContainer />
       </S.SideBarWrapper>
       <S.ContentWrapper>
-        <S.CategoryTitle>{title}</S.CategoryTitle>
+        <S.CategoryInfoContainer>
+          <S.CategoryTitle>{title}</S.CategoryTitle>
+          <S.CategoryDescription>{description}</S.CategoryDescription>
+        </S.CategoryInfoContainer>
         <S.SiteListContainter>
-          <S.Line />
           {siteList.length !== 0 ? (
             siteList.map((site) => {
-              return <SiteItem key={`site${site.id}`} site={site}></SiteItem>;
+              return <SiteItem key={`site${site.id}`} site={site} />;
             })
           ) : (
-            <></>
+            <> 사이트를 추가해주세요</>
           )}
         </S.SiteListContainter>
       </S.ContentWrapper>
