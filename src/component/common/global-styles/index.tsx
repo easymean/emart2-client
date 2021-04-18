@@ -13,7 +13,7 @@ ${reset};
 
 html,
 body {
-  font-size: 12px;
+  font-size: 10px;
   margin: 0;
 }::-webkit-scrollbar { /* 스크롤바 제거 */
   display: none;

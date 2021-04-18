@@ -3,31 +3,16 @@ import * as S from "./styles";
 
 import HashtagItem from "@component/hashtag-item/index";
 import SearchBar from "@component/search-bar/index";
-import HashtagModel from "@model/hashtagModel";
-import { STATIC_URL } from "@asset/constant";
+import { useHashtag, useSearchBar } from "./hooks";
 
 const SearchContainer = () => {
-  const [hashtags, setHashtags] = useState([] as HashtagModel[]);
-  const [searchText, setSearchText] = useState("");
-  // useEffect(() => {
-  //   setHashtags(hashtagData);
-  // }, [hashtags]);
+  const { hashtags } = useHashtag();
+  const { siteList, onKeyup } = useSearchBar();
 
-  const onClick = () => {};
   return (
     <S.SearchContainer>
       <S.SeachBarContainer>
-        <SearchBar
-          placeholder="검색예시: 챗봇 API 개발"
-          setData={setSearchText}
-        />
-        <S.SearchButtonContainer>
-          <S.SearchButton
-            onClick={onClick}
-            src={STATIC_URL.GLASS}
-            alt="glass"
-          ></S.SearchButton>
-        </S.SearchButtonContainer>
+        <SearchBar placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
       </S.SeachBarContainer>
       <S.HashtagContainer>
         {hashtags.length !== 0 ? (

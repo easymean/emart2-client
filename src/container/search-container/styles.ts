@@ -19,15 +19,6 @@ export const SeachBarContainer = styled.div`
   align-items: center;
 `;
 
-export const SearchButtonContainer = styled.div`
-  width: 4rem;
-  height: 100;
-`;
-export const SearchButton = styled.img`
-  width: 100%;
-  heigth: 100%;
-`;
-
 export const HashtagContainer = styled.div`
   display: flex;
   flex-direction: row;

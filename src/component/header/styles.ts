@@ -1,51 +1,52 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { BREAKPOINT } from "@asset/constant";
+import { BREAKPOINT, THEME_COLOR } from "@asset/constant";
 
 export const Header = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: 7rem;
-
-  @media only screen and (min-width: ${BREAKPOINT}px) {
-    height: 10rem;
-  }
-`;
-
-export const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  width: 100%;
-  padding: 0 3.5rem;
+  height: 6rem;
+  padding: 0 1.5rem;
+
+  @media only screen and (min-width: ${BREAKPOINT}px) {
+    height: 10rem;
+    padding: 0 3.5rem;
+  }
 `;
 
 export const MenuContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
+  display: none;
   height: 100%;
+  @media only screen and (min-width: ${BREAKPOINT}px) {
+    display: flex;
+  }
 `;
 
 export const MenuWrapper = styled.div`
-  display: flex;
-  margin: 0rem 2rem;
-`;
+  height: 100%;
+  font-size: 1.5rem;
+  background-color: inherit;
 
-export const LogoContainer = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: ${THEME_COLOR.WHITE_SMOKE};
+  }
+
+  @media only screen and (min-width: ${BREAKPOINT}px) {
+    height: 10rem;
+    width: 8.7rem;
+    padding: 0 1.5rem;
+    transition: background-color 0.5s;
+  }
 `;
 
-export const EmartLogo = styled.img`
-  width: 6rem;
+export const Logo = styled.img`
+  display: none;
   @media only screen and (min-width: ${BREAKPOINT}px) {
     display: block;
     width: 9rem;
@@ -54,21 +55,9 @@ export const EmartLogo = styled.img`
 
 export const DesktopLink = styled(Link)`
   text-decoration: none;
-  text-align: center;
-
-  color: black;
-  font-size: 1.5rem;
-  background-color: white;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 6rem;
-  padding: 0 1.5rem;
-
-  &:hover {
-    background-color: whitesmoke;
+  color: inherit;
+  display: none;
+  @media only screen and (min-width: ${BREAKPOINT}px) {
+    display: block;
   }
 `;

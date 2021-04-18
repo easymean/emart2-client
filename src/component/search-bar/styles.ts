@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { THEME_COLOR } from "@asset/constant";
 
-export const SearchBar = styled.input`
+export const InputBox = styled.input`
   width: 100%;
   heigth: 100%;
 
@@ -10,4 +10,3 @@ export const SearchBar = styled.input`
   border-radius: 0.8rem;
   padding: 1rem 2rem;
 `;
-

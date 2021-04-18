@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
+import { BREAKPOINT } from "@asset/constant";
+
 export const SideBarListContainer = styled.div`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  padding: 1rem 2rem;
+  display: none;
 
   ::-webkit-scrollbar {
     width: 5px;
     background: none;
+  }
+
+  @media only screen and (min-width: ${BREAKPOINT}px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem 2rem;
   }
 `;
 

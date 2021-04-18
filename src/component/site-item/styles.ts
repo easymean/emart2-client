@@ -1,28 +1,37 @@
 import styled from "styled-components";
 import { THEME_COLOR } from "@asset/constant";
 
-export const SiteItemWrapper = styled.div`
-  diplay: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+export const SiteItem = styled.div`
+  width: 15rem;
+  height: 8rem;
 
   border-style: solid;
   border-width: thin;
-  border-radius: 0.8rem;
+  border-radius: 5%;
   border-color: ${THEME_COLOR.LIGHT_GRAY};
 
   margin: 2rem 2rem;
   padding: 1rem 1rem;
 
-  font-size: 1.3rem;
+  font-size: 2rem;
 
   &:hover {
     transform: scale(1.2) perspective(0.7rem);
   }
 `;
-export const CategoryName = styled.div``;
 
-export const ServiceName = styled.div``;
+export const CardContainer = styled.div`
+  width: 100%;
+  heigth: 100%;
+
+  diplay: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Description = styled.div`
+  padding: 1rem 0;
+  font-size: 1.2rem;
+`;
 
 export const Dev = styled.div``;

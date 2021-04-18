@@ -15,26 +15,36 @@ export const SideBarWrapper = styled.div`
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
+
   width: 60%;
   padding: 2rem 2rem;
 `;
 
-export const CategoryTitle = styled.div`
-  display: flex;
-  flex-direction: row;
-  justfy-content: flex-start;
+export const CategoryInfoContainer = styled.div`
+  height: 30%;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+export const CategoryTitle = styled.p`
   padding: 1rem 1rem;
   font-size: 3rem;
 `;
 
-export const Line = styled.div``;
+export const CategoryDescription = styled.p`
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+`;
 
 export const SiteListContainter = styled.div`
   display: flex;
   flex-diection: row;
   justify-content: center;
   align-items: flex-start;
+
+  padding: 2rem 0;
 `;

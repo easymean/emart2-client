@@ -1,4 +1,5 @@
 import React from "react";
+import { useSearchBar } from "./hooks";
 import * as S from "./styles";
 
 interface SearchBarProps {
@@ -7,14 +8,7 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ placeholder, setData }: SearchBarProps) => {
-  return (
-    <S.SearchBar
-      placeholder={placeholder}
-      onChange={(e) => {
-        setData(e.target.value);
-      }}
-    />
-  );
+  return <S.InputBox placeholder={placeholder} onKeyUp={setData} />;
 };
 
 export default SearchBar;
