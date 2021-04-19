@@ -5,14 +5,8 @@ import { SiteItemProps } from "./types";
 
 const SiteItem = React.forwardRef(
   ({ site }: SiteItemProps, ref: React.Ref<HTMLDivElement>) => {
-    const [url, setUrl] = useState("");
-
-    useEffect(() => {
-      setUrl(site.url);
-    }, [url]);
-
     const onClick = (e) => {
-      window.open(url);
+      window.open(site.url);
       return;
     };
     return (

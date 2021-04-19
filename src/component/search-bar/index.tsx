@@ -1,5 +1,4 @@
 import React from "react";
-import { useSearchBar } from "./hooks";
 import * as S from "./styles";
 
 interface SearchBarProps {
