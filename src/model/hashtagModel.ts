@@ -1,6 +1,6 @@
 export default interface HashtagModel {
   id: number;
-  category: string;
-  redirect: string;
-  dev: boolean;
+  name: string;
+  url: string;
+  freq: number;
 }
