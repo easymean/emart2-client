@@ -2,12 +2,12 @@ import React from "react";
 import * as S from "./styles";
 
 import { useSite } from "./hooks";
-import CategoryContainerProps from "./types";
+import { CategoryContainerProps } from "./types";
 import SiteItem from "@component/site-item";
 import SideBarContainer from "@container/side-bar-container";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
-  const { title, description, siteList } = useSite(categoryId);
+  const { title, description, siteList, stageTable } = useSite(categoryId);
 
   return (
     <S.SiteContainer>

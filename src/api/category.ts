@@ -2,6 +2,7 @@ import axios from "./axios";
 
 import endpoints from "./endpoints";
 import CategoryModel from "@model/cateoryModel";
+import StageModel from "@/model/stageModel";
 
 const categoryAPI = {
   getCategoryList: async (): Promise<CategoryModel[]> => {
@@ -17,6 +18,13 @@ const categoryAPI = {
       `${endpoints.CATEGORY_API}/${categoryId}`
     );
     return categoryData;
+  },
+
+  getStageList: async (): Promise<StageModel[]> => {
+    const { data: stageList } = await axios.get<StageModel[]>(
+      `${endpoints.CATEGORY_API}/stage`
+    );
+    return stageList;
   },
 };
 

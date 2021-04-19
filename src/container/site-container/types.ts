@@ -1,3 +1,9 @@
-export default interface CategoryContainerProps {
+import SiteModel from "@/model/siteModel";
+
+export interface CategoryContainerProps {
   categoryId: number;
+}
+
+export interface SiteListType {
+  [key: string]: SiteModel[];
 }

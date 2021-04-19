@@ -4,4 +4,5 @@ export default interface SiteModel {
   dev: boolean;
   url: string;
   order: number;
+  stageId: number;
 }
