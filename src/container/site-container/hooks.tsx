@@ -22,39 +22,40 @@ export const useSite = (categoryId: number) => {
 
   const getStageList = useCallback(async () => {
     const stageList = await categoryAPI.getStageList();
-    stageList.forEach((stage) => {
-      stageTable;
-    });
-  }, []);
+    setStageList(stageList);
+  }, [categoryId]);
 
   const getSiteListByCategoryId = useCallback(async () => {
     const siteList = await siteAPI.getSiteList(categoryId);
     setSiteList(siteList);
   }, [categoryId]);
 
-  const makeStageTable = useCallback(() => {
-    console.log(stageList);
-    stageList.forEach((stage) => {
-      const arr = stageTable[stage.name];
-
-      console.log(arr);
-    });
-  }, [siteList]);
+  const makeTable = useCallback(
+    (stages: StageModel[], sites: SiteModel[], table: SiteListType) => {
+      stages.forEach((stage) => {
+        const stageId = stage.id;
+        const arr = sites.filter((site) => {
+          return site.stage === stageId;
+        });
+        table[stage.id] = arr;
+      });
+      return table;
+    },
+    [categoryId]
+  );
 
   useEffect(() => {
     getCategoryInfo();
+    getStageList();
     getSiteListByCategoryId();
   }, [categoryId]);
-
-  useEffect(() => {
-    getStageList();
-    makeStageTable();
-  }, [siteList]);
 
   return {
     title,
     description,
     siteList,
+    stageList,
     stageTable,
+    makeTable,
   };
 };

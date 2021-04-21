@@ -5,5 +5,5 @@ export interface CategoryContainerProps {
 }
 
 export interface SiteListType {
-  [key: string]: SiteModel[];
+  [key: number]: SiteModel[];
 }

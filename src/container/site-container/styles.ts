@@ -42,9 +42,23 @@ export const CategoryDescription = styled.p`
 
 export const SiteListContainter = styled.div`
   display: flex;
-  flex-diection: row;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 
   padding: 2rem 0;
+`;
+
+export const SiteRowContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem 0;
+`;
+
+export const StageName = styled.div`
+  width: 18rem;
+  font-size: 2rem;
 `;
