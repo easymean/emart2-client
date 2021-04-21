@@ -4,7 +4,7 @@ import * as S from "./styles";
 import CategoryItem from "@component/category-item";
 import { useCategory } from "./hooks";
 
-const CateogoryContainer = () => {
+const CategoryContainer = () => {
   const { categoryList } = useCategory();
   return categoryList.length !== 0 ? (
     <S.CategoryListContainer>
@@ -19,4 +19,4 @@ const CateogoryContainer = () => {
   );
 };
 
-export default CateogoryContainer;
+export default CategoryContainer;
