@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { THEME_COLOR } from "@asset/constant";
 
 export const SiteItem = styled.div`
-  width: 15rem;
+  width: 13rem;
   height: 8rem;
 
   border-style: solid;
