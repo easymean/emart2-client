@@ -30,12 +30,12 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         </S.CategoryInfoContainer>
         <S.SiteListContainter>
           <Grid>
-            {stageList.map((stage) => {
+            {stageList.map((stage, idx) => {
               const siteList = stageTable[stage.id];
               const devSite = siteList.filter((site) => site.dev);
               const prodSite = siteList.filter((site) => !site.dev);
               return (
-                <Row height={"10rem"}>
+                <Row height={"15rem"} key={idx}>
                   <S.SiteRowContainer>
                     <Col span={12}>
                       <S.StageName>{stage.name}</S.StageName>
@@ -67,14 +67,6 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
               );
             })}
           </Grid>
-
-          {/* {siteList.length !== 0 ? (
-            siteList.map((site) => {
-              return <SiteItem key={`site${site.id}`} site={site} />;
-            })
-          ) : (
-            <> 사이트를 추가해주세요</>
-          )} */}
         </S.SiteListContainter>
       </S.ContentWrapper>
     </S.SiteContainer>
