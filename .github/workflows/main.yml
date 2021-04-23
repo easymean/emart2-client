@@ -6,6 +6,7 @@ on: # Event 감지
 
 jobs: # Job 설정
   build: # Job ID
+    name: build
     runs-on: ubuntu-20.04 # Job 가상환경 인스턴스
 
     steps: # Steps
@@ -26,8 +27,3 @@ jobs: # Job 설정
 
       - name: Build
         run: npm run build
-
-      - name: Deploy to EC2
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
