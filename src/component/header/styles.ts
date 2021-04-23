@@ -19,6 +19,7 @@ export const Header = styled.div`
 export const MenuContainer = styled.div`
   display: none;
   height: 100%;
+
   @media only screen and (min-width: ${BREAKPOINT}px) {
     display: flex;
   }
@@ -32,6 +33,15 @@ export const MenuWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: none;
+    @media only screen and (min-width: ${BREAKPOINT}px) {
+      display: block;
+    }
+  }
 
   &:hover {
     background-color: ${THEME_COLOR.WHITE_SMOKE};

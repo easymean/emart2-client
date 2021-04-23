@@ -12,8 +12,10 @@ export const THEME_COLOR = {
   WHITE_SMOKE: "whitesmoke",
 };
 
-export const BLOSSOM_URL = "https://blossom.shinsegae.com/";
-export const XWIKI_URL =
-  "http://xwiki.shinsegae.com/xwiki/bin/view/%EC%9D%B4%EB%A7%88%ED%8A%B82";
-export const JIRA_URL = "https://jira.sinc.co.kr/";
-export const CONFL_URL = "https://confl.sinc.co.kr/";
+export const CONSTANT_URL = {
+  BLOSSOM: "https://blossom.shinsegae.com/",
+  XWIKI:
+    "http://xwiki.shinsegae.com/xwiki/bin/view/%EC%9D%B4%EB%A7%88%ED%8A%B82",
+  JIRA: "https://jira.sinc.co.kr/",
+  CONFL: "https://confl.sinc.co.kr/",
+};
