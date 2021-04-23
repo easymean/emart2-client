@@ -22,28 +22,28 @@ const App: React.FC = () => {
             <Route
               path="/blossom"
               component={() => {
-                window.location.href = BLOSSOM_URL;
+                window.open(BLOSSOM_URL);
                 return null;
               }}
             />
             <Route
               path="/xwiki"
               component={() => {
-                window.location.href = XWIKI_URL;
+                window.open(XWIKI_URL);
                 return null;
               }}
             />
             <Route
               path="/jira"
               component={() => {
-                window.location.href = JIRA_URL;
+                window.open(JIRA_URL);
                 return null;
               }}
             />
             <Route
               path="/confl"
               component={() => {
-                window.location.href = CONFL_URL;
+                window.open(CONFL_URL);
                 return null;
               }}
             />
