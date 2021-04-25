@@ -9,7 +9,7 @@ export const SideBarItem = styled.div`
   height: 5rem;
   text-decoration: none;
 
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-wieght: 300;
   color: ${THEME_COLOR.HOVER_SMOKE};
 
