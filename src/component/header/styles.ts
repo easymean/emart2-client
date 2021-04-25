@@ -46,7 +46,7 @@ export const MenuWrapper = styled.div`
   }
 
   &:hover {
-    background-color: ${THEME_COLOR.WHITE_SMOKE};
+    background-color: ${THEME_COLOR.HOVER_SMOKE};
   }
 
   @media only screen and (min-width: ${BREAKPOINT}px) {

@@ -14,7 +14,7 @@ export const CategoryItem = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    background-color: ${THEME_COLOR.GRAYER};
+    background-color: ${THEME_COLOR.HOVER_SMOKE};
     transform: scale(1.2) perspective(0.7rem);
   }
 

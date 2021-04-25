@@ -8,9 +8,8 @@ export const STATIC_URL = {
 export const THEME_COLOR = {
   GRAYER: "#3c3c3c",
   LIGHT_GRAY: "silver",
-  WHITE_GRAY: "#dcdcdc",
+  HOVER_SMOKE: "whitesmoke",
   BLACK: "black",
-  WHITE_SMOKE: "whitesmoke",
   HEADER_YELLOW: "#FFD228",
 };
 

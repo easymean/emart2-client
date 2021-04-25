@@ -11,10 +11,10 @@ export const SideBarItem = styled.div`
 
   font-size: 1.5rem;
   font-wieght: 300;
-  color: ${THEME_COLOR.WHITE_GRAY};
+  color: ${THEME_COLOR.HOVER_SMOKE};
 
   &:hover {
-    background-color: ${THEME_COLOR.WHITE_SMOKE};
+    background-color: ${THEME_COLOR.HOVER_SMOKE};
     color: ${THEME_COLOR.BLACK};
   }
 
