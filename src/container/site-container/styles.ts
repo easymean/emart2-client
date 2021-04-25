@@ -3,7 +3,7 @@ import { THEME_COLOR } from "@asset/constant";
 
 export const SiteContainer = styled.div`
   width: 100%;
-  heigth: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: row;
