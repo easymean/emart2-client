@@ -7,6 +7,8 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  background-color: ${THEME_COLOR.HEADER_YELLOW};
+
   height: 6rem;
   padding: 0 1.5rem;
 

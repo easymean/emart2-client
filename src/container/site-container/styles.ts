@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { THEME_COLOR } from "@asset/constant";
 
 export const SiteContainer = styled.div`
   width: 100%;
@@ -9,7 +10,7 @@ export const SiteContainer = styled.div`
 `;
 export const SideBarWrapper = styled.div`
   width: 13%;
-  height: 100%;
+  background-color: ${THEME_COLOR.GRAYER};
 `;
 
 export const ContentWrapper = styled.div`

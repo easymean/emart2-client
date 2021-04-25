@@ -6,10 +6,12 @@ export const STATIC_URL = {
 };
 
 export const THEME_COLOR = {
-  GRAYER: "gray",
+  GRAYER: "#3c3c3c",
   LIGHT_GRAY: "silver",
+  WHITE_GRAY: "#dcdcdc",
   BLACK: "black",
   WHITE_SMOKE: "whitesmoke",
+  HEADER_YELLOW: "#FFD228",
 };
 
 export const CONSTANT_URL = {

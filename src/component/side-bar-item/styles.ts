@@ -11,10 +11,11 @@ export const SideBarItem = styled.div`
 
   font-size: 1.5rem;
   font-wieght: 300;
-  color: ${THEME_COLOR.BLACK};
+  color: ${THEME_COLOR.WHITE_GRAY};
 
   &:hover {
     background-color: ${THEME_COLOR.WHITE_SMOKE};
+    color: ${THEME_COLOR.BLACK};
   }
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
