@@ -26,7 +26,7 @@ const siteAPI = {
     return siteList;
   },
 
-  incrementSiteFreq: async (siteId: number): Promise<HashtagModel> => {
+  increaseSiteFreq: async (siteId: number): Promise<HashtagModel> => {
     const { data: updatedSite } = await axios.put<HashtagModel>(
       `${endpoints.SITE_API}/freq/${siteId}`
     );
