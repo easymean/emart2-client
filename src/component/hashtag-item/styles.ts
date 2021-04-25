@@ -4,9 +4,14 @@ import { THEME_COLOR } from "@asset/constant";
 
 export const Hashtag = styled.div`
   width: 100%;
+  height: 3rem;
 
-  font-size: 1.3rem;
-  font-color: ${THEME_COLOR.BLACK};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5rem;
+  color: inherit;
 
   background-color: ${THEME_COLOR.LIGHT_GRAY};
   border-radius: 0.8rem;

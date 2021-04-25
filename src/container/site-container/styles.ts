@@ -75,4 +75,5 @@ export const StageName = styled.div`
   padding: 1rem 1rem;
 
   font-size: 2rem;
+  font-weight: 500;
 `;

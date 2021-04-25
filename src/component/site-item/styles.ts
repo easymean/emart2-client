@@ -22,11 +22,11 @@ export const SiteItem = styled.div`
 
 export const CardContainer = styled.div`
   width: 100%;
-  heigth: 100%;
+  height: 100%;
 
-  diplay: flex;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
 `;
 
 export const Description = styled.div`

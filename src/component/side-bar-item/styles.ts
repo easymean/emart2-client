@@ -10,7 +10,7 @@ export const SideBarItem = styled.div`
   text-decoration: none;
 
   font-size: 1.8rem;
-  font-wieght: 300;
+  font-weight: 500;
   color: ${THEME_COLOR.HOVER_SMOKE};
 
   &:hover {

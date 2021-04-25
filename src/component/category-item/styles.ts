@@ -5,10 +5,10 @@ import { THEME_COLOR } from "@asset/constant";
 
 export const CategoryItem = styled(Link)`
   display: flex;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
   justify-content: center;
   align-items: center;
-  heigth: 8rem;
+  height: 8rem;
 
   border-radius: 0.8rem;
   text-decoration: none;
@@ -19,13 +19,13 @@ export const CategoryItem = styled(Link)`
   }
 
   background-color: ${THEME_COLOR.LIGHT_GRAY};
-  color: black;
+  color: inherit;
   padding: 1rem 1rem;
 `;
 
 export const CategoryTitle = styled.div`
   text-decoration: none;
-  font-size: 2rem;
-  font-weight: 300;
-  font-color: ${THEME_COLOR.BLACK};
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: inherit;
 `;
