@@ -61,6 +61,18 @@ export const SiteRowContainer = styled.div`
 `;
 
 export const StageName = styled.div`
-  width: 18rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 13rem;
+  height: 8rem;
+
+  border-radius: 5%;
+  background-color: ${THEME_COLOR.LIGHT_GRAY};
+  color: black;
+
+  padding: 1rem 1rem;
+
   font-size: 2rem;
 `;
