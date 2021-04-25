@@ -6,11 +6,11 @@ export const SideBarItem = styled.div`
   justify-content: center;
   align-items: center;
 
-  height: 6rem;
+  height: 5rem;
   text-decoration: none;
 
-  font-size: 2rem;
-  font-wieght: 500;
+  font-size: 1.5rem;
+  font-wieght: 300;
   color: ${THEME_COLOR.BLACK};
 
   &:hover {

@@ -8,8 +8,8 @@ export const SiteContainer = styled.div`
   flex-direction: row;
 `;
 export const SideBarWrapper = styled.div`
-  width: 15%;
-  hegith: 100%;
+  width: 13%;
+  height: 100%;
 `;
 
 export const ContentWrapper = styled.div`
@@ -19,6 +19,7 @@ export const ContentWrapper = styled.div`
 
   width: 60%;
   padding: 2rem 2rem;
+  margin: 8rem;
 `;
 
 export const CategoryInfoContainer = styled.div`
