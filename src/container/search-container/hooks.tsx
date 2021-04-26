@@ -26,7 +26,7 @@ export const useSearchBar = () => {
     setKeyword(e.currentTarget.value);
   }, []);
 
-  const debounceKeyword = useDebounce(keyword, 1000);
+  const debounceKeyword = useDebounce(keyword, 2000);
 
   const searchSiteList = useCallback(
     (keyword: string) => async () => {

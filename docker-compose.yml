@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/django/
+
+  db:
+    image: mysql:latest
+    volumes:
+      - mysql_data: /var/lib/mysql/data/
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - .:/django
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on: -web
