@@ -18,18 +18,9 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-  width: 60%;
-  padding: 2rem 2rem;
-  margin: 8rem;
-`;
-
-export const CategoryInfoContainer = styled.div`
-  height: 30%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  width: 100%;
+  padding: 2rem 8rem;
+  margin-top: 8rem;
 `;
 
 export const CategoryTitle = styled.p`
@@ -42,19 +33,11 @@ export const CategoryDescription = styled.p`
   font-size: 1.5rem;
 `;
 
-export const SiteListContainter = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding: 2rem 0;
-`;
-
 export const SiteRowContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   padding: 1rem 0;

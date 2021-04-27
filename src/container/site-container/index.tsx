@@ -24,50 +24,44 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         <SideBarContainer />
       </S.SideBarWrapper>
       <S.ContentWrapper>
-        <S.CategoryInfoContainer>
-          <S.CategoryTitle>{title}</S.CategoryTitle>
-          <S.CategoryDescription>{description}</S.CategoryDescription>
-        </S.CategoryInfoContainer>
-        <S.SiteListContainter>
-          <Grid>
-            {stageList.map((stage, idx) => {
-              const siteList = stageTable[stage.id];
-              const devSite = siteList.filter((site) => site.dev);
-              const prodSite = siteList.filter((site) => !site.dev);
-              return (
-                <Row height={"15rem"} key={idx}>
-                  <S.SiteRowContainer>
-                    <Col span={10}>
-                      <S.StageName>{stage.name}</S.StageName>
-                    </Col>
-                    <Col span={30}>
-                      {devSite.length !== 0 ? (
-                        devSite.map((site) => {
-                          return (
-                            <SiteItem key={`site${site.id}`} site={site} />
-                          );
-                        })
-                      ) : (
-                        <></>
-                      )}
-                    </Col>
-                    <Col span={30}>
-                      {prodSite.length !== 0 ? (
-                        prodSite.map((site) => {
-                          return (
-                            <SiteItem key={`site${site.id}`} site={site} />
-                          );
-                        })
-                      ) : (
-                        <></>
-                      )}
-                    </Col>
-                  </S.SiteRowContainer>
-                </Row>
-              );
-            })}
-          </Grid>
-        </S.SiteListContainter>
+        <Grid>
+          <Row>
+            <S.CategoryTitle>{title}</S.CategoryTitle>
+            <S.CategoryDescription>{description}</S.CategoryDescription>
+          </Row>
+          {stageList.map((stage, idx) => {
+            const siteList = stageTable[stage.id];
+            const devSite = siteList.filter((site) => site.dev);
+            const prodSite = siteList.filter((site) => !site.dev);
+            return (
+              <Row height={"15rem"} key={idx}>
+                <S.SiteRowContainer>
+                  <Col span={2}>
+                    <S.StageName>{stage.name}</S.StageName>
+                  </Col>
+                  <Col span={3.5}>
+                    {devSite.length !== 0 ? (
+                      devSite.map((site) => {
+                        return <SiteItem key={`site${site.id}`} site={site} />;
+                      })
+                    ) : (
+                      <></>
+                    )}
+                  </Col>
+                  <Col span={3.5}>
+                    {prodSite.length !== 0 ? (
+                      prodSite.map((site) => {
+                        return <SiteItem key={`site${site.id}`} site={site} />;
+                      })
+                    ) : (
+                      <></>
+                    )}
+                  </Col>
+                </S.SiteRowContainer>
+              </Row>
+            );
+          })}
+        </Grid>
       </S.ContentWrapper>
     </S.SiteContainer>
   );

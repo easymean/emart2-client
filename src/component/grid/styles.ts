@@ -27,9 +27,12 @@ const getOffsetString = (offset: number) => {
 };
 
 export const Col = styled.div`
-  float: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   ${(props: ColPropsType) =>
-    props.span ? getWidthString(props.span) : "width:100%;"};
+    props.span ? getWidthString(props.span) : "width: 100%;"};
   ${(props: ColPropsType) =>
     props.offset ? getOffsetString(props.offset) : null};
   padding: ${(props: ColPropsType) =>

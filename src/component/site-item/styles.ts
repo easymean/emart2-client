@@ -10,7 +10,7 @@ export const SiteItem = styled.div`
   border-radius: 5%;
   border-color: ${THEME_COLOR.LIGHT_GRAY};
 
-  margin: 2rem 2rem;
+  margin: 1rem 1rem;
   padding: 1rem 1rem;
 
   font-size: 2rem;
@@ -33,5 +33,3 @@ export const Description = styled.div`
   padding: 1rem 0;
   font-size: 1.2rem;
 `;
-
-export const Dev = styled.div``;
