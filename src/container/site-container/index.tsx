@@ -39,7 +39,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
                   <Col span={2}>
                     <S.StageName>{stage.name}</S.StageName>
                   </Col>
-                  <Col span={3.5}>
+                  <Col span={5}>
                     {devSite.length !== 0 ? (
                       devSite.map((site) => {
                         return <SiteItem key={`site${site.id}`} site={site} />;
@@ -48,7 +48,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
                       <></>
                     )}
                   </Col>
-                  <Col span={3.5}>
+                  <Col span={5}>
                     {prodSite.length !== 0 ? (
                       prodSite.map((site) => {
                         return <SiteItem key={`site${site.id}`} site={site} />;
