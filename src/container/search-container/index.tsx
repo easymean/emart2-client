@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as S from "./styles";
 
 import HashtagItem from "@component/hashtag-item/index";
@@ -14,8 +14,11 @@ const SearchContainer = () => {
     <S.SearchContainer>
       <S.SeachBarContainer>
         <SearchBar placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
+        <S.DropdownContainer>
+          <Dropdown visible={visible} siteList={siteList} />
+        </S.DropdownContainer>
       </S.SeachBarContainer>
-      <Dropdown visible={visible} siteList={siteList} />
+
       <S.HashtagContainer>
         {hashtags.length !== 0 ? (
           hashtags.map((el, idx) => {

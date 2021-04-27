@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,6 +17,12 @@ export const SeachBarContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const DropdownContainer = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
 `;
 
 export const HashtagContainer = styled.div`

@@ -3,18 +3,17 @@ import * as S from "./styles";
 import { DropDownItemProps } from "./types";
 
 const Dropdown = ({ siteList, visible }: DropDownItemProps) => {
-  const handleClick = (url) => {
-    window.open(url);
-  };
-
   return (
     <S.DropdownContainer visible={visible}>
       <S.DropdownList>
         {siteList.map((site, idx) => {
           return (
-            <S.DropdownWrapper key={idx}>
-              <S.Dropdown>{site.name}</S.Dropdown>
-            </S.DropdownWrapper>
+            <S.Dropdown key={idx}>
+              <a href={site.url} target="_blank">
+                {site.name}
+                <S.Dev>{site.dev ? "개발" : "운영"}</S.Dev>
+              </a>
+            </S.Dropdown>
           );
         })}
       </S.DropdownList>
