@@ -6,6 +6,7 @@ export const STATIC_URL = {
 };
 
 export const THEME_COLOR = {
+  WHITE: "white",
   GRAYER: "#3c3c3c",
   LIGHT_GRAY: "silver",
   HOVER_SMOKE: "whitesmoke",

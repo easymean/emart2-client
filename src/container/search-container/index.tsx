@@ -4,16 +4,18 @@ import * as S from "./styles";
 import HashtagItem from "@component/hashtag-item/index";
 import SearchBar from "@component/search-bar/index";
 import { useHashtag, useSearchBar } from "./hooks";
+import Dropdown from "@/component/dropdown";
 
 const SearchContainer = () => {
   const { hashtags } = useHashtag();
-  const { siteList, onKeyup } = useSearchBar();
+  const { siteList, onKeyup, visible } = useSearchBar();
 
   return (
     <S.SearchContainer>
       <S.SeachBarContainer>
         <SearchBar placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
       </S.SeachBarContainer>
+      <Dropdown visible={visible} siteList={siteList} />
       <S.HashtagContainer>
         {hashtags.length !== 0 ? (
           hashtags.map((el, idx) => {

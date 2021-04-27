@@ -21,12 +21,18 @@ const useDebounce = (state: string, delay: number): string => {
 export const useSearchBar = () => {
   const [keyword, setKeyword] = useState("");
   const [siteList, setSiteList] = useState([] as SiteModel[]);
+  const [visible, setVisible] = useState(false);
 
   const onKeyup = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!e.currentTarget.value) {
+      setVisible(false);
+      return;
+    }
     setKeyword(e.currentTarget.value);
+    setVisible(true);
   }, []);
 
-  const debounceKeyword = useDebounce(keyword, 2000);
+  const debounceKeyword = useDebounce(keyword, 1000);
 
   const searchSiteList = useCallback(
     (keyword: string) => async () => {
@@ -46,6 +52,7 @@ export const useSearchBar = () => {
   return {
     siteList,
     onKeyup,
+    visible,
   };
 };
 

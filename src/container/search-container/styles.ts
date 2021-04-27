@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,9 +14,8 @@ export const SearchContainer = styled.div`
 export const SeachBarContainer = styled.div`
   width: 100%;
   height: 5rem;
-
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
