@@ -17,7 +17,8 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "build": "npm run clean && npm run type-check && webpack --config webpack.prod.js",
+    "clean": "rm -rf node_modules",
+    "build": "npm run type-check && webpack --config webpack.prod.js",
     "start": "npx webpack serve --config webpack.dev.js --open && npm run lint",
     "type-check": "tsc",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
