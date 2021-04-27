@@ -7,6 +7,7 @@ export const Hashtag = styled.div`
   height: 3rem;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -18,10 +19,12 @@ export const Hashtag = styled.div`
   padding: 0.5rem 0.5rem;
 
   margin-right: 0.5rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-export const HashTagTitle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const HashTagDev = styled.div`
+  color: ${THEME_COLOR.GRAYER};
 `;

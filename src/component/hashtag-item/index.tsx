@@ -14,7 +14,8 @@ const HashtagItem = ({ hashtag }: HashtagItemProps) => {
   };
   return (
     <S.Hashtag onClick={handleClick}>
-      <S.HashTagTitle>#{hashtag.name}</S.HashTagTitle>
+      #{hashtag.name}
+      <S.HashTagDev>{hashtag.dev ? "개발" : "운영"}</S.HashTagDev>
     </S.Hashtag>
   );
 };

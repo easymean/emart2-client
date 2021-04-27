@@ -3,4 +3,5 @@ export default interface HashtagModel {
   name: string;
   url: string;
   freq: number;
+  dev: boolean;
 }

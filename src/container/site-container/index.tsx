@@ -37,10 +37,10 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
               return (
                 <Row height={"15rem"} key={idx}>
                   <S.SiteRowContainer>
-                    <Col span={12}>
+                    <Col span={10}>
                       <S.StageName>{stage.name}</S.StageName>
                     </Col>
-                    <Col span={12}>
+                    <Col span={30}>
                       {devSite.length !== 0 ? (
                         devSite.map((site) => {
                           return (
@@ -51,7 +51,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
                         <></>
                       )}
                     </Col>
-                    <Col span={12}>
+                    <Col span={30}>
                       {prodSite.length !== 0 ? (
                         prodSite.map((site) => {
                           return (
