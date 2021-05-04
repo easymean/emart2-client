@@ -10,6 +10,6 @@ module.exports = merge(common, {
     historyApiFallback: true,
     host: "localhost",
     port: 3000,
-    contentBase: "./dist",
+    contentBase: path.join(__dirname, "dist"),
   },
 });

@@ -28,7 +28,7 @@ module.exports = {
   },
   output: {
     filename: "main.[fullhash].js",
-    path: path.resolve(__dirname, "./dist"),
+    path: path.join(__dirname, "dist"),
     publicPath: "/",
   },
 
