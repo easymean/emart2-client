@@ -8,10 +8,6 @@ export const SiteContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
-export const SideBarWrapper = styled.div`
-  width: 13%;
-  background-color: ${THEME_COLOR.GRAYER};
-`;
 
 export const ContentWrapper = styled.div`
   display: flex;

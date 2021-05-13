@@ -7,7 +7,7 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  background-color: ${THEME_COLOR.HEADER_YELLOW};
+  background-color: ${THEME_COLOR.BEIGE};
 
   height: 6rem;
   padding: 0 1.5rem;
@@ -66,8 +66,6 @@ export const Logo = styled.img`
 `;
 
 export const DesktopLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
   display: none;
   @media only screen and (min-width: ${BREAKPOINT}px) {
     display: block;

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-import { BREAKPOINT } from "@asset/constant";
+import { BREAKPOINT, THEME_COLOR } from "@asset/constant";
 
-export const SideBarListContainer = styled.div`
-  display: none;
+export const SideBarContainer = styled.div`
+  width: 13%;
+  background-color: ${THEME_COLOR.BEIGE};
 
   ::-webkit-scrollbar {
     width: 5px;

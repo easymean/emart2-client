@@ -11,7 +11,7 @@ export const SideBarItem = styled.div`
 
   font-size: 1.8rem;
   font-weight: 500;
-  color: ${THEME_COLOR.HOVER_SMOKE};
+  color: inherit;
 
   &:hover {
     background-color: ${THEME_COLOR.HOVER_SMOKE};

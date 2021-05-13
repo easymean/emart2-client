@@ -11,7 +11,7 @@ export const THEME_COLOR = {
   LIGHT_GRAY: "silver",
   HOVER_SMOKE: "whitesmoke",
   BLACK: "black",
-  HEADER_YELLOW: "#FFD228",
+  BEIGE: "#FDF5E6",
 };
 
 export const CONSTANT_URL = {

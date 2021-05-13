@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import * as S from "./styles";
 import { useCategory } from "./hooks";
-import SideBarItem from "@component/side-bar-item";
+import SideBarItem from "@/component/side-bar/item";
 
 const SideBarContainer = () => {
   const { categoryList } = useCategory();
 
   return categoryList.length !== 0 ? (
-    <S.SideBarListContainer>
+    <S.SideBarContainer>
       {categoryList.map((item) => (
         <S.SideBarItemWrapper key={item.id}>
           <SideBarItem category={item} />
         </S.SideBarItemWrapper>
       ))}
-    </S.SideBarListContainer>
+    </S.SideBarContainer>
   ) : (
-    <S.SideBarListContainer></S.SideBarListContainer>
+    <S.SideBarContainer></S.SideBarContainer>
   );
 };
 export default SideBarContainer;

@@ -4,7 +4,7 @@ import * as S from "./styles";
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
 import SiteItem from "@component/site-item";
-import SideBarContainer from "@container/side-bar-container";
+import SideBarContainer from "@/component/side-bar/container";
 import { Col, Grid, Row } from "@/component/grid/styles";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
@@ -20,9 +20,6 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
 
   return (
     <S.SiteContainer>
-      <S.SideBarWrapper>
-        <SideBarContainer />
-      </S.SideBarWrapper>
       <S.ContentWrapper>
         <Grid>
           <Row>
