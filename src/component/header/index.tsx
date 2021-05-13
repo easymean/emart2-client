@@ -5,10 +5,6 @@ import { CONSTANT_URL, STATIC_URL } from "@asset/constant";
 const Header = () => {
   return (
     <S.Header>
-      <S.DesktopLink to="/">
-        <S.Logo src={STATIC_URL.LOGO} alt="emart logo"></S.Logo>
-      </S.DesktopLink>
-
       <S.MenuContainer>
         <S.MenuWrapper>
           <a href={CONSTANT_URL.BLOSSOM} target="_blank">

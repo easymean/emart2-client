@@ -8,6 +8,8 @@ export const Title = styled.div`
 `;
 
 export const MainContainer = styled.div`
+  width: 80%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;

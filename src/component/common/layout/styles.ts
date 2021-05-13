@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 export const Layout = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 
   width: 100%;
   min-height: 100%;
 `;
 
-export const SideBarWrapper = styled.div`
+export const FullLayout = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 `;
 
 export const LayoutContainer = styled.div`
@@ -20,5 +20,4 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;

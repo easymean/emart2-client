@@ -12,12 +12,12 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <S.Layout>
-      <Header />
-      <S.SideBarWrapper>
-        <SideBar />
+      <SideBar />
+      <S.FullLayout>
+        <Header />
         <S.LayoutContainer>{children}</S.LayoutContainer>
-      </S.SideBarWrapper>
-      <Footer />
+        <Footer />
+      </S.FullLayout>
     </S.Layout>
   );
 };
