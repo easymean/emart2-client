@@ -7,8 +7,6 @@ export const Header = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  background-color: ${THEME_COLOR.BEIGE};
-
   height: 6rem;
   padding: 0 1.5rem;
 
