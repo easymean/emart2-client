@@ -3,6 +3,7 @@ import siteAPI from "@api/website";
 import * as S from "./styles";
 
 import { SiteItemProps } from "./types";
+import { CommonItemBox } from "@component/common/item-box-styles";
 
 const SiteItem = React.forwardRef(
   ({ site }: SiteItemProps, ref: React.Ref<HTMLDivElement>) => {
@@ -17,12 +18,10 @@ const SiteItem = React.forwardRef(
     };
 
     return (
-      <S.SiteItem onClick={onClick}>
-        <S.CardContainer>
-          {site.name}
-          <S.Description>{site.dev ? "개발" : "운영"}</S.Description>
-        </S.CardContainer>
-      </S.SiteItem>
+      <CommonItemBox onClick={onClick}>
+        {site.name}
+        <S.Description>{site.dev ? "개발" : "운영"}</S.Description>
+      </CommonItemBox>
     );
   }
 );
