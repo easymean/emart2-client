@@ -4,15 +4,17 @@ import { BREAKPOINT, THEME_COLOR } from "@asset/constant";
 
 export const Header = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 
   height: 6rem;
   padding: 0 1.5rem;
 
+  border-top: solid ${THEME_COLOR.BEIGE} 0.8rem;
+
   @media only screen and (min-width: ${BREAKPOINT}px) {
     height: 10rem;
-    padding: 0 3.5rem;
+    padding: 0 4rem;
   }
 `;
 

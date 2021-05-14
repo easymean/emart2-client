@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 export const SideBarContainer = styled.div`
   width: 15%;
   background-color: ${THEME_COLOR.BEIGE};
+  margin: 2rem 2rem;
 
   ::-webkit-scrollbar {
     width: 5px;
-    background: none;
   }
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
