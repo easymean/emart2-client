@@ -15,8 +15,6 @@ export const ContentWrapper = styled.div`
   align-items: flex-start;
 
   width: 100%;
-  padding: 2rem 8rem;
-  margin-top: 8rem;
 `;
 
 export const SiteRowContainer = styled.div`

@@ -5,10 +5,7 @@ import { CategoryContainerProps } from "./types";
 
 import SiteItem from "@component/site-item";
 import { Col, Grid, Row } from "@/component/grid/styles";
-import {
-  CommonTitle,
-  CommonDescription,
-} from "@/component/common/font-styles/styles";
+import { CommonTitle, CommonDescription } from "@/component/common/font-styles";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const { title, description, siteList, stageList, stageTable, makeTable } =
