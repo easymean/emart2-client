@@ -19,16 +19,6 @@ export const ContentWrapper = styled.div`
   margin-top: 8rem;
 `;
 
-export const CategoryTitle = styled.p`
-  padding: 1rem 1rem;
-  font-size: 3rem;
-`;
-
-export const CategoryDescription = styled.p`
-  padding: 1rem 1rem;
-  font-size: 1.5rem;
-`;
-
 export const SiteRowContainer = styled.div`
   width: 100%;
   display: flex;

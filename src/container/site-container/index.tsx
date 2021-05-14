@@ -1,21 +1,18 @@
 import React from "react";
 import * as S from "./styles";
-
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
+
 import SiteItem from "@component/site-item";
-import SideBarContainer from "@/component/side-bar/container";
 import { Col, Grid, Row } from "@/component/grid/styles";
+import {
+  CommonTitle,
+  CommonDescription,
+} from "@/component/common/font-styles/styles";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
-  const {
-    title,
-    description,
-    siteList,
-    stageList,
-    stageTable,
-    makeTable,
-  } = useSite(categoryId);
+  const { title, description, siteList, stageList, stageTable, makeTable } =
+    useSite(categoryId);
   makeTable(stageList, siteList, stageTable);
 
   return (
@@ -23,8 +20,8 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
       <S.ContentWrapper>
         <Grid>
           <Row>
-            <S.CategoryTitle>{title}</S.CategoryTitle>
-            <S.CategoryDescription>{description}</S.CategoryDescription>
+            <CommonTitle>{title}</CommonTitle>
+            <CommonDescription>{description}</CommonDescription>
           </Row>
           {stageList.map((stage, idx) => {
             const siteList = stageTable[stage.id];
