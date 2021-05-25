@@ -1,36 +1,38 @@
 import axios from "./axios";
 
 import endpoints from "./endpoints";
-import SiteModel from "@model/siteModel";
-import HashtagModel from "@/model/hashtagModel";
+import { SiteModel, SiteListModel } from "@model/siteModel";
+import { HashtagModel, HashtagListModel } from "@/model/hashtagModel";
+import CommonType from "@/model/commonType";
 
 const siteAPI = {
   getSiteList: async (categoryId: number): Promise<SiteModel[]> => {
-    const { data: siteList } = await axios.get<SiteModel[]>(
-      `${endpoints.SITE_API}?categoryId=${categoryId}`
+    const { data: res } = await axios.get<CommonType<SiteListModel>>(
+      `${endpoints.SITE_API}?category=${categoryId}`
     );
-    return siteList;
+    const { data } = res;
+    return data.websiteList;
   },
 
   searchSitebyKeyword: async (keyword: string): Promise<SiteModel[]> => {
-    const { data: siteList } = await axios.get<SiteModel[]>(
+    const { data: res } = await axios.get<CommonType<SiteListModel>>(
       `${endpoints.SITE_API}/search?keyword=${keyword}`
     );
-    return siteList;
+    const { data } = res;
+    console.log(data);
+    return data.websiteList;
   },
 
-  getSiteListbyFreq: async (): Promise<HashtagModel[]> => {
-    const { data: siteList } = await axios.get<HashtagModel[]>(
+  getSiteListbyFreq: async (): Promise<SiteModel[]> => {
+    const { data: res } = await axios.get<CommonType<SiteListModel>>(
       `${endpoints.SITE_API}/freq`
     );
-    return siteList;
+    const { data } = res;
+    return data.websiteList;
   },
 
-  increaseSiteFreq: async (siteId: number): Promise<HashtagModel> => {
-    const { data: updatedSite } = await axios.put<HashtagModel>(
-      `${endpoints.SITE_API}/freq/${siteId}`
-    );
-    return updatedSite;
+  increaseSiteFreq: async (siteId: number) => {
+    await axios.put(`${endpoints.SITE_API}/freq/${siteId}`);
   },
 };
 

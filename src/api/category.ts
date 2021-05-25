@@ -1,16 +1,17 @@
 import axios from "./axios";
 
 import endpoints from "./endpoints";
-import CategoryModel from "@model/cateoryModel";
-import StageModel from "@/model/stageModel";
+import CommonType from "@/model/commonType";
+import { CategoryModel, CategoryListModel } from "@model/cateoryModel";
+import { EnumValueListModel, EnumValueModel } from "@/model/enumModel";
 
 const categoryAPI = {
   getCategoryList: async (): Promise<CategoryModel[]> => {
-    const { data: categoryList } = await axios.get<CategoryModel[]>(
+    const { data: res } = await axios.get<CommonType<CategoryListModel>>(
       endpoints.CATEGORY_API
     );
-
-    return categoryList;
+    const { data } = res;
+    return data.categoryList;
   },
 
   getCategory: async (categoryId: number): Promise<CategoryModel> => {
@@ -20,11 +21,12 @@ const categoryAPI = {
     return categoryData;
   },
 
-  getStageList: async (): Promise<StageModel[]> => {
-    const { data: stageList } = await axios.get<StageModel[]>(
+  getStageList: async (): Promise<EnumValueModel[]> => {
+    const { data: res } = await axios.get<CommonType<EnumValueListModel>>(
       `${endpoints.CATEGORY_API}/stage`
     );
-    return stageList;
+    const { data } = res;
+    return data.enumValueList;
   },
 };
 
