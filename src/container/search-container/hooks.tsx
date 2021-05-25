@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import siteAPI from "@api/website";
-import SiteModel from "@model/siteModel";
-import HashtagModel from "@model/hashtagModel";
+import { SiteModel } from "@model/siteModel";
+import { HashtagModel } from "@model/hashtagModel";
 
 const useDebounce = (state: string, delay: number): string => {
   const [debounceState, setDebounceState] = useState(state);
@@ -57,7 +57,7 @@ export const useSearchBar = () => {
 };
 
 export const useHashtag = () => {
-  const [hashtags, setHashtags] = useState([] as HashtagModel[]);
+  const [hashtags, setHashtags] = useState([] as SiteModel[]);
 
   const getSiteListbyFreq = useCallback(async () => {
     const siteList = await siteAPI.getSiteListbyFreq();

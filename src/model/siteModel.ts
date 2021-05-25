@@ -1,8 +1,12 @@
-export default interface SiteModel {
+export interface SiteModel {
   id: number;
   name: string;
   dev: boolean;
   url: string;
   order: number;
-  stage: number;
+  stage: string;
+}
+
+export interface SiteListModel {
+  websiteList: SiteModel[];
 }

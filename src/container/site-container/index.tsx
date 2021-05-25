@@ -21,14 +21,14 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
             <CommonDescription>{description}</CommonDescription>
           </Row>
           {stageList.map((stage, idx) => {
-            const siteList = stageTable[stage.id];
+            const siteList = stageTable[idx];
             const devSite = siteList.filter((site) => site.dev);
             const prodSite = siteList.filter((site) => !site.dev);
             return (
               <Row height={"15rem"} key={idx}>
                 <S.SiteRowContainer>
                   <Col span={2}>
-                    <S.StageName>{stage.name}</S.StageName>
+                    <S.StageName>{stage.title}</S.StageName>
                   </Col>
                   <Col span={5}>
                     {devSite.length !== 0 ? (

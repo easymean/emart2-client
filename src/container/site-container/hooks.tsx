@@ -2,14 +2,14 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import siteAPI from "@api/website";
 import categoryAPI from "@api/category";
-import SiteModel from "@model/siteModel";
-import StageModel from "@/model/stageModel";
+import { SiteModel } from "@model/siteModel";
 import { SiteListType } from "./types";
+import { EnumValueModel } from "@/model/enumModel";
 
 export const useSite = (categoryId: number) => {
   const [title, setTitle] = useState("");
   const [description, setDesrcription] = useState("");
-  const [stageList, setStageList] = useState([] as StageModel[]);
+  const [stageList, setStageList] = useState([] as EnumValueModel[]);
   const [siteList, setSiteList] = useState([] as SiteModel[]);
 
   const stageTable = useMemo(() => ({} as SiteListType), [siteList]);
@@ -31,13 +31,12 @@ export const useSite = (categoryId: number) => {
   }, [categoryId]);
 
   const makeTable = useCallback(
-    (stages: StageModel[], sites: SiteModel[], table: SiteListType) => {
-      stages.forEach((stage) => {
-        const stageId = stage.id;
+    (stages: EnumValueModel[], sites: SiteModel[], table: SiteListType) => {
+      stages.forEach((stage, idx) => {
         const arr = sites.filter((site) => {
-          return site.stage === stageId;
+          return site.stage === stage.code;
         });
-        table[stage.id] = arr;
+        table[idx] = arr;
       });
       return table;
     },

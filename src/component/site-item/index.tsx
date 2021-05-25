@@ -11,8 +11,8 @@ const SiteItem = React.forwardRef(
       await siteAPI.increaseSiteFreq(site.id);
     }, [site.id]);
 
-    const onClick = (e) => {
-      window.open(site.url);
+    const onClick = () => {
+      window.open("http://" + site.url, "_blank");
       increaseFreq();
       return;
     };
