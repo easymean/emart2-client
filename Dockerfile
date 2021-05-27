@@ -1,10 +1,10 @@
 FROM node:14 as builder
 
 WORKDIR /app
-COPY ./emart2-client/package*.json ./
+COPY ./package*.json ./
 RUN npm ci
-COPY ./emart2-client .
-RUN npm run install
+COPY . .
+RUN npm install
 RUN npm run build
 
 
