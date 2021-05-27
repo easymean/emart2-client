@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import siteAPI from "@api/website";
 import * as S from "./styles";
 
@@ -12,7 +12,7 @@ const SiteItem = React.forwardRef(
     }, [site.id]);
 
     const onClick = () => {
-      window.open("http://" + site.url, "_blank");
+      window.open(`http://${site.url}`, "_blank");
       increaseFreq();
       return;
     };

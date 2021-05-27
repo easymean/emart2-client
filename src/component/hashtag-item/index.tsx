@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./styles";
 
-import HashtagModel from "@/model/hashtagModel";
+import { SiteModel } from "@/model/siteModel";
 
 interface HashtagItemProps {
-  hashtag: HashtagModel;
+  hashtag: SiteModel;
 }
 
 const HashtagItem = ({ hashtag }: HashtagItemProps) => {
