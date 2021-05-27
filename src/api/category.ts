@@ -28,6 +28,14 @@ const categoryAPI = {
     const { data } = res;
     return data.enumValueList;
   },
+
+  createCategory: async (category: CategoryModel): Promise<CategoryModel> => {
+    const { data: categoryData } = await axios.post<CategoryModel>(
+      `${endpoints.CATEGORY_API}`,
+      category
+    );
+    return categoryData;
+  },
 };
 
 export default categoryAPI;

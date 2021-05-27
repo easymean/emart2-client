@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import MainPage from "@view/main";
+import AdminPage from "@view/admin";
 import SiteListPage from "@view/site-list";
 import AccountListPage from "@view/account-list";
 
@@ -21,6 +22,7 @@ const App: React.FC = () => {
               component={SiteListPage}
             />
             <Route path="/account" component={AccountListPage} />
+            <Route path="/admin" component={AdminPage} />
             <Route path="/" component={MainPage} />
             <Redirect from="*" to="/" />
           </Switch>
