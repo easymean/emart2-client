@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { THEME_COLOR } from "@/asset/constant";
 
 export const SearchContainer = styled.div`
   display: flex;
@@ -19,6 +20,12 @@ export const SeachBarContainer = styled.div`
   align-items: center;
 `;
 
+export const DropdownWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  display: flex;
+`;
+
 export const DropdownContainer = styled.div`
   position: relative;
   width: 100%;
@@ -37,4 +44,16 @@ export const HashtagContainer = styled.div`
 export const HashtagItemWrapper = styled.div`
   display: flex;
   width: 35%;
+`;
+
+export const SiteName = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  font-size: 1.5rem;
+`;
+
+export const Dev = styled.p`
+  color: ${THEME_COLOR.GRAYER};
 `;

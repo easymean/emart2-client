@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { THEME_COLOR } from "@asset/constant";
 
 export const InputBox = styled.input`
+  position: relative;
   width: 100%;
   height: 100%;
 

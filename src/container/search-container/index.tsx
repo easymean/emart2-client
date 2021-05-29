@@ -2,9 +2,13 @@ import React from "react";
 import * as S from "./styles";
 
 import HashtagItem from "@component/hashtag-item/index";
-import SearchBar from "@component/search-bar/index";
+import SearchBar from "@/component/search-bar/index";
 import { useHashtag, useSearchBar } from "./hooks";
-import Dropdown from "@/component/dropdown";
+import {
+  DropdownContainer,
+  DropdownItem,
+  DropdownList,
+} from "@component/dropdown/styles";
 
 const SearchContainer = () => {
   const { hashtags } = useHashtag();
@@ -14,9 +18,23 @@ const SearchContainer = () => {
     <S.SearchContainer>
       <S.SeachBarContainer>
         <SearchBar placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
-        <S.DropdownContainer>
-          <Dropdown visible={visible} siteList={siteList} />
-        </S.DropdownContainer>
+
+        <DropdownContainer>
+          <DropdownList visible={visible}>
+            {siteList.map((site, idx) => {
+              return (
+                <DropdownItem key={idx}>
+                  <a href={site.url} target="_blank">
+                    <S.SiteName>
+                      {site.name}
+                      <S.Dev>{site.dev ? "개발" : "운영"}</S.Dev>
+                    </S.SiteName>
+                  </a>
+                </DropdownItem>
+              );
+            })}
+          </DropdownList>
+        </DropdownContainer>
       </S.SeachBarContainer>
 
       <S.HashtagContainer>
