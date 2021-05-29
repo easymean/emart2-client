@@ -12,12 +12,7 @@ const HashtagItem = ({ hashtag }: HashtagItemProps) => {
     window.open(hashtag.url);
     return;
   };
-  return (
-    <S.Hashtag onClick={handleClick}>
-      #{hashtag.name}
-      <S.HashTagDev>{hashtag.dev ? "개발" : "운영"}</S.HashTagDev>
-    </S.Hashtag>
-  );
+  return <S.Hashtag onClick={handleClick}>#{hashtag.name}</S.Hashtag>;
 };
 
 export default HashtagItem;

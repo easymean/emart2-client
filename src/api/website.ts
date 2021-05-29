@@ -23,8 +23,8 @@ const siteAPI = {
     return data.websiteList;
   },
 
-  getSiteListbyFreq: async (): Promise<SiteModel[]> => {
-    const { data: res } = await axios.get<CommonType<SiteListModel>>(
+  getSiteListbyFreq: async (): Promise<HashtagModel[]> => {
+    const { data: res } = await axios.get<CommonType<HashtagListModel>>(
       `${endpoints.SITE_API}/freq`
     );
     const { data } = res;

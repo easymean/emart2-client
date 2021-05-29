@@ -3,9 +3,8 @@ export interface HashtagModel {
   name: string;
   url: string;
   freq: number;
-  dev: boolean;
 }
 
 export interface HashtagListModel {
-  hashtagList: HashtagModel[];
+  websiteList: HashtagModel[];
 }
