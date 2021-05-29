@@ -27,8 +27,10 @@ export const MenuContainer = styled.div`
   }
 `;
 
-export const MenuWrapper = styled.div`
+export const MenuButton = styled.button`
   height: 100%;
+  outline: none;
+  border: none;
   font-size: 1.5rem;
   background-color: inherit;
 
@@ -51,10 +53,14 @@ export const MenuWrapper = styled.div`
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
     height: 10rem;
-    width: 8.7rem;
+    width: 10rem;
     padding: 0 1.5rem;
     transition: background-color 0.5s;
   }
+`;
+
+export const MenuDropdown = styled.div`
+  display: block;
 `;
 
 export const Logo = styled.img`
@@ -70,4 +76,12 @@ export const DesktopLink = styled(Link)`
   @media only screen and (min-width: ${BREAKPOINT}px) {
     display: block;
   }
+`;
+
+export const SmallMenuText = styled.p`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5rem 0.5rem;
+  font-size: 1.1rem;
 `;
