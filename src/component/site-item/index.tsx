@@ -3,7 +3,7 @@ import siteAPI from "@api/website";
 import * as S from "./styles";
 
 import { SiteItemProps } from "./types";
-import { CommonItemBox } from "@component/common/item-box-styles";
+import { CommonItemBox } from "@/component/item-box/item-box-styles";
 
 const SiteItem = React.forwardRef(
   ({ site }: SiteItemProps, ref: React.Ref<HTMLDivElement>) => {
