@@ -57,7 +57,7 @@ export const useSearchBar = () => {
 };
 
 export const useHashtag = () => {
-  const [hashtags, setHashtags] = useState([] as SiteModel[]);
+  const [hashtags, setHashtags] = useState([] as HashtagModel[]);
 
   const getSiteListbyFreq = useCallback(async () => {
     const siteList = await siteAPI.getSiteListbyFreq();
