@@ -8,7 +8,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.response.use(
-  (res) => Promise.resolve(res),
+  (res) => Promise.resolve(res.data),
   (err) => Promise.reject(err)
 );
 
