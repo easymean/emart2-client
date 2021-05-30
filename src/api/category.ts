@@ -14,7 +14,6 @@ const categoryAPI = {
     const { data: categoryData } = await axios.get<CategoryModel>(
       `${endpoints.CATEGORY_API}/${categoryId}`
     );
-    console.log(categoryData);
     return categoryData;
   },
 
