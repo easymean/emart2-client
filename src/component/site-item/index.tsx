@@ -12,7 +12,7 @@ const SiteItem = React.forwardRef(
     }, [site.id]);
 
     const onClick = () => {
-      window.open(`http://${site.url}`, "_blank");
+      window.open(site.url, "_blank");
       increaseFreq();
       return;
     };
