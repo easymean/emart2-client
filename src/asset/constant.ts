@@ -17,7 +17,7 @@ export const THEME_COLOR = {
 export const CONSTANT_URL = {
   BLOSSOM: "https://blossom.shinsegae.com/",
   INC_JIRA: "https://jira.sinc.co.kr/",
-  EMART_JIRA: "https://https://jira.emart.com/",
+  EMART_JIRA: "https://jira.emart.com/",
   INC_CONFL: "https://confl.sinc.co.kr/",
-  EMART_WIKI: "https://woko.emart.com/",
+  EMART_WIKI: "https://wiki.emart.com/",
 };

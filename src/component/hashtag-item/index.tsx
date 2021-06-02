@@ -9,7 +9,7 @@ interface HashtagItemProps {
 
 const HashtagItem = ({ hashtag }: HashtagItemProps) => {
   const handleClick = () => {
-    window.open(hashtag.url);
+    window.open(hashtag.url, "_blank");
     return;
   };
   return <S.Hashtag onClick={handleClick}>#{hashtag.name}</S.Hashtag>;
