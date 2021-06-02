@@ -8,52 +8,24 @@ import { Col, Grid, Row } from "@/component/grid/styles";
 import { CommonTitle, CommonDescription } from "@/component/common/font-styles";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
-  const { title, description, siteList, stageList, stageTable, makeTable } =
-    useSite(categoryId);
-  makeTable(stageList, siteList, stageTable);
+  const { title, description, siteList } = useSite(categoryId);
 
   return (
     <S.SiteContainer>
-      <S.ContentWrapper>
-        <Grid>
-          <Row>
-            <CommonTitle>{title}</CommonTitle>
-            <CommonDescription>{description}</CommonDescription>
-          </Row>
-          {stageList.map((stage, idx) => {
-            const siteList = stageTable[idx];
-            const devSite = siteList.filter((site) => site.dev);
-            const prodSite = siteList.filter((site) => !site.dev);
-            return (
-              <Row height={"15rem"} key={idx}>
-                <S.SiteRowContainer>
-                  <Col span={2}>
-                    <S.StageName>{stage.title}</S.StageName>
-                  </Col>
-                  <Col span={5}>
-                    {devSite.length !== 0 ? (
-                      devSite.map((site) => {
-                        return <SiteItem key={`site${site.id}`} site={site} />;
-                      })
-                    ) : (
-                      <></>
-                    )}
-                  </Col>
-                  <Col span={5}>
-                    {prodSite.length !== 0 ? (
-                      prodSite.map((site) => {
-                        return <SiteItem key={`site${site.id}`} site={site} />;
-                      })
-                    ) : (
-                      <></>
-                    )}
-                  </Col>
-                </S.SiteRowContainer>
-              </Row>
-            );
-          })}
-        </Grid>
-      </S.ContentWrapper>
+      <S.CategoryInfo>
+        <CommonTitle>{title}</CommonTitle>
+        <CommonDescription>{description}</CommonDescription>
+      </S.CategoryInfo>
+
+      <S.SiteListContainer>
+        {siteList.length !== 0 ? (
+          siteList.map((site, idx) => {
+            return <SiteItem site={site} key={idx} />;
+          })
+        ) : (
+          <></>
+        )}
+      </S.SiteListContainer>
     </S.SiteContainer>
   );
 };
