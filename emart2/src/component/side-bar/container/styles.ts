@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const SideBarContainer = styled.div`
   width: 15%;
-  background-color: ${THEME_COLOR.BEIGE};
+  background-color: ${THEME_COLOR.GRAYER};
   margin: 2rem 2rem;
 
   ::-webkit-scrollbar {
@@ -22,6 +22,7 @@ export const SideBarContainer = styled.div`
 
 export const SideBarItemWrapper = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 export const Logo = styled.img`
