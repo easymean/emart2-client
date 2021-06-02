@@ -20,7 +20,7 @@ body {
 }
 
 button {
-  cursor: point;
+  cursor: pointer;
 }
 
 button:focus {

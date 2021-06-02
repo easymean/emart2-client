@@ -2,7 +2,7 @@ import React from "react";
 import { AccountItemProps } from "./types";
 import * as S from "./styles";
 
-import { CommonItemBox } from "@/component/item-box/item-box-styles";
+import { CommonItemBox } from "@/component/item-box/styles";
 
 const AccountItem = ({ account }: AccountItemProps) => {
   return (

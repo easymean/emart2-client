@@ -27,5 +27,5 @@ export const LayoutContainer = styled.div`
   align-items: center;
 
   padding: 2rem 8rem;
-  margin-top: 8rem;
+  margin-top: 2rem;
 `;
