@@ -1,29 +1,23 @@
 # emart2-client
 
-# Install
-
----
+### Install
 
 `npm install`
 
-# Start in development
-
 ---
+
+### Start in development
 
 `npm run start`
 
-# Build in production
-
 ---
+
+### Build in production
 
 `npm run build`
 
-# Author
-
 ---
 
-`Jimin Lee`
-
-# Docker build
+### Docker build
 
 `docker build --tag [name]:[version] .`
