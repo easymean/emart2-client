@@ -21,3 +21,8 @@ export const CONSTANT_URL = {
   INC_CONFL: "https://confl.sinc.co.kr/",
   EMART_WIKI: "https://wiki.emart.com/",
 };
+
+export const TAG_COLOR = {
+  DEV: "#66CDAA",
+  PROD: "#FF5675",
+};
