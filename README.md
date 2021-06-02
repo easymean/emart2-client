@@ -23,3 +23,7 @@
 ---
 
 `Jimin Lee`
+
+# Docker build
+
+`docker build --tag [name]:[version] .`
