@@ -20,7 +20,7 @@ const SearchContainer = () => {
         <SearchBar placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
 
         <DropdownContainer>
-          <DropdownList visible={visible}>
+          <DropdownList>
             {siteList.map((site, idx) => {
               return (
                 <DropdownItem key={idx}>
