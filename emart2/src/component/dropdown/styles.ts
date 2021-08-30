@@ -21,6 +21,7 @@ export const DropdownList = styled.ul`
 
 export const DropdownItem = styled.li`
   display: flex;
+  width: 100%;
   border: solid 0.1rem ${THEME_COLOR.LIGHT_GRAY};
   background-color: ${THEME_COLOR.WHITE};
 

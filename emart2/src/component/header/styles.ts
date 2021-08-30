@@ -25,17 +25,28 @@ export const MenuContainer = styled.div`
 `;
 
 export const MenuDropdown = styled.div`
-  visibility: visible;
+  visibility: hidden;
+  display: flex;
+  width: 100%;
 `;
-
+export const MenuTitle = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 export const MenuButton = styled.button`
   height: 100%;
+  width: 100%;
   outline: none;
   border: none;
   font-size: 1.5rem;
   background-color: inherit;
+  text-align: center;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -56,9 +67,9 @@ export const MenuButton = styled.button`
   }
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
-    height: 10rem;
+    height: 8rem;
     width: 10rem;
-    padding: 0 1.5rem;
+    margin: 0 0.5rem;
     transition: background-color 0.5s;
   }
 `;

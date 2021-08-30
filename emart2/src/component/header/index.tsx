@@ -18,16 +18,26 @@ const Header = () => {
       </S.DesktopLink>
       <S.MenuContainer>
         <S.MenuButton>
-          <a href="">운영시스템</a>
+          <S.MenuTitle>아이앤씨</S.MenuTitle>
+          <S.MenuDropdown>
+            <DropdownContainer>
+              <DropdownList>
+                <DropdownItem>
+                  <a href={CONSTANT_URL.BLOSSOM} target="_blank">
+                    <S.SmallMenuText>블라썸</S.SmallMenuText>
+                  </a>
+                </DropdownItem>
+                <DropdownItem>
+                  <a href={CONSTANT_URL.INC_JIRA} target="_blank">
+                    <S.SmallMenuText>지라</S.SmallMenuText>
+                  </a>
+                </DropdownItem>
+              </DropdownList>
+            </DropdownContainer>
+          </S.MenuDropdown>
         </S.MenuButton>
         <S.MenuButton>
-          <a href={CONSTANT_URL.BLOSSOM} target="_blank">
-            블라썸
-          </a>
-        </S.MenuButton>
-
-        <S.MenuButton>
-          JIRA
+          <S.MenuTitle>운영시스템</S.MenuTitle>
           <S.MenuDropdown>
             <DropdownContainer>
               <DropdownList>
@@ -45,24 +55,6 @@ const Header = () => {
             </DropdownContainer>
           </S.MenuDropdown>
         </S.MenuButton>
-
-        {/* <S.MenuDropdown>
-          <S.MenuButton onClick={toggleMenu2}>Confl/Wiki</S.MenuButton>
-          <DropdownContainer>
-            <DropdownList>
-              <DropdownItem>
-                <a href={CONSTANT_URL.INC_CONFL} target="_blank">
-                  <S.SmallMenuText>아이앤씨</S.SmallMenuText>
-                </a>
-              </DropdownItem>
-              <DropdownItem>
-                <a href={CONSTANT_URL.EMART_WIKI} target="_blank">
-                  <S.SmallMenuText>이마트Wiki</S.SmallMenuText>
-                </a>
-              </DropdownItem>
-            </DropdownList>
-          </DropdownContainer>
-        </S.MenuDropdown> */}
       </S.MenuContainer>
       <S.MenuButton>
         <a href="/account">로그인</a>
