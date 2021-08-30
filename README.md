@@ -1,4 +1,5 @@
 # emart2-client
+`cd emart2`
 
 ### Install
 

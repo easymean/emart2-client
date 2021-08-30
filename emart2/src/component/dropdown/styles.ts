@@ -9,8 +9,8 @@ export const DropdownContainer = styled.nav`
   position: relative;
 `;
 
-export const DropdownList = styled.ul<DropdownProps>`
-  display: ${(props: DropdownProps) => (props.visible ? "flex" : "none")};
+export const DropdownList = styled.ul`
+  display: flex;
   flex-direction: column;
   width: 100%;
 

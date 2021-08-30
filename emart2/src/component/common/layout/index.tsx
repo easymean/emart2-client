@@ -14,7 +14,6 @@ const Layout = ({ children }: LayoutProps) => {
     <S.Layout>
       <Header />
       <S.LayoutMid>
-        <SideBar />
         <S.LayoutContainer>{children}</S.LayoutContainer>
       </S.LayoutMid>
       <Footer />

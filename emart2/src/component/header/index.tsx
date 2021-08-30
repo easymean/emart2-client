@@ -18,31 +18,38 @@ const Header = () => {
       </S.DesktopLink>
       <S.MenuContainer>
         <S.MenuButton>
+          <a href="">운영시스템</a>
+        </S.MenuButton>
+        <S.MenuButton>
           <a href={CONSTANT_URL.BLOSSOM} target="_blank">
             블라썸
           </a>
         </S.MenuButton>
-        <S.MenuDropdown>
-          <S.MenuButton onClick={toggleMenu}>JIRA</S.MenuButton>
-          <DropdownContainer>
-            <DropdownList visible={showMenu}>
-              <DropdownItem>
-                <a href={CONSTANT_URL.INC_JIRA} target="_blank">
-                  <S.SmallMenuText>아이앤씨</S.SmallMenuText>
-                </a>
-              </DropdownItem>
-              <DropdownItem>
-                <a href={CONSTANT_URL.EMART_JIRA} target="_blank">
-                  <S.SmallMenuText>이마트</S.SmallMenuText>
-                </a>
-              </DropdownItem>
-            </DropdownList>
-          </DropdownContainer>
-        </S.MenuDropdown>
-        <S.MenuDropdown>
+
+        <S.MenuButton>
+          JIRA
+          <S.MenuDropdown>
+            <DropdownContainer>
+              <DropdownList>
+                <DropdownItem>
+                  <a href={CONSTANT_URL.INC_JIRA} target="_blank">
+                    <S.SmallMenuText>아이앤씨</S.SmallMenuText>
+                  </a>
+                </DropdownItem>
+                <DropdownItem>
+                  <a href={CONSTANT_URL.EMART_JIRA} target="_blank">
+                    <S.SmallMenuText>이마트</S.SmallMenuText>
+                  </a>
+                </DropdownItem>
+              </DropdownList>
+            </DropdownContainer>
+          </S.MenuDropdown>
+        </S.MenuButton>
+
+        {/* <S.MenuDropdown>
           <S.MenuButton onClick={toggleMenu2}>Confl/Wiki</S.MenuButton>
           <DropdownContainer>
-            <DropdownList visible={showMenu2}>
+            <DropdownList>
               <DropdownItem>
                 <a href={CONSTANT_URL.INC_CONFL} target="_blank">
                   <S.SmallMenuText>아이앤씨</S.SmallMenuText>
@@ -55,11 +62,11 @@ const Header = () => {
               </DropdownItem>
             </DropdownList>
           </DropdownContainer>
-        </S.MenuDropdown>
-        <S.MenuButton>
-          <a href="/account">계정</a>
-        </S.MenuButton>
+        </S.MenuDropdown> */}
       </S.MenuContainer>
+      <S.MenuButton>
+        <a href="/account">로그인</a>
+      </S.MenuButton>
     </S.Header>
   );
 };
