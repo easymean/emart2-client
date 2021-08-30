@@ -18,7 +18,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules",
-    "build": "npm run type-check && webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "start": "npx webpack serve --config webpack.dev.js --open && npm run lint",
     "type-check": "tsc",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
