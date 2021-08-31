@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
-import { useCallback } from "react";
 
 const LoginPage = () => {
   const [account, setAccount] = useState({
@@ -16,25 +15,21 @@ const LoginPage = () => {
     });
   };
 
-  const onReset = () => {
-    setAccount({
-      id: "",
-      password: "",
-    });
-  };
-
-  const onClick = () => {
+  const onClickLogin = () => {
     console.log(account);
     if (isEmpty(account.id) || isEmpty(account.password)) {
       alert("아이디 혹은 비밀번호를 입력해주세요");
     }
     //login ajax
-    onReset();
+  };
+
+  const onClickRedirect = () => {
+    window.location.href = "/signup";
   };
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
-      onClick();
+      onClickLogin();
     }
   };
 
@@ -60,7 +55,8 @@ const LoginPage = () => {
           setData={setData}
           onKeyPress={onKeyPress}
         />
-        <S.LoginButton onClick={onClick}>로그인</S.LoginButton>
+        <S.LoginButton onClick={onClickLogin}>로그인</S.LoginButton>
+        <S.LoginButton onClick={onClickRedirect}>회원가입</S.LoginButton>
       </S.LoginWrapper>
     </S.LoginContainer>
   );

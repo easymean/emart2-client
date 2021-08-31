@@ -12,6 +12,7 @@ export const THEME_COLOR = {
   HOVER_SMOKE: "whitesmoke",
   BLACK: "black",
   BEIGE: "#FDF5E6",
+  RED: "red",
 };
 
 export const CONSTANT_URL = {
