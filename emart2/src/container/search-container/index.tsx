@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 
 import HashtagItem from "@component/hashtag-item/index";
-import SearchBar from "@/component/search-bar/index";
+import InputBox from "@/component/input-box/index";
 import { useHashtag, useSearchBar } from "./hooks";
 import {
   DropdownContainer,
@@ -17,7 +17,7 @@ const SearchContainer = () => {
   return (
     <S.SearchContainer>
       <S.SeachBarContainer>
-        <SearchBar placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
+        <InputBox placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
 
         <DropdownContainer>
           <DropdownList>

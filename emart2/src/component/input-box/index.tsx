@@ -1,13 +1,13 @@
 import React from "react";
 import * as S from "./styles";
 
-interface SearchBarProps {
+interface InputProps {
   placeholder: string;
   setData: (e: any) => void;
 }
 
-const SearchBar = ({ placeholder, setData }: SearchBarProps) => {
+const InputBox = ({ placeholder, setData }: InputProps) => {
   return <S.InputBox placeholder={placeholder} onKeyUp={setData} />;
 };
 
-export default SearchBar;
+export default InputBox;
