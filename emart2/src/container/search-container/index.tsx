@@ -12,12 +12,17 @@ import {
 
 const SearchContainer = () => {
   const { hashtags } = useHashtag();
-  const { siteList, onKeyup, visible } = useSearchBar();
+  const { siteList, onKeyup, visible, onKeyPress } = useSearchBar();
 
   return (
     <S.SearchContainer>
       <S.SeachBarContainer>
-        <InputBox placeholder="검색예시: 챗봇 API 개발" setData={onKeyup} />
+        <InputBox
+          name="keyword"
+          placeholder="검색예시: 챗봇 API 개발"
+          setData={onKeyup}
+          onKeyPress={onKeyPress}
+        />
 
         <DropdownContainer>
           <DropdownList>

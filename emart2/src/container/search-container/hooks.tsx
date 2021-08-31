@@ -32,6 +32,13 @@ export const useSearchBar = () => {
     setVisible(true);
   }, []);
 
+  const onKeyPress = (e) => {
+    if (e.key == "Enter") {
+      return;
+      //추후 개발 예정
+    }
+  };
+
   const debounceKeyword = useDebounce(keyword, 1000);
 
   const searchSiteList = useCallback(
@@ -53,6 +60,7 @@ export const useSearchBar = () => {
     siteList,
     onKeyup,
     visible,
+    onKeyPress,
   };
 };
 
