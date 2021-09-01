@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const InputBox = styled.input`
   font-size: 2rem;
-  border: 1px solid ${THEME_COLOR.GRAYER};
+  border: 0.5rem solid ${THEME_COLOR.BEIGE};
   border-radius: 0.8rem;
   padding: 1rem 2rem;
   position: relative;

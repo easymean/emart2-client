@@ -14,9 +14,10 @@ const MainCard = React.forwardRef(
     return (
       <CommonItemBox
         height={"25rem"}
-        width={"20rem"}
+        width={"25%"}
         padding={"1rem 2.5rem"}
         margin={"2rem 2rem"}
+        shadow={true}
         onClick={handleRedirect}
       >
         <S.ImageContainer>

@@ -6,6 +6,7 @@ export interface ItemBoxPropsType {
   width?: string;
   padding?: string;
   margin?: string;
+  shadow?: boolean;
 }
 
 export const CommonItemBox = styled.div`
@@ -13,6 +14,10 @@ export const CommonItemBox = styled.div`
   border-width: thin;
   border-radius: 5%;
   border-color: ${THEME_COLOR.LIGHT_GRAY};
+  box-shadow: ${(props: ItemBoxPropsType) =>
+    props.shadow
+      ? `0.5rem 0.5rem 0.5rem 0 ${THEME_COLOR.LIGHT_GRAY};`
+      : `none`};
 
   height: ${(props: ItemBoxPropsType) =>
     props.height ? `${props.height};` : `100%;`};

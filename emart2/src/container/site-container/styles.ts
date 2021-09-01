@@ -46,7 +46,8 @@ export const SiteContainer = styled.div`
 // `;
 
 export const CategoryInfo = styled.div`
-  margin: 1rem 1rem;
+  background-color: ${THEME_COLOR.BEIGE};
+  margin: 1rem 0;
 `;
 
 export const SiteListContainer = styled.div`
