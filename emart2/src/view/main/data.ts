@@ -1,6 +1,6 @@
 import { STATIC_URL } from "@/asset/constant";
 
-export const cards = [
+export const categoryList = [
   {
     serviceName: "MMS쿠폰",
     description: "MMS쿠폰 발급",

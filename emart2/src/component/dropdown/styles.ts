@@ -8,7 +8,7 @@ export const DropdownContainer = styled.nav`
   position: relative;
 `;
 
-export const DropdownList = styled.ul`
+export const DropdownList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -19,7 +19,7 @@ export const DropdownList = styled.ul`
   position: absolute;
 `;
 
-export const DropdownItem = styled.li`
+export const DropdownItem = styled.div`
   display: flex;
   width: 100%;
   background-color: ${THEME_COLOR.WHITE};

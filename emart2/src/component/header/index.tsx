@@ -6,11 +6,17 @@ import {
   DropdownItem,
   DropdownList,
 } from "@component/dropdown/styles";
+import { categoryList as data } from "@view/main/data";
 import { useHeader } from "./hooks";
+import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const { showMenu, showMenu2, toggleMenu, toggleMenu2 } = useHeader();
-
+  const categoryList = data;
+  const history = useHistory();
+  const handleRedirect = (id: number) => {
+    history.push(`/category/${id}`);
+  };
   return (
     <S.Header>
       <S.DesktopLink to="/">
@@ -41,16 +47,17 @@ const Header = () => {
           <S.MenuDropdown>
             <DropdownContainer>
               <DropdownList>
-                <DropdownItem>
-                  <a href={CONSTANT_URL.INC_JIRA} target="_blank">
-                    <S.SmallMenuText>아이앤씨</S.SmallMenuText>
-                  </a>
-                </DropdownItem>
-                <DropdownItem>
-                  <a href={CONSTANT_URL.EMART_JIRA} target="_blank">
-                    <S.SmallMenuText>이마트</S.SmallMenuText>
-                  </a>
-                </DropdownItem>
+                {categoryList.length != 0 ? (
+                  categoryList.map((el, idx) => {
+                    return (
+                      <DropdownItem key={idx}>
+                        <S.SmallMenuText>{el.serviceName}</S.SmallMenuText>
+                      </DropdownItem>
+                    );
+                  })
+                ) : (
+                  <></>
+                )}
               </DropdownList>
             </DropdownContainer>
           </S.MenuDropdown>

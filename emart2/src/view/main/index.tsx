@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 
 import SearchContainer from "@/container/search-container";
-import { cards as data } from "./data";
+import { categoryList as data } from "./data";
 import MainCard from "@/component/main-card";
 
 const MainPage = () => {
