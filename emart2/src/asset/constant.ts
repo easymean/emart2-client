@@ -16,7 +16,7 @@ export const THEME_COLOR = {
   LIGHT_GRAY: "silver",
   HOVER_SMOKE: "whitesmoke",
   BLACK: "black",
-  BEIGE: "#FDF5E6",
+  MAIN_YELLOW: "#FFCD28",
   RED: "red",
 };
 

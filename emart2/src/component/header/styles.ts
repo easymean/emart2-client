@@ -6,7 +6,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: ${THEME_COLOR.BEIGE};
+  background-color: ${THEME_COLOR.MAIN_YELLOW};
 
   height: 4rem;
   margin-top: 1rem;

@@ -1,6 +1,5 @@
 import { THEME_COLOR } from "@/asset/constant";
 import styled from "styled-components";
-import { DropdownProps } from "./types";
 
 //컨테이너 위에 상위 부모 wrapper relative 선언해야 함
 export const DropdownContainer = styled.nav`
@@ -16,13 +15,13 @@ export const DropdownList = styled.ul`
 
   overflow: auto;
   transform-origin: top center;
+  margin-top: 1rem;
   position: absolute;
 `;
 
 export const DropdownItem = styled.li`
   display: flex;
   width: 100%;
-  border: solid 0.1rem ${THEME_COLOR.LIGHT_GRAY};
   background-color: ${THEME_COLOR.WHITE};
 
   &:hover {

@@ -45,14 +45,52 @@ export const SiteContainer = styled.div`
 //   font-weight: 500;
 // `;
 
+export const CategoryHeader = styled.div`
+  display: block;
+  height: 30rem;
+  //flex-direction: column;
+
+  margin: 0.5rem 0;
+  padding: 6rem 6rem 0 6rem;
+
+  border: 1px solid ${THEME_COLOR.LIGHT_GRAY};
+`;
+
 export const CategoryInfo = styled.div`
-  background-color: ${THEME_COLOR.BEIGE};
+  height: 80%;
+  display: block;
+`;
+
+export const CategoryTitle = styled.p`
+  color: ${THEME_COLOR.MAIN_YELLOW};
+  font-size: 8rem;
   margin: 1rem 0;
+`;
+
+export const CategoryDescription = styled.p`
+  color: ${THEME_COLOR.GRAYER};
+  font-size: 1.8rem;
+`;
+
+export const TypeContainer = styled.div`
+  display: flex;
+`;
+
+export const TypeName = styled.button`
+  background-color: inherit;
+  font-size: 2rem;
+  margin: 0 6rem 0 0;
+
+  &:hover {
+    color: ${THEME_COLOR.MAIN_YELLOW};
+    text-decoration: underline;
+    text-underline-position: under;
+  }
 `;
 
 export const SiteListContainer = styled.div`
   padding: 0;
-  margin: 0;
+  margin: 0 6rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
