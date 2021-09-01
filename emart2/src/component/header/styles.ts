@@ -6,12 +6,14 @@ export const Header = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: ${THEME_COLOR.BEIGE};
 
-  height: 6rem;
+  height: 4rem;
+  margin-top: 1rem;
   padding: 0 1.5rem;
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
-    height: 10rem;
+    height: 6rem;
     padding: 0 6rem;
   }
 `;
@@ -20,6 +22,7 @@ export const MenuContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
 `;
@@ -30,7 +33,6 @@ export const MenuDropdown = styled.div`
   width: 100%;
 `;
 export const MenuTitle = styled.div`
-  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -60,14 +62,14 @@ export const MenuButton = styled.button`
   }
 
   &:hover {
-    background-color: ${THEME_COLOR.HOVER_SMOKE};
+    text-decoration: underline;
+    text-underline-position: under;
     ${MenuDropdown} {
       visibility: visible;
     }
   }
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
-    height: 8rem;
     width: 10rem;
     margin: 0 0.5rem;
     transition: background-color 0.5s;

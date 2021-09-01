@@ -26,6 +26,6 @@ export const LayoutContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  padding: 2rem 8rem;
+  padding: 2rem 0;
   margin-top: 2rem;
 `;

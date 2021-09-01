@@ -57,7 +57,9 @@ const Header = () => {
         </S.MenuButton>
       </S.MenuContainer>
       <S.MenuButton>
-        <a href="/account">로그인</a>
+        <S.MenuTitle>
+          <a href="/login">로그인</a>
+        </S.MenuTitle>
       </S.MenuButton>
     </S.Header>
   );

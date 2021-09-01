@@ -14,7 +14,7 @@ const MainPage = () => {
           Emart <br />
           운영시스템 <br />
         </S.Title>
-        대충 있어보이게 적자
+        <S.SubTitle>대충 있어보이게 적자</S.SubTitle>
         <SearchContainer />
       </S.MainTitleArea>
       <S.CardContainers>
