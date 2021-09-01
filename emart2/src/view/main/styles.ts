@@ -31,11 +31,3 @@ export const CardContainers = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
 `;
-
-export const CardTitle = styled.p`
-  font-size: 2.5rem;
-`;
-
-export const CardDescrption = styled.p`
-  font-size: 1rem;
-`;
