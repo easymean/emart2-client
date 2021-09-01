@@ -6,16 +6,25 @@ import { CategoryContainerProps } from "./types";
 import SiteItem from "@component/site-item";
 import { Col, Grid, Row } from "@/component/grid/styles";
 import { CommonTitle, CommonDescription } from "@/component/common/font-styles";
+import { categoryData } from "./data";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
-  const { title, description, siteList } = useSite(categoryId);
-
+  // const { title, description, siteList } = useSite(categoryId);
+  const { title, description, siteList } = categoryData;
   return (
     <S.SiteContainer>
-      <S.CategoryInfo>
-        <CommonTitle>{title}</CommonTitle>
-        <CommonDescription>{description}</CommonDescription>
-      </S.CategoryInfo>
+      <S.CategoryHeader>
+        <S.CategoryInfo>
+          <S.CategoryTitle>{title}</S.CategoryTitle>
+          <S.CategoryDescription>{description}</S.CategoryDescription>
+        </S.CategoryInfo>
+
+        <S.TypeContainer>
+          <S.TypeName>개발</S.TypeName>
+          <S.TypeName>운영</S.TypeName>
+          <S.TypeName>서버</S.TypeName>
+        </S.TypeContainer>
+      </S.CategoryHeader>
 
       <S.SiteListContainer>
         {siteList.length !== 0 ? (
