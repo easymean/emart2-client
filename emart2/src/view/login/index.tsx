@@ -16,7 +16,6 @@ const LoginPage = () => {
   };
 
   const onClickLogin = () => {
-    console.log(account);
     if (isEmpty(account.id) || isEmpty(account.password)) {
       alert("아이디 혹은 비밀번호를 입력해주세요");
     }

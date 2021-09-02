@@ -72,11 +72,11 @@ export const CategoryDescription = styled.p`
   font-size: 1.8rem;
 `;
 
-export const TypeContainer = styled.div`
+export const TypeNav = styled.div`
   display: flex;
 `;
 
-export const TypeName = styled.button`
+export const TypeButton = styled.button`
   background-color: inherit;
   font-size: 2rem;
   margin: 0 6rem 0 0;
@@ -89,6 +89,20 @@ export const TypeName = styled.button`
 `;
 
 export const SiteListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const DevList = styled.div`
+  padding: 0;
+  margin: 0 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
+
+export const RealList = styled.div`
   padding: 0;
   margin: 0 6rem;
   display: flex;
