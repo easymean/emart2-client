@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import * as S from "./styles";
 import { CommonTitle } from "@/component/common/font-styles";
 import InputBox from "@/component/input-box";
+import { useEffect } from "react";
 
 const SignUpPage = () => {
   const [info, setInfo] = useState({
@@ -11,58 +12,74 @@ const SignUpPage = () => {
     email: "",
   });
   const [disabled, setDisable] = useState(true);
-  const [pwdValid, setPwdValid] = useState(false);
+  const [pwdValid, setPwdValid] = useState(true);
+  const [empty, setEmpty] = useState(true);
 
-  const isEmpty = (data) => {
-    for (let el in data) {
-      let val = data[el];
+  const checkEmpty = () => {
+    for (let el in info) {
+      let val = info[el];
       if (val == null || (val != null && val == "")) {
-        return true;
+        setEmpty(true);
+        return;
       }
     }
-    return false;
+    setEmpty(false);
   };
-  const handleConfirmPassword = () => {
-    if (
-      info.password != "" &&
-      info.password2 != "" &&
-      info.password === info.password2
-    ) {
+
+  const checkPassword = () => {
+    const { password, password2 } = info;
+    if (password == null || password.length < 1) {
+      setPwdValid(false);
+      return;
+    }
+    if (password2 == null || password2.length < 1) {
+      setPwdValid(false);
+      return;
+    }
+    if (password === password2) {
       setPwdValid(true);
     } else {
       setPwdValid(false);
     }
   };
 
-  const setData = useCallback(
+  useEffect(() => {
+    checkPassword();
+  }, [info.password, info.password2]); //비밀번호 일치 여부 판별
+
+  useEffect(() => {
+    checkEmpty();
+  }, [info.id, info.email]); //빈칸 여부 판별
+
+  useEffect(() => {
+    if (!empty && pwdValid) {
+      setDisable(false);
+    }
+  }, [empty, pwdValid]);
+
+  const handleChange = useCallback(
     (e) => {
       const { name, value } = e.target;
       setInfo({
         ...info,
         [name]: value,
       });
-      console.log(info);
-      handleConfirmPassword();
-
-      if (!isEmpty(info)) {
-        setDisable(false);
-      }
     },
-    [info, disabled]
+    [info]
   );
 
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
-      onClickSignup(e);
+      onClickSignup();
       //추후 개발 예정
     }
   };
 
-  const onClickSignup = (e) => {
-    if (isEmpty(info)) {
-      alert("모두 입력해주세요");
+  const onClickSignup = () => {
+    if (disabled) {
+      return;
     }
-    setDisable(false);
+    alert("회원가입짜라잔");
   };
   return (
     <S.SignUpContainer>
@@ -73,7 +90,7 @@ const SignUpPage = () => {
           <InputBox
             name="id"
             placeholder="아이디"
-            setData={setData}
+            setData={handleChange}
             onKeyPress={onKeyPress}
           />
           <S.CheckIdButton>중복 확인</S.CheckIdButton>
@@ -82,7 +99,7 @@ const SignUpPage = () => {
           <InputBox
             name="password"
             placeholder="비밀번호"
-            setData={setData}
+            setData={handleChange}
             onKeyPress={onKeyPress}
           />
         </S.InputBoxWrapper>
@@ -90,7 +107,7 @@ const SignUpPage = () => {
           <InputBox
             name="password2"
             placeholder="비밀번호 확인"
-            setData={setData}
+            setData={handleChange}
             onKeyPress={onKeyPress}
           />
         </S.InputBoxWrapper>
@@ -102,7 +119,7 @@ const SignUpPage = () => {
           <InputBox
             name="email"
             placeholder="이메일"
-            setData={setData}
+            setData={handleChange}
             onKeyPress={onKeyPress}
           />
         </S.InputBoxWrapper>
