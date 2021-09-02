@@ -5,7 +5,9 @@ import {
   DropdownContainer,
   DropdownItem,
   DropdownList,
+  DropdownTitle,
 } from "@component/dropdown/styles";
+import DropDownItem from "@component/dropdown";
 import { categoryList as data } from "@view/main/data";
 import { useHeader } from "./hooks";
 import { useHistory } from "react-router-dom";
@@ -30,12 +32,12 @@ const Header = () => {
               <DropdownList>
                 <DropdownItem>
                   <a href={CONSTANT_URL.BLOSSOM} target="_blank">
-                    <S.SmallMenuText>블라썸</S.SmallMenuText>
+                    <DropdownTitle>블라썸</DropdownTitle>
                   </a>
                 </DropdownItem>
                 <DropdownItem>
                   <a href={CONSTANT_URL.INC_JIRA} target="_blank">
-                    <S.SmallMenuText>지라</S.SmallMenuText>
+                    <DropdownTitle>지라</DropdownTitle>
                   </a>
                 </DropdownItem>
               </DropdownList>
@@ -50,9 +52,11 @@ const Header = () => {
                 {categoryList.length != 0 ? (
                   categoryList.map((el, idx) => {
                     return (
-                      <DropdownItem key={idx}>
-                        <S.SmallMenuText>{el.serviceName}</S.SmallMenuText>
-                      </DropdownItem>
+                      <DropDownItem
+                        key={idx}
+                        title={el.serviceName}
+                        redirect={`category/${el.id}`}
+                      />
                     );
                   })
                 ) : (

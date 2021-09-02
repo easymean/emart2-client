@@ -8,7 +8,7 @@ export const DropdownContainer = styled.nav`
   position: relative;
 `;
 
-export const DropdownList = styled.div`
+export const DropdownList = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -19,8 +19,9 @@ export const DropdownList = styled.div`
   position: absolute;
 `;
 
-export const DropdownItem = styled.div`
+export const DropdownItem = styled.li`
   display: flex;
+  justify-content: center;
   width: 100%;
   background-color: ${THEME_COLOR.WHITE};
 
@@ -32,4 +33,12 @@ export const DropdownItem = styled.div`
     text-decoration: none;
     color: inherit;
   }
+`;
+
+export const DropdownTitle = styled.p`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 1rem;
+  font-size: 2rem;
 `;

@@ -43,7 +43,7 @@ export const MenuButton = styled.button`
   width: 100%;
   outline: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   background-color: inherit;
   text-align: center;
 
@@ -70,7 +70,7 @@ export const MenuButton = styled.button`
   }
 
   @media only screen and (min-width: ${BREAKPOINT}px) {
-    width: 10rem;
+    width: 15rem;
     margin: 0 0.5rem;
     transition: background-color 0.5s;
   }
@@ -90,12 +90,4 @@ export const DesktopLink = styled(Link)`
   @media only screen and (min-width: ${BREAKPOINT}px) {
     display: block;
   }
-`;
-
-export const SmallMenuText = styled.p`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0.5rem 0.5rem;
-  font-size: 1.1rem;
 `;
