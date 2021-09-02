@@ -3,62 +3,38 @@ import * as S from "./styles";
 import InputBox from "@/component/input-box";
 
 const ManageWebsitePage = () => {
-  const [account, setAccount] = useState({
-    id: "",
-    password: "",
-  });
-
-  const setData = (e) => {
-    setAccount({
-      ...account,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const onClickLogin = () => {
-    console.log(account);
-    if (isEmpty(account.id) || isEmpty(account.password)) {
-      alert("아이디 혹은 비밀번호를 입력해주세요");
-    }
-    //login ajax
-  };
-
-  const onClickRedirect = () => {
-    window.location.href = "/signup";
-  };
-
-  const onKeyPress = (e) => {
-    if (e.key == "Enter") {
-      onClickLogin();
-    }
-  };
-
-  const isEmpty = (text) => {
-    if (text == null || (text != null && text == "")) {
-      return true;
-    }
-    return false;
-  };
-
   return (
-    <S.LoginContainer>
-      <S.LoginWrapper>
-        <InputBox
-          name="id"
-          placeholder="아이디"
-          setData={setData}
-          onKeyPress={onKeyPress}
-        />
-        <InputBox
-          name="password"
-          placeholder="비밀번호"
-          setData={setData}
-          onKeyPress={onKeyPress}
-        />
-        <S.LoginButton onClick={onClickLogin}>로그인</S.LoginButton>
-        <S.LoginButton onClick={onClickRedirect}>회원가입</S.LoginButton>
-      </S.LoginWrapper>
-    </S.LoginContainer>
+    <S.ManageWebsiteContainer>
+      <S.Title>사이트 등록하기</S.Title>
+      <S.InfoWrapper>
+        <S.Label>이름*</S.Label>
+        <S.InputBoxWrapper>
+          <InputBox placeholder="광고제휴BOS 웹" />
+        </S.InputBoxWrapper>
+        <S.Label>url*</S.Label>
+        <S.InputBoxWrapper>
+          <InputBox placeholder="https://www.naver.com" />
+        </S.InputBoxWrapper>
+        <S.Label>속한 시스템*</S.Label>
+        <S.Select>
+          <option value="" hidden>
+            시스템을 선택해주세요
+          </option>
+          <option value="1">MMS쿠폰</option>
+          <option value="2">광고제휴</option>
+          <option value="3">세금계산서</option>
+          <option value="4">CMS</option>
+          <option value="5">ALM</option>
+          <option value="6">챗봇</option>
+        </S.Select>
+        <S.Label> 설명*</S.Label>
+        <InputBox />
+      </S.InfoWrapper>
+      <S.ButtonWrapper>
+        <S.SaveButton>저장</S.SaveButton>
+        <S.CancelButton>취소</S.CancelButton>
+      </S.ButtonWrapper>
+    </S.ManageWebsiteContainer>
   );
 };
 
