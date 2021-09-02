@@ -36,5 +36,6 @@ export const siteListData = [
 export const categoryData = {
   title: "MMS 쿠폰",
   description: "MMS쿠폰우헤헤헤헤",
-  siteList: siteListData,
+  devSiteList: siteListData,
+  realSiteList: siteListData,
 };
