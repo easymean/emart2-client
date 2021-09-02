@@ -32,3 +32,5 @@ export const TAG_COLOR = {
   DEV: "#66CDAA",
   PROD: "#FF5675",
 };
+
+export const SERVER = "http://localhost:3000";

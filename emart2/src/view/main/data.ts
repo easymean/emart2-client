@@ -15,7 +15,7 @@ export const categoryList = [
   },
   {
     serviceName: "광고제휴",
-    description: "메롱메롱",
+    description: "광고제휴",
     id: 3,
     image: STATIC_URL.AD,
   },
