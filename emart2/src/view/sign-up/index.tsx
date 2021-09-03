@@ -1,86 +1,16 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import * as S from "./styles";
 import { CommonTitle } from "@/component/common/font-styles";
 import InputBox from "@/component/input-box";
-import { useEffect } from "react";
+import { useInputBox, useSignupButton } from "./hooks";
 
 const SignUpPage = () => {
-  const [info, setInfo] = useState({
-    id: "",
-    password: "",
-    password2: "",
-    email: "",
-  });
-  const [disabled, setDisable] = useState(true);
-  const [pwdValid, setPwdValid] = useState(true);
-  const [empty, setEmpty] = useState(true);
-
-  const checkEmpty = () => {
-    for (let el in info) {
-      let val = info[el];
-      if (val == null || (val != null && val == "")) {
-        setEmpty(true);
-        return;
-      }
-    }
-    setEmpty(false);
-  };
-
-  const checkPassword = () => {
-    const { password, password2 } = info;
-    if (password == null || password.length < 1) {
-      setPwdValid(false);
-      return;
-    }
-    if (password2 == null || password2.length < 1) {
-      setPwdValid(false);
-      return;
-    }
-    if (password === password2) {
-      setPwdValid(true);
-    } else {
-      setPwdValid(false);
-    }
-  };
-
-  useEffect(() => {
-    checkPassword();
-  }, [info.password, info.password2]); //비밀번호 일치 여부 판별
-
-  useEffect(() => {
-    checkEmpty();
-  }, [info.id, info.email]); //빈칸 여부 판별
-
-  useEffect(() => {
-    if (!empty && pwdValid) {
-      setDisable(false);
-    }
-  }, [empty, pwdValid]);
-
-  const handleChange = useCallback(
-    (e) => {
-      const { name, value } = e.target;
-      setInfo({
-        ...info,
-        [name]: value,
-      });
-    },
-    [info]
+  const { empty, pwdValid, handleChange, info } = useInputBox();
+  const { disabled, onKeyPress, onClickSignup } = useSignupButton(
+    empty,
+    pwdValid,
+    info
   );
-
-  const onKeyPress = (e) => {
-    if (e.key == "Enter") {
-      onClickSignup();
-      //추후 개발 예정
-    }
-  };
-
-  const onClickSignup = () => {
-    if (disabled) {
-      return;
-    }
-    alert("회원가입짜라잔");
-  };
   return (
     <S.SignUpContainer>
       <CommonTitle> 회원가입</CommonTitle>

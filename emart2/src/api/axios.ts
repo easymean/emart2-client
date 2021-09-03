@@ -8,8 +8,14 @@ const instance = axios.create({
 });
 
 instance.interceptors.response.use(
-  (res) => Promise.resolve(res.data),
-  (err) => Promise.reject(err)
+  (res) => {
+    console.log(res);
+    return Promise.resolve(res.data);
+  },
+  (err) => {
+    console.log(err);
+    return Promise.reject(err);
+  }
 );
 
 export default instance;
