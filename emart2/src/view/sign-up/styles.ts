@@ -2,19 +2,20 @@ import { THEME_COLOR } from "@/asset/constant";
 import styled from "styled-components";
 
 export const SignUpContainer = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 6rem 6rem;
 `;
 
 export const SignUpWrapper = styled.div`
   margin-top: 6rem;
-  width: 50%;
-  height: 50%;
+  width: 40rem;
+  height: 20rem;
 `;
 
 export const InputBoxWrapper = styled.div`

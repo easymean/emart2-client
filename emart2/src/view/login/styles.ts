@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  width: 30%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -11,8 +11,8 @@ export const LoginContainer = styled.div`
 
 export const LoginWrapper = styled.div`
   display: flex;
-  width: 100%;
-  height: 40%;
+  width: 40rem;
+  height: 20rem;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
