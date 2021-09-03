@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
 
-const ManageWebsitePage = () => {
+const RegisterWebsitePage = () => {
   return (
     <S.ManageWebsiteContainer>
       <S.Title>사이트 등록하기</S.Title>
@@ -15,7 +15,7 @@ const ManageWebsitePage = () => {
         <S.InputBoxWrapper>
           <InputBox placeholder="https://www.naver.com" />
         </S.InputBoxWrapper>
-        <S.Label>속한 시스템*</S.Label>
+        <S.Label>관련 시스템*</S.Label>
         <S.Select>
           <option value="" hidden>
             시스템을 선택해주세요
@@ -26,6 +26,18 @@ const ManageWebsitePage = () => {
           <option value="4">CMS</option>
           <option value="5">ALM</option>
           <option value="6">챗봇</option>
+          <option value="7">공통</option>
+        </S.Select>
+        <S.Label>태그*</S.Label>
+        <S.Select>
+          <option value="" hidden>
+            태그을 선택해주세요
+          </option>
+          <option value="WEB_FRONT">웹FRONT</option>
+          <option value="WEB_ADMIN">웹BOS</option>
+          <option value="DEPLOY">배포</option>
+          <option value="MONITOR">모니터링</option>
+          <option value="STAGE">스테이징</option>
         </S.Select>
         <S.Label> 설명*</S.Label>
         <InputBox />
@@ -38,4 +50,4 @@ const ManageWebsitePage = () => {
   );
 };
 
-export default ManageWebsitePage;
+export default RegisterWebsitePage;
