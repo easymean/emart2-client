@@ -4,9 +4,8 @@ import { BREAKPOINT, THEME_COLOR } from "@asset/constant";
 import { Link } from "react-router-dom";
 
 export const SideBarContainer = styled.div`
-  width: 15%;
+  width: 12%;
   background-color: ${THEME_COLOR.GRAYER};
-  margin: 2rem 2rem;
 
   ::-webkit-scrollbar {
     width: 5px;

@@ -3,13 +3,13 @@ import { useHistory } from "react-router";
 import * as S from "./styles";
 import { SideBarItemProps } from "./types";
 
-const SideBarItem = ({ category }: SideBarItemProps) => {
+const SideBarItem = ({ item }: SideBarItemProps) => {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/category/${category.id}`);
+    history.push(`${item.redirect}`);
   };
-  return <S.SideBarItem onClick={handleClick}>{category.name}</S.SideBarItem>;
+  return <S.SideBarItem onClick={handleClick}>{item.name}</S.SideBarItem>;
 };
 
 export default SideBarItem;

@@ -1,5 +1,5 @@
 import { CategoryModel } from "@/model/cateoryModel";
 
 export interface SideBarItemProps {
-  category: CategoryModel;
+  item: { name: string; redirect: string };
 }

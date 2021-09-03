@@ -11,7 +11,9 @@ const SideBarContainer = () => {
     <S.SideBarContainer>
       {categoryList.map((item) => (
         <S.SideBarItemWrapper key={item.id}>
-          <SideBarItem category={item} />
+          <SideBarItem
+            item={{ name: item.name, redirect: `/category/${item.id}` }}
+          />
         </S.SideBarItemWrapper>
       ))}
     </S.SideBarContainer>
