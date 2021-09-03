@@ -56,7 +56,7 @@ const Header = () => {
                       //   title={el.serviceName}
                       //   redirect={`category/${el.id}`}
                       // />
-                      <DropdownItem>
+                      <DropdownItem key={idx}>
                         <a href={`/category/${el.id}`}>
                           <DropdownTitle>{el.serviceName}</DropdownTitle>
                         </a>
