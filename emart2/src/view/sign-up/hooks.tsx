@@ -1,5 +1,4 @@
 import authAPI from "@/api/auth";
-import { SignupModel } from "@/model/authModel";
 import { useCallback, useEffect, useState } from "react";
 
 export const useInputBox = () => {

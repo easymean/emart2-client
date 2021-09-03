@@ -1,44 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
+import { useLoginInputBox } from "./hooks";
 
 const LoginPage = () => {
-  const [account, setAccount] = useState({
-    id: "",
-    password: "",
-  });
-
-  const setData = (e) => {
-    setAccount({
-      ...account,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const onClickLogin = () => {
-    if (isEmpty(account.id) || isEmpty(account.password)) {
-      alert("아이디 혹은 비밀번호를 입력해주세요");
-    }
-    //login ajax
-  };
-
-  const onClickRedirect = () => {
-    window.location.href = "/signup";
-  };
-
-  const onKeyPress = (e) => {
-    if (e.key == "Enter") {
-      onClickLogin();
-    }
-  };
-
-  const isEmpty = (text) => {
-    if (text == null || (text != null && text == "")) {
-      return true;
-    }
-    return false;
-  };
-
+  const { setData, onClickRedirect, onKeyPress, onClickLogin } =
+    useLoginInputBox();
   return (
     <S.LoginContainer>
       <S.LoginWrapper>
