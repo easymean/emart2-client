@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
 import { useLoginInputBox } from "./hooks";
@@ -10,7 +10,7 @@ const LoginPage = () => {
     <S.LoginContainer>
       <S.LoginWrapper>
         <InputBox
-          name="id"
+          name="username"
           placeholder="아이디"
           setData={setData}
           onKeyPress={onKeyPress}

@@ -14,11 +14,15 @@ export const useLoginInputBox = () => {
   };
 
   const login = async () => {
-    await authAPI.login(account);
+    await authAPI.login(account).catch((err) => {
+      alert(err);
+      console.log(err);
+      return;
+    });
   };
 
   const onClickLogin = () => {
-    if (!empty) {
+    if (empty) {
       alert("아이디 혹은 비밀번호를 입력해주세요");
     }
     login();

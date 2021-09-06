@@ -94,18 +94,18 @@ export const useSignupButton = (empty: boolean, pwdValid: boolean, info) => {
       password: info.password,
       email: info.email,
     };
-    await authAPI.signup(input);
+    await authAPI.signup(input).catch((err) => {
+      console.log(err);
+      alert(err);
+      return;
+    });
   }, [info]);
 
   const onClickSignup = () => {
     if (disabled) {
       return;
     }
-    try {
-      signup();
-    } catch (e) {
-      alert(e);
-    }
+    signup();
     alert("회원가입 짜라란");
     window.location.href = "http://localhost:3000/login";
   };

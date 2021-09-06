@@ -9,12 +9,16 @@ const instance = axios.create({
 
 instance.interceptors.response.use(
   (res) => {
-    console.log(res);
     return Promise.resolve(res.data);
   },
   (err) => {
-    console.log(err);
-    return Promise.reject(err);
+    const res = err.response.data;
+
+    if (res.message == null) {
+      return Promise.reject(err);
+    } else {
+      return Promise.reject(res.message);
+    }
   }
 );
 
