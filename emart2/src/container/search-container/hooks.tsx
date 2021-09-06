@@ -45,8 +45,12 @@ export const useSearchBar = () => {
     (keyword: string) => async () => {
       if (!keyword) return;
 
-      const siteList = await siteAPI.searchSitebyKeyword(keyword);
-      setSiteList(siteList);
+      await siteAPI
+        .searchSitebyKeyword(keyword)
+        .then((res) => setSiteList(res))
+        .catch((e) => {
+          console.log(e);
+        });
     },
     [debounceKeyword]
   );
