@@ -3,7 +3,7 @@ export interface SiteModel {
   name: string;
   dev: boolean;
   url: string;
-  order: number;
+  //order: number;
   stage: string;
 }
 

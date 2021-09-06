@@ -6,6 +6,7 @@ const endpoints = {
   SITE_API: "/website",
   ACCOUNT_API: "/account",
   AUTH_API: "/auth",
+  MANAGE_SITE_API: "/admin/websites",
 };
 
 export default endpoints;

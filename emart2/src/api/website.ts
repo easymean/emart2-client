@@ -30,6 +30,14 @@ const siteAPI = {
   increaseSiteFreq: async (siteId: number) => {
     await axios.put(`${endpoints.SITE_API}/freq/${siteId}`);
   },
+
+  createWebsite: async (req: SiteModel): Promise<SiteModel> => {
+    const { data } = await axios.post<SiteModel>(
+      `${endpoints.MANAGE_SITE_API}`,
+      req
+    );
+    return data;
+  },
 };
 
 export default siteAPI;

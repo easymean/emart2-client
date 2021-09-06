@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
+import { useSelectBox } from "./hooks";
 
 const RegisterWebsitePage = () => {
+  const { systemList } = useSelectBox();
   return (
     <S.ManageWebsiteContainer>
       <S.Title>사이트 등록하기</S.Title>
@@ -15,18 +17,22 @@ const RegisterWebsitePage = () => {
         <S.InputBoxWrapper>
           <InputBox placeholder="https://www.naver.com" />
         </S.InputBoxWrapper>
+        <S.Label>개발/운영*</S.Label>
+        <S.Select>
+          <option value="true">개발</option>
+          <option value="false">운영</option>
+        </S.Select>
         <S.Label>관련 시스템*</S.Label>
         <S.Select>
-          <option value="" hidden>
-            시스템을 선택해주세요
-          </option>
-          <option value="1">MMS쿠폰</option>
-          <option value="2">광고제휴</option>
-          <option value="3">세금계산서</option>
-          <option value="4">CMS</option>
-          <option value="5">ALM</option>
-          <option value="6">챗봇</option>
-          <option value="7">공통</option>
+          {systemList.length !== 0 ? (
+            systemList.map((system, idx) => {
+              <option value={system.id}>{system.name}</option>;
+            })
+          ) : (
+            <option value="" hidden>
+              시스템을 먼저 등록해주세요
+            </option>
+          )}
         </S.Select>
         <S.Label>태그*</S.Label>
         <S.Select>
