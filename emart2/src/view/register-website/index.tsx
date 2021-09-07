@@ -40,11 +40,11 @@ const RegisterWebsitePage = () => {
             <option value="" hidden>
               태그을 선택해주세요
             </option>
-            <option value="WEB_FRONT">웹FRONT</option>
-            <option value="WEB_ADMIN">웹BOS</option>
+            <option value="WEB">웹</option>
+            <option value="CONFIG">형상관리</option>
             <option value="DEPLOY">배포</option>
             <option value="MONITOR">모니터링</option>
-            <option value="STAGE">스테이징</option>
+            <option value="ADMIN">관리(제우스)</option>
           </S.Select>
           <S.Label> 설명*</S.Label>
           <InputBox />

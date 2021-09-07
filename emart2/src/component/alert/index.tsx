@@ -15,6 +15,7 @@ const Alert = ({ redirect, pop, message }: AlertProps) => {
   };
   return (
     <Modal>
+      <S.ModalMessage>{message}</S.ModalMessage>
       <S.Button onClick={onClick}>확인</S.Button>
     </Modal>
   );
