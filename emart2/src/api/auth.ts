@@ -9,6 +9,7 @@ const authAPI = {
 
   login: async (login: LoginModel) => {
     await axios.post(`${endpoints.AUTH_API}/login`, login);
+    axios.defaults.headers.common["Authorization"] = `Bearer `;
   },
 };
 
