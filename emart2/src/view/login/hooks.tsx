@@ -1,8 +1,8 @@
 import authAPI from "@/api/auth";
 import { LoginModel } from "@/model/authModel";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useLoginInputBox = () => {
+export const useLoginInput = () => {
   const [account, setAccount] = useState({} as LoginModel);
   const [empty, setEmpty] = useState(true);
 
@@ -11,31 +11,6 @@ export const useLoginInputBox = () => {
       ...account,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const login = async () => {
-    await authAPI.login(account).catch((err) => {
-      alert(err);
-      console.log(err);
-      return;
-    });
-  };
-
-  const onClickLogin = () => {
-    if (empty) {
-      alert("아이디 혹은 비밀번호를 입력해주세요");
-    }
-    login();
-  };
-
-  const onClickRedirect = () => {
-    window.location.href = "/signup";
-  };
-
-  const onKeyPress = (e) => {
-    if (e.key == "Enter") {
-      onClickLogin();
-    }
   };
 
   useEffect(() => {
@@ -54,8 +29,42 @@ export const useLoginInputBox = () => {
 
   return {
     setData,
-    onClickRedirect,
+    empty,
+    account,
+  };
+};
+export const useLogin = (empty, account) => {
+  const onKeyPress = (e) => {
+    if (e.key == "Enter") {
+      onClickLogin();
+    }
+  };
+
+  const login = async () => {
+    await authAPI.login(account).catch((err) => {
+      alert(err);
+      return;
+    });
+    //window.location.replace("/"); //메인으로
+  };
+
+  const onClickLogin = () => {
+    if (empty) {
+      alert("아이디 혹은 비밀번호를 입력해주세요");
+    }
+    login();
+  };
+  return {
     onKeyPress,
     onClickLogin,
+  };
+};
+
+export const useSignup = () => {
+  const onClickRedirect = () => {
+    window.location.href = "/signup";
+  };
+  return {
+    onClickRedirect,
   };
 };

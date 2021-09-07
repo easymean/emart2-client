@@ -1,11 +1,12 @@
 import React from "react";
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
-import { useLoginInputBox } from "./hooks";
+import { useLogin, useLoginInput, useSignup } from "./hooks";
 
 const LoginPage = () => {
-  const { setData, onClickRedirect, onKeyPress, onClickLogin } =
-    useLoginInputBox();
+  const { setData, empty, account } = useLoginInput();
+  const { onKeyPress, onClickLogin } = useLogin(empty, account);
+  const { onClickRedirect } = useSignup();
   return (
     <S.LoginContainer>
       <S.LoginWrapper>

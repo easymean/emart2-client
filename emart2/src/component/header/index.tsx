@@ -12,7 +12,6 @@ import { useHeader } from "./hooks";
 import { useHistory } from "react-router-dom";
 
 const Header = () => {
-  const { showMenu, showMenu2, toggleMenu, toggleMenu2 } = useHeader();
   const categoryList = data;
   const history = useHistory();
   const handleRedirect = (id: number) => {
