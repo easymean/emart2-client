@@ -14,6 +14,7 @@ module.exports = {
       "@view": path.resolve(__dirname, "src/view/"),
       "@model": path.resolve(__dirname, "src/model/"),
       "@api": path.resolve(__dirname, "src/api/"),
+      "@context": path.resolve(__dirname, "src/context/"),
     },
   },
 

@@ -18,6 +18,7 @@
       "@view/*": ["view/*"],
       "@model/*": ["model/*"],
       "@api/*": ["api/*"],
+      "@context/*": ["context/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

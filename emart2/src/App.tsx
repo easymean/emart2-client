@@ -12,6 +12,7 @@ import RegisterSystemPage from "@view/register-system";
 
 import Layout from "@component/common/layout";
 import GlobalStyles from "@component/common/global-styles";
+import Auth from "@component/common/auth";
 
 const App: React.FC = () => {
   return (
@@ -23,7 +24,7 @@ const App: React.FC = () => {
             <Route
               path="/category/:categoryId"
               exact
-              component={SiteListPage}
+              component={Auth(SiteListPage, false)}
             />
             <Route path="/account" component={AccountListPage} />
             <Route path="/login" component={LoginPage} />
