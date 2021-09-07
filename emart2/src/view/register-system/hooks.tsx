@@ -1,34 +1,14 @@
 import categoryAPI from "@/api/category";
-import siteAPI from "@/api/website";
 import { CategoryModel } from "@/model/cateoryModel";
-import { SiteModel } from "@/model/siteModel";
 import { useCallback, useEffect } from "react";
 import { useState } from "react";
 
-export const useSelectBox = () => {
-  const [systemList, setSystemList] = useState([] as CategoryModel[]);
-  const getSystemList = async () => {
-    const categoryList = await categoryAPI.getCategoryList();
-    setSystemList(categoryList);
-  };
-
-  useEffect(() => {
-    getSystemList();
-  }, []);
-
-  return {
-    systemList,
-  };
-};
-
 export const useInput = () => {
-  const [info, setInfo] = useState({} as SiteModel);
+  const [info, setInfo] = useState({} as CategoryModel);
   const [disabled, setDisabled] = useState(false);
   const onChangeHandler = useCallback(
     (e) => {
       const { name, value } = e.target;
-      console.log(name);
-      console.log(value);
       setInfo({
         ...info,
         [name]: value,
@@ -61,13 +41,13 @@ export const useInput = () => {
 };
 
 export const useSaveButton = (info) => {
-  const createSiteInfo = async () => {
+  const createCategory = async () => {
     info.order = 0;
-    const site = await siteAPI.createWebsite(info);
+    const site = await categoryAPI.createCategory(info);
   };
 
   const onClickSave = () => {
-    createSiteInfo();
+    createCategory();
   };
   return {
     onClickSave,

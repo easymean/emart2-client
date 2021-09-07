@@ -1,9 +1,11 @@
 export interface SiteModel {
-  id: number;
+  id?: number;
   name: string;
   dev: boolean;
   url: string;
-  //order: number;
+  order: number;
+  description: string;
+  categoryId?: number;
   stage: string;
 }
 

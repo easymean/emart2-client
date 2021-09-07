@@ -7,7 +7,8 @@ import { EnumValueListModel, EnumValueModel } from "@/model/enumModel";
 const categoryAPI = {
   getCategoryList: async (): Promise<CategoryModel[]> => {
     const { data } = await axios.get<CategoryListModel>(endpoints.CATEGORY_API);
-    return data.categoryList;
+    //return data.categoryList;
+    return data["category_list"];
   },
 
   getCategory: async (categoryId: number): Promise<CategoryModel> => {
@@ -26,7 +27,7 @@ const categoryAPI = {
 
   createCategory: async (category: CategoryModel): Promise<CategoryModel> => {
     const { data: categoryData } = await axios.post<CategoryModel>(
-      `${endpoints.CATEGORY_API}`,
+      `${endpoints.MANAGE_CATEGORY_API}`,
       category
     );
     return categoryData;
