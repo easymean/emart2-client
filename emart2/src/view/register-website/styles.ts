@@ -2,7 +2,7 @@ import { THEME_COLOR } from "@/asset/constant";
 import styled from "styled-components";
 
 export const ManageWebsiteContainer = styled.div`
-  width: 40%;
+  width: calc(100vw-10rem);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,24 +15,30 @@ export const Title = styled.p`
   margin: 5rem 0;
 `;
 
-export const InfoWrapper = styled.div`
+export const SiteInfo = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+`;
+export const Table = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 12rem 1fr;
+  grid-gap: 2rem 2rem;
 `;
 
 export const InputBoxWrapper = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
   height: 4rem;
 `;
 
-export const Label = styled.p`
+export const Label = styled.div`
+  display: flex;
   font-size: 2rem;
-  margin: 3rem 0 0.5rem 0;
+  align-items: center;
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
