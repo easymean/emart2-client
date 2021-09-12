@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { THEME_COLOR } from "../../asset/constant";
+import { THEME_COLOR } from "@asset/constant";
 
 export const Title = styled.div`
   margin-top: 10rem;

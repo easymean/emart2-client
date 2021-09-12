@@ -25,26 +25,21 @@ const SignUpPage = () => {
           />
           <S.CheckIdButton>중복 확인</S.CheckIdButton>
         </S.InputBoxWrapper>
-        <S.InputBoxWrapper>
-          <InputBox
-            name="password"
-            placeholder="비밀번호"
-            setData={handleChange}
-            onKeyPress={onKeyPress}
-          />
-        </S.InputBoxWrapper>
-        <S.InputBoxWrapper>
-          <InputBox
-            name="password2"
-            placeholder="비밀번호 확인"
-            setData={handleChange}
-            onKeyPress={onKeyPress}
-          />
-        </S.InputBoxWrapper>
-        <S.PwdCaution>
-          {pwdValid ? "" : "비밀번호가 일치하지 않습니다."}
+        <InputBox
+          name="password"
+          placeholder="비밀번호"
+          setData={handleChange}
+          onKeyPress={onKeyPress}
+        />
+        <InputBox
+          name="password2"
+          placeholder="비밀번호 확인"
+          setData={handleChange}
+          onKeyPress={onKeyPress}
+        />
+        <S.PwdCaution valid={pwdValid}>
+          비밀번호가 일치하지 않습니다.
         </S.PwdCaution>
-
         <S.InputBoxWrapper>
           <InputBox
             name="email"
@@ -52,13 +47,11 @@ const SignUpPage = () => {
             setData={handleChange}
             onKeyPress={onKeyPress}
           />
+          <S.CheckEmailButton>이메일인증</S.CheckEmailButton>
         </S.InputBoxWrapper>
-        {/* <S.SignUpButton>이메일인증</S.SignUpButton> */}
-        <S.InputBoxWrapper>
-          <S.SignUpButton onClick={onClickSignup} disabled={disabled}>
-            회원가입
-          </S.SignUpButton>
-        </S.InputBoxWrapper>
+        <S.SignUpButton onClick={onClickSignup} disabled={disabled}>
+          회원가입
+        </S.SignUpButton>
       </S.SignUpWrapper>
     </S.SignUpContainer>
   );
