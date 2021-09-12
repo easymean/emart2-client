@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { THEME_COLOR } from "../../asset/constant";
 
 export const Title = styled.div`
   margin-top: 10rem;
@@ -14,7 +15,6 @@ export const SubTitle = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  // width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -36,4 +36,16 @@ export const CardContainers = styled.div`
   flex-wrap: wrap;
   justify-content: flex-end;
   flex-direction: row;
+`;
+
+export const Yellow = styled.div`
+  color: ${THEME_COLOR.MAIN_YELLOW};
+  font-size: 6rem;
+`;
+
+export const English = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  color: ${THEME_COLOR.GRAYER};
 `;

@@ -11,7 +11,10 @@ const MainPage = () => {
     <S.MainContainer>
       <S.MainTitleArea>
         <S.Title>
-          Emart <br />
+          <S.English>
+            <S.Yellow>e</S.Yellow>mart
+            <br />
+          </S.English>
           운영시스템 <br />
         </S.Title>
         <S.SubTitle>이마트2팀 운영시스템입니다.</S.SubTitle>
