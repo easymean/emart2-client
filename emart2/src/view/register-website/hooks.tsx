@@ -1,15 +1,18 @@
-import categoryAPI from "@/api/category";
+import { useState, useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import siteAPI from "@/api/website";
-import { CategoryModel } from "@/model/cateoryModel";
+import { RootState } from "@/module";
 import { SiteModel } from "@/model/siteModel";
-import { useCallback, useEffect } from "react";
-import { useState } from "react";
+import { getCategoryListAsync } from "@module/category";
 
 export const useSelectBox = () => {
-  const [systemList, setSystemList] = useState([] as CategoryModel[]);
-  const getSystemList = async () => {
-    const categoryList = await categoryAPI.getCategoryList();
-    setSystemList(categoryList);
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector(
+    (state: RootState) => state.category
+  );
+  const getSystemList = () => {
+    dispatch(getCategoryListAsync.request());
   };
 
   useEffect(() => {
@@ -17,7 +20,9 @@ export const useSelectBox = () => {
   }, []);
 
   return {
-    systemList,
+    data,
+    loading,
+    error,
   };
 };
 
@@ -27,8 +32,6 @@ export const useInput = () => {
   const onChangeHandler = useCallback(
     (e) => {
       const { name, value } = e.target;
-      console.log(name);
-      console.log(value);
       setInfo({
         ...info,
         [name]: value,

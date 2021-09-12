@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./styles";
-import InputBox from "@/component/input-box";
 import { useInput, useSaveButton, useSelectBox } from "./hooks";
-import Select from "@/component/select-box";
+
+import InputBox from "@/component/input-box";
 
 const RegisterWebsitePage = () => {
-  const { systemList } = useSelectBox();
+  const { data, loading, error } = useSelectBox();
   const { info, onChangeHandler, disabled } = useInput();
   const { onClickSave } = useSaveButton(info);
   return (
@@ -36,19 +36,17 @@ const RegisterWebsitePage = () => {
           </S.Select>
           <S.Label>관련 시스템*</S.Label>
           <S.Select name="categoryId" onChange={onChangeHandler}>
-            {systemList.length != 0 ? (
-              systemList.map((system, idx) => {
+            <option value="" hidden={true}>
+              시스템을 골라주세요
+            </option>
+            {data &&
+              data.map((system, idx) => {
                 return (
                   <option value={system.id} key={idx}>
                     {system.name}
                   </option>
                 );
-              })
-            ) : (
-              <option value="" hidden>
-                시스템을 먼저 등록해주세요
-              </option>
-            )}
+              })}
           </S.Select>
           <S.Label>태그*</S.Label>
           <S.Select name="stage" onChange={onChangeHandler}>

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import * as S from "./styles";
 import { CONSTANT_URL, STATIC_URL } from "@asset/constant";

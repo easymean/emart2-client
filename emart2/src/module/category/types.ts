@@ -1,7 +1,8 @@
-import { CategoryModel } from "@/model/cateoryModel";
 import { AxiosError } from "axios";
 import { ActionType } from "typesafe-actions";
+
 import * as actions from "./actions";
+import { CategoryModel } from "@/model/cateoryModel";
 
 export type CategoryAction = ActionType<typeof actions>;
 
