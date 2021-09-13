@@ -9,7 +9,7 @@ import {
   DropdownTitle,
 } from "@component/dropdown/styles";
 import { categoryList as data } from "@view/main/data";
-import { useHeader } from "./hooks";
+import { useUser } from "./hooks";
 import { useHistory } from "react-router-dom";
 
 const Header = () => {
@@ -18,6 +18,8 @@ const Header = () => {
   const handleRedirect = (id: number) => {
     history.push(`/category/${id}`);
   };
+  const { user } = useUser();
+  console.log(user);
   return (
     <S.Header>
       <S.DesktopLink to="/">
@@ -73,8 +75,28 @@ const Header = () => {
       </S.MenuContainer>
       <S.MenuButton>
         <S.MenuTitle>
-          <a href="/login">로그인</a>
+          {user ? (
+            <>{user.username}님 안녕하세요</>
+          ) : (
+            <a href="/login">로그인</a>
+          )}
         </S.MenuTitle>
+        {user && (
+          <S.MenuDropdown>
+            <DropdownContainer>
+              <DropdownList>
+                <DropdownItem>
+                  <a href="">
+                    <DropdownTitle>마이페이지</DropdownTitle>
+                  </a>
+                </DropdownItem>
+                <DropdownItem>
+                  <DropdownTitle>로그아웃</DropdownTitle>
+                </DropdownItem>
+              </DropdownList>
+            </DropdownContainer>
+          </S.MenuDropdown>
+        )}
       </S.MenuButton>
     </S.Header>
   );

@@ -9,7 +9,6 @@ const Auth =
   (Component: FC, isMember: boolean): FC =>
   () => {
     const [authCookie] = useCookies(["accessToken"]);
-    console.log(authCookie);
     const [redirectUrl, setRedirectUrl] = useState("/login");
     const [alertMsg, setAlertMsg] = useState("");
     const [isAuth, setIsAuth] = useState(false);
