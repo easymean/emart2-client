@@ -10,7 +10,7 @@ import SignUpPage from "@view/sign-up";
 import AdminPage from "@view/admin";
 import SiteListPage from "@view/site-list";
 import AccountListPage from "@view/account-list";
-import RegisterWebsitePage from "@/view/register-website";
+import ManageSitePage from "@/view/manage-site";
 import ManageSystemPage from "@/view/manage-system";
 
 import Auth from "@component/common/auth";
@@ -36,7 +36,7 @@ const App: React.FC = () => {
             <Route path="/account" component={AccountListPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={SignUpPage} />
-            <Route path="/admin/website" component={RegisterWebsitePage} />
+            <Route path="/admin/site" component={ManageSitePage} />
             <Route path="/admin/system" component={ManageSystemPage} />
             <Route path="/admin" component={AdminPage} />
             <Route path="/" component={MainPage} />

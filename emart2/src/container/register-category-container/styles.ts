@@ -10,6 +10,7 @@ export const RegisterCategoryContainer = styled.div`
   justify-content: center;
   background-color: ${THEME_COLOR.WHITE};
   padding: 4rem 4rem;
+  border-radius: 0.8rem;
 `;
 export const SystemImage = styled.div``;
 

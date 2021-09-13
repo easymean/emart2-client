@@ -1,13 +1,16 @@
 import { THEME_COLOR } from "@/asset/constant";
 import styled from "styled-components";
 
-export const ManageWebsiteContainer = styled.div`
+export const RegisterSiteContainer = styled.div`
   width: calc(100vw-10rem);
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin: 10rem 5rem 0 5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: ${THEME_COLOR.WHITE};
+  padding: 4rem 4rem;
+  border-radius: 0.8rem;
 `;
 
 export const Title = styled.p`

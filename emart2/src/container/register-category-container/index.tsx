@@ -4,10 +4,9 @@ import InputBox from "@/component/input-box";
 import { useInput, useSaveButton } from "./hooks";
 import Modal from "@/component/common/modal";
 
-const RegisterCategoryContainer = ({ show }) => {
+const RegisterCategoryForm = ({ show }) => {
   const { info, onChangeHandler, disabled } = useInput();
   const { onClickSave } = useSaveButton(info);
-  console.log(show);
   return (
     <Modal show={show}>
       <S.RegisterCategoryContainer>
@@ -40,4 +39,4 @@ const RegisterCategoryContainer = ({ show }) => {
   );
 };
 
-export default RegisterCategoryContainer;
+export default RegisterCategoryForm;
