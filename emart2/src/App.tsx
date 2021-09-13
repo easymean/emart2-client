@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
@@ -10,13 +11,12 @@ import AdminPage from "@view/admin";
 import SiteListPage from "@view/site-list";
 import AccountListPage from "@view/account-list";
 import RegisterWebsitePage from "@/view/register-website";
-import RegisterSystemPage from "@view/register-system";
+import ManageSystemPage from "@/view/manage-system";
 
-import Layout from "@component/common/layout";
-import GlobalStyles from "@component/common/global-styles";
 import Auth from "@component/common/auth";
+import Layout from "@component/common/layout";
 import rootReducer, { rootSaga } from "@module/index";
-import { Provider } from "react-redux";
+import GlobalStyles from "@component/common/global-styles";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
@@ -37,7 +37,7 @@ const App: React.FC = () => {
             <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/admin/website" component={RegisterWebsitePage} />
-            <Route path="/admin/system" component={RegisterSystemPage} />
+            <Route path="/admin/system" component={ManageSystemPage} />
             <Route path="/admin" component={AdminPage} />
             <Route path="/" component={MainPage} />
             <Redirect from="*" to="/" />

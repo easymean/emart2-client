@@ -10,17 +10,14 @@ export const LoginContainer = styled.div`
 `;
 
 export const LoginWrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-gap: 1.5rem 1.5rem;
   width: 40rem;
   height: 20rem;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   margin: 0 5rem;
 `;
 
 export const LoginButton = styled.button`
   width: 100%;
-  height: 100%;
-  margin-top: 1rem;
+  height: 3.5rem;
 `;

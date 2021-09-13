@@ -2,7 +2,7 @@ import React from "react";
 import { AlertProps } from "./type";
 import * as S from "./styles";
 import { useHistory } from "react-router-dom";
-import { Modal } from "../common/modal/styles";
+import { ModalContainer } from "@component/common/modal/styles";
 
 const Alert = ({ redirect, pop, message }: AlertProps) => {
   const history = useHistory();
@@ -14,10 +14,10 @@ const Alert = ({ redirect, pop, message }: AlertProps) => {
     }
   };
   return (
-    <Modal>
+    <ModalContainer>
       <S.ModalMessage>{message}</S.ModalMessage>
       <S.Button onClick={onClick}>확인</S.Button>
-    </Modal>
+    </ModalContainer>
   );
 };
 export default Alert;
