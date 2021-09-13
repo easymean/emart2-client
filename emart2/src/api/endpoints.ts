@@ -8,6 +8,7 @@ const endpoints = {
   AUTH_API: "/auth",
   MANAGE_SITE_API: "/admin/websites",
   MANAGE_CATEGORY_API: "/admin/categories",
+  USER_API: "/user",
 };
 
 export default endpoints;
