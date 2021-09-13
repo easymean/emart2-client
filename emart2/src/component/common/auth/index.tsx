@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 import { FC } from "react";
