@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useCookies } from "react-cookie";
 import endpoints from "./endpoints";
 
 const instance = axios.create({
@@ -12,13 +13,9 @@ instance.interceptors.response.use(
     return Promise.resolve(res.data);
   },
   (err) => {
-    const res = err.response.data;
-
-    if (res.message == null) {
-      return Promise.reject(err);
-    } else {
-      return Promise.reject(res.message);
-    }
+    //err.response.data -> res.message에 메세지 있음
+    console.log(err);
+    return Promise.reject(err);
   }
 );
 

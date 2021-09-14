@@ -30,8 +30,10 @@ const App: React.FC = () => {
           <Switch>
             <Route
               path="/category/:categoryId"
+              // exact
+              // component={Auth(SiteListPage, false) 나중에 주석 풀기
               exact
-              component={Auth(SiteListPage, false)}
+              component={SiteListPage}
             />
             <Route path="/account" component={AccountListPage} />
             <Route path="/login" component={LoginPage} />

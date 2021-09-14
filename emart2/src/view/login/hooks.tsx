@@ -1,6 +1,8 @@
 import authAPI from "@/api/auth";
 import { LoginModel } from "@/model/authModel";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 
 export const useLoginInput = () => {
   const [account, setAccount] = useState({} as LoginModel);
@@ -49,6 +51,9 @@ export const useLogin = (empty, account) => {
       setAlertMsg(err);
       return;
     });
+    //로그인 후 쿠키에 있는 토큰을 받아서 request 헤더에 넣는다.
+    const token = useCookies(["accessToken"]);
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     setRedirectUrl("/"); //메인으로
   };
 
