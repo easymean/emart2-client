@@ -19,7 +19,6 @@ const Header = () => {
     history.push(`/category/${id}`);
   };
   const { user } = useUser();
-  console.log(user);
   return (
     <S.Header>
       <S.DesktopLink to="/">
@@ -75,18 +74,14 @@ const Header = () => {
       </S.MenuContainer>
       <S.MenuButton>
         <S.MenuTitle>
-          {user ? (
-            <>{user.username}님 안녕하세요</>
-          ) : (
-            <a href="/login">로그인</a>
-          )}
+          {user ? <>{user.username}님</> : <a href="/login">로그인</a>}
         </S.MenuTitle>
         {user && (
           <S.MenuDropdown>
             <DropdownContainer>
               <DropdownList>
                 <DropdownItem>
-                  <a href="">
+                  <a href="/my">
                     <DropdownTitle>마이페이지</DropdownTitle>
                   </a>
                 </DropdownItem>
