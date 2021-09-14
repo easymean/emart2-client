@@ -5,8 +5,13 @@ export const useSaveButton = () => {
   const onShowModal = () => {
     setShowModal(true);
   };
+
+  const onCloseModal = () => {
+    setShowModal(false);
+  };
   return {
     showModal,
     onShowModal,
+    onCloseModal,
   };
 };

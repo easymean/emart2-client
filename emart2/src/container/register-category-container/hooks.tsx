@@ -41,9 +41,15 @@ export const useInput = () => {
 };
 
 export const useSaveButton = (info) => {
+  const [isAlert, setAlert] = useState(false);
+  const [alertMsg, setAlertMsg] = useState("");
   const createCategory = async () => {
     info.order = 0;
-    const site = await categoryAPI.createCategory(info);
+    const site = await categoryAPI.createCategory(info).catch((e) => {
+      setAlert(true);
+      setAlertMsg("문제가 발생했습니다.");
+      return;
+    });
   };
 
   const onClickSave = () => {

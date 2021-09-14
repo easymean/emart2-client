@@ -45,24 +45,16 @@ export const Label = styled.div`
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
   height: 4rem;
   margin-top: 4rem;
 `;
 export const SaveButton = styled.button`
-  width: 100%;
+  width: 8rem;
   height: 100%;
   margin-right: 0.5rem;
 
-  &:hover {
-    background-color: ${THEME_COLOR.HOVER_SMOKE};
-  }
-`;
-
-export const CancelButton = styled.button`
-  width: 100%;
-  height: 100%;
-  margin-left: 0.5rem;
   &:hover {
     background-color: ${THEME_COLOR.HOVER_SMOKE};
   }

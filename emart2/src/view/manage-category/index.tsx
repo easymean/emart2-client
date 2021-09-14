@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import * as S from "./styles";
 
 import RegisterCategoryForm from "@container/register-category-container";
-import { useSaveButton } from "@view/manage-system/hooks";
+import { useSaveButton } from "@/view/manage-category/hooks";
 import { AdminLayout } from "@/component/common/layout";
 
 const ManageSystemPage = () => {
-  const { showModal, onShowModal } = useSaveButton();
+  const { showModal, onShowModal, onCloseModal } = useSaveButton();
   return (
     <AdminLayout>
       <S.ManageSystemContainer>
@@ -15,7 +15,7 @@ const ManageSystemPage = () => {
           <S.CreateButton onClick={onShowModal}>시스템 추가하기</S.CreateButton>
         </S.ButtonContainer>
         <S.SystemListContainer></S.SystemListContainer>
-        <RegisterCategoryForm show={showModal} />
+        <RegisterCategoryForm show={showModal} closeModal={onCloseModal} />
       </S.ManageSystemContainer>
     </AdminLayout>
   );

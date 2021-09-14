@@ -1,14 +1,15 @@
 import React from "react";
 import * as S from "./styles";
-import InputBox from "@/component/input-box";
 import { useInput, useSaveButton } from "./hooks";
+
+import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 
-const RegisterCategoryForm = ({ show }) => {
+const RegisterCategoryForm = ({ show, closeModal }) => {
   const { info, onChangeHandler, disabled } = useInput();
   const { onClickSave } = useSaveButton(info);
   return (
-    <Modal show={show}>
+    <Modal show={show} onClose={closeModal}>
       <S.RegisterCategoryContainer>
         <S.SystemImage></S.SystemImage>
         <S.SystemInfo>
@@ -31,7 +32,6 @@ const RegisterCategoryForm = ({ show }) => {
             <S.SaveButton disabled={disabled} onClick={onClickSave}>
               저장
             </S.SaveButton>
-            <S.CancelButton>취소</S.CancelButton>
           </S.ButtonWrapper>
         </S.SystemInfo>
       </S.RegisterCategoryContainer>

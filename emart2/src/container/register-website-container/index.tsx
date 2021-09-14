@@ -5,12 +5,13 @@ import { useInput, useSaveButton, useSelectBox } from "./hooks";
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 
-const RegisterSiteForm = ({ show }) => {
+const RegisterSiteForm = ({ show, closeModal }) => {
   const { data, loading, error } = useSelectBox();
   const { info, onChangeHandler, disabled } = useInput();
+  console.log(disabled); //왜 안되누?
   const { onClickSave } = useSaveButton(info);
   return (
-    <Modal show={show}>
+    <Modal show={show} onClose={closeModal}>
       <S.RegisterSiteContainer>
         <S.Title>사이트 등록하기</S.Title>
         <S.SiteInfo>
@@ -66,10 +67,9 @@ const RegisterSiteForm = ({ show }) => {
           </S.Table>
         </S.SiteInfo>
         <S.ButtonWrapper>
-          <S.SaveButton disabled={disabled} onClick={onClickSave}>
+          <S.SaveButton onClick={onClickSave} disabled={disabled}>
             저장
           </S.SaveButton>
-          <S.CancelButton>취소</S.CancelButton>
         </S.ButtonWrapper>
       </S.RegisterSiteContainer>
     </Modal>

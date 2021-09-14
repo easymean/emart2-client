@@ -1,11 +1,12 @@
 import React from "react";
 import * as S from "./styles";
 import { useSaveButton } from "./hooks";
-import RegisterSiteForm from "../../container/register-website-container";
+
 import { AdminLayout } from "@/component/common/layout";
+import RegisterSiteForm from "@/container/register-website-container";
 
 const ManageSitePage = () => {
-  const { showModal, onShowModal } = useSaveButton();
+  const { showModal, onShowModal, onCloseModal } = useSaveButton();
 
   return (
     <AdminLayout>
@@ -15,7 +16,9 @@ const ManageSitePage = () => {
           <S.CreateButton onClick={onShowModal}>시스템 추가하기</S.CreateButton>
         </S.ButtonContainer>
         <S.SiteListContainer></S.SiteListContainer>
-        <RegisterSiteForm show={showModal} />
+        {showModal && (
+          <RegisterSiteForm show={showModal} closeModal={onCloseModal} />
+        )}
       </S.ManageSiteContainer>
     </AdminLayout>
   );
