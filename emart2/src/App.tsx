@@ -14,7 +14,7 @@ import ManageSitePage from "@/view/manage-site";
 import ManageSystemPage from "@/view/manage-system";
 
 import Auth from "@component/common/auth";
-import Layout from "@component/common/layout";
+import { Layout } from "@component/common/layout";
 import rootReducer, { rootSaga } from "@module/index";
 import GlobalStyles from "@component/common/global-styles";
 

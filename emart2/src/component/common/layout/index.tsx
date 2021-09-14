@@ -35,4 +35,4 @@ const AdminLayout = ({ children }: LayoutProps) => {
     </S.AdminLayout>
   );
 };
-export default Layout;
+export { Layout, AdminLayout };

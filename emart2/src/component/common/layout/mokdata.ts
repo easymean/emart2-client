@@ -1,7 +1,7 @@
 export const menuList = [
   {
     name: "사이트 관리",
-    redirect: "/admin/website",
+    redirect: "/admin/site",
   },
   { name: "시스템 관리", redirect: "/admin/system" },
   { name: "서버 관리", redirect: "/admin/server" },

@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-import { AdminLayout } from "@component/common/layout/styles";
+import { AdminLayout } from "@component/common/layout";
 
 const AdminPage = () => {
   return (
