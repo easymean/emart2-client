@@ -11,7 +11,7 @@ import AdminPage from "@view/admin";
 import SiteListPage from "@view/site-list";
 import AccountListPage from "@view/account-list";
 import ManageSitePage from "@/view/manage-site";
-import ManageSystemPage from "@/view/manage-system";
+import ManageSystemPage from "@/view/manage-category";
 
 import Auth from "@component/common/auth";
 import { Layout } from "@component/common/layout";

@@ -34,6 +34,9 @@ export const useLoginInput = () => {
   };
 };
 export const useLogin = (empty, account) => {
+  const [isAlert, setAlert] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState("/login");
+  const [alertMsg, setAlertMsg] = useState("");
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
       onClickLogin();
@@ -42,21 +45,26 @@ export const useLogin = (empty, account) => {
 
   const login = async () => {
     await authAPI.login(account).catch((err) => {
-      alert(err);
+      setAlert(true);
+      setAlertMsg(err);
       return;
     });
-    //window.location.replace("/"); //메인으로
+    setRedirectUrl("/"); //메인으로
   };
 
   const onClickLogin = () => {
     if (empty) {
-      alert("아이디 혹은 비밀번호를 입력해주세요");
+      setAlert(true);
+      setAlertMsg("아이디 혹은 비밀번호를 입력해주세요");
     }
     login();
   };
   return {
     onKeyPress,
     onClickLogin,
+    isAlert,
+    redirectUrl,
+    alertMsg,
   };
 };
 
