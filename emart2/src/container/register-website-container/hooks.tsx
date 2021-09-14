@@ -64,9 +64,17 @@ export const useInput = () => {
 };
 
 export const useSaveButton = (info) => {
+  const [isAlert, setAlert] = useState(false);
+  const [alertMsg, setAlertMsg] = useState("");
   const createSiteInfo = async () => {
     info.order = 0;
-    const site = await siteAPI.createWebsite(info);
+    try {
+      await siteAPI.createWebsite(info);
+    } catch (error) {
+      setAlert(true);
+      setAlertMsg("에러가 발생했습니다 잠시 후 다시 시도해주세요");
+      return;
+    }
   };
 
   const onClickSave = () => {
@@ -74,5 +82,7 @@ export const useSaveButton = (info) => {
   };
   return {
     onClickSave,
+    isAlert,
+    alertMsg,
   };
 };

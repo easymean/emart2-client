@@ -4,10 +4,11 @@ import { useInput, useSaveButton } from "./hooks";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
+import Alert from "@/component/alert";
 
 const RegisterCategoryForm = ({ show, closeModal }) => {
   const { info, onChangeHandler, disabled } = useInput();
-  const { onClickSave } = useSaveButton(info);
+  const { onClickSave, isAlert, alertMsg } = useSaveButton(info);
   return (
     <Modal show={show} onClose={closeModal}>
       <S.RegisterCategoryContainer>
@@ -35,6 +36,7 @@ const RegisterCategoryForm = ({ show, closeModal }) => {
           </S.ButtonWrapper>
         </S.SystemInfo>
       </S.RegisterCategoryContainer>
+      {isAlert && <Alert redirect={"/admin/system"} message={alertMsg} />}
     </Modal>
   );
 };

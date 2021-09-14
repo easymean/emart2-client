@@ -1,7 +1,8 @@
+import { useHistory } from "react-router";
+import { useCallback, useEffect, useState } from "react";
+
 import categoryAPI from "@/api/category";
 import { CategoryModel } from "@/model/cateoryModel";
-import { useCallback, useEffect } from "react";
-import { useState } from "react";
 
 export const useInput = () => {
   const [info, setInfo] = useState({} as CategoryModel);
@@ -41,15 +42,19 @@ export const useInput = () => {
 };
 
 export const useSaveButton = (info) => {
+  const history = useHistory();
   const [isAlert, setAlert] = useState(false);
   const [alertMsg, setAlertMsg] = useState("");
   const createCategory = async () => {
     info.order = 0;
-    const site = await categoryAPI.createCategory(info).catch((e) => {
+    try {
+      await categoryAPI.createCategory(info);
+    } catch (err) {
       setAlert(true);
-      setAlertMsg("문제가 발생했습니다.");
+      setAlertMsg("에러가 발생했습니다 잠시 후 다시 시도해주세요");
       return;
-    });
+    }
+    history.goBack();
   };
 
   const onClickSave = () => {
@@ -57,5 +62,7 @@ export const useSaveButton = (info) => {
   };
   return {
     onClickSave,
+    isAlert,
+    alertMsg,
   };
 };

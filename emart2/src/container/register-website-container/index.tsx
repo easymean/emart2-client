@@ -4,12 +4,12 @@ import { useInput, useSaveButton, useSelectBox } from "./hooks";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
+import Alert from "@/component/alert";
 
 const RegisterSiteForm = ({ show, closeModal }) => {
   const { data, loading, error } = useSelectBox();
   const { info, onChangeHandler, disabled } = useInput();
-  console.log(disabled); //왜 안되누?
-  const { onClickSave } = useSaveButton(info);
+  const { onClickSave, isAlert, alertMsg } = useSaveButton(info);
   return (
     <Modal show={show} onClose={closeModal}>
       <S.RegisterSiteContainer>
@@ -72,6 +72,7 @@ const RegisterSiteForm = ({ show, closeModal }) => {
           </S.SaveButton>
         </S.ButtonWrapper>
       </S.RegisterSiteContainer>
+      {isAlert && <Alert redirect={"/admin/site"} message={alertMsg} />}
     </Modal>
   );
 };
