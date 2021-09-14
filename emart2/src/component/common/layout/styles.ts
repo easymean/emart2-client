@@ -29,3 +29,10 @@ export const LayoutContainer = styled.div`
   padding: 2rem 0;
   margin-top: 2rem;
 `;
+
+export const AdminLayout = styled.div`
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+`;

@@ -1,9 +1,11 @@
 import React from "react";
 import * as S from "./styles";
+import { menuList as data } from "./mokdata";
 
 import Header from "@component/header";
 import Footer from "@component/footer";
-import SideBar from "@/component/side-bar/container/index";
+import SideBarItem from "@/component/side-bar/item";
+import { SideBarContainer } from "@/component/side-bar/container/styles";
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -20,4 +22,17 @@ const Layout = ({ children }: LayoutProps) => {
   );
 };
 
+const AdminLayout = ({ children }: LayoutProps) => {
+  const menuList = data;
+  return (
+    <S.AdminLayout>
+      <SideBarContainer>
+        {menuList.map((menu, idx) => {
+          return <SideBarItem item={menu} key={idx} />;
+        })}
+      </SideBarContainer>
+      {children}
+    </S.AdminLayout>
+  );
+};
 export default Layout;
