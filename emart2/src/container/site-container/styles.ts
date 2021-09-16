@@ -9,46 +9,10 @@ export const SiteContainer = styled.div`
   flex-direction: column;
 `;
 
-// export const ContentWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-
-//   width: 100%;
-// `;
-
-// export const SiteRowContainer = styled.div`
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: flex-start;
-//   align-items: center;
-
-//   padding: 1rem 0;
-// `;
-
-// export const StageName = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   width: 13rem;
-//   height: 8rem;
-
-//   border-radius: 5%;
-//   background-color: ${THEME_COLOR.LIGHT_GRAY};
-//   color: black;
-
-//   padding: 1rem 1rem;
-
-//   font-size: 2rem;
-//   font-weight: 500;
-// `;
-
 export const CategoryHeader = styled.div`
-  display: block;
-  height: 30rem;
-  //flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  //position: fixed;
 
   margin: 0.5rem 0;
   padding: 6rem 6rem 0 6rem;
@@ -74,6 +38,7 @@ export const CategoryDescription = styled.p`
 
 export const TypeNav = styled.div`
   display: flex;
+  margin: 5rem 0 2rem 0;
 `;
 
 export const TypeButton = styled.button`

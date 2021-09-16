@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
@@ -10,6 +10,12 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   // const { title, description, siteList } = useSite(categoryId);
   const { title, description, devSiteList, realSiteList } = categoryData;
 
+  const [onType, setType] = useState("dev");
+
+  const typeHandler = (e) => {
+    setType(e.name);
+  };
+
   return (
     <S.SiteContainer>
       <S.CategoryHeader>
@@ -19,14 +25,18 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         </S.CategoryInfo>
 
         <S.TypeNav>
-          <S.TypeButton>개발</S.TypeButton>
-          <S.TypeButton>운영</S.TypeButton>
+          <S.TypeButton name="dev" onClick={typeHandler}>
+            개발
+          </S.TypeButton>
+          <S.TypeButton name="real" onClick={typeHandler}>
+            운영
+          </S.TypeButton>
           <S.TypeButton>서버</S.TypeButton>
         </S.TypeNav>
       </S.CategoryHeader>
 
       <S.SiteListContainer>
-        <S.DevList>
+        <S.DevList id="dev">
           {devSiteList.length !== 0 ? (
             devSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;
@@ -35,7 +45,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
             <></>
           )}
         </S.DevList>
-        <S.RealList>
+        <S.RealList id="real">
           {realSiteList.length !== 0 ? (
             realSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;
