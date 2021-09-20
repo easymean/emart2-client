@@ -1,4 +1,5 @@
 import authAPI from "@/api/auth";
+import { MSG } from "@/asset/constant";
 import { useCallback, useEffect, useState } from "react";
 
 export const useInputBox = () => {
@@ -72,11 +73,19 @@ export const useInputBox = () => {
   };
 };
 
-export const useSignupButton = (empty: boolean, pwdValid: boolean, info) => {
-  const [disabled, setDisable] = useState(true);
+export const useSignupButton = (
+  empty: boolean,
+  pwdValid: boolean,
+  idValid: boolean,
+  info
+) => {
+  const [disabled, setDisable] = useState<boolean>(true);
+  const [msg, setMsg] = useState<string>("");
+  const [redirect, setRedirect] = useState<string>("");
+  const [isAlert, setAlert] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!empty && pwdValid) {
+    if (!empty && pwdValid && idValid) {
       setDisable(false);
     }
   }, [empty, pwdValid]);
@@ -94,11 +103,15 @@ export const useSignupButton = (empty: boolean, pwdValid: boolean, info) => {
       password: info.password,
       email: info.email,
     };
-    await authAPI.signup(input).catch((err) => {
-      console.log(err);
-      alert(err);
+    try {
+      setAlert(true);
+      await authAPI.signup(info);
+    } catch (err) {
+      setMsg(MSG.ERROR);
       return;
-    });
+    }
+    setMsg("회원가입 성공!");
+    setRedirect("/login");
   }, [info]);
 
   const onClickSignup = () => {
@@ -106,13 +119,47 @@ export const useSignupButton = (empty: boolean, pwdValid: boolean, info) => {
       return;
     }
     signup();
-    alert("회원가입 짜라란");
-    window.location.href = "http://localhost:3000/login";
   };
 
   return {
     disabled,
     onKeyPress,
     onClickSignup,
+    msg,
+    redirect,
+    isAlert,
+  };
+};
+
+export const useId = () => {
+  const [idValid, setValidId] = useState(false);
+  const [popupMsg, setMsg] = useState<string>("");
+  const [onPopup, setPopup] = useState<boolean>(false);
+
+  const checkId = async (id) => {
+    setPopup(true);
+    try {
+      const res = await authAPI.checkId(id);
+      if (res === true) {
+        setValidId(true);
+        setMsg("사용가능한 아이디입니다.");
+      } else {
+        setValidId(false);
+        setMsg("사용불가능한 아이디입니다.");
+      }
+    } catch (err) {
+      setValidId(false);
+      setMsg(MSG.ERROR);
+    }
+  };
+
+  const onCheckId = (e) => {
+    checkId(e.value);
+  };
+  return {
+    onCheckId,
+    idValid,
+    onPopup,
+    popupMsg,
   };
 };

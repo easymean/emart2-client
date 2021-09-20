@@ -37,3 +37,8 @@ export const SERVER = {
   DEV: "3.35.22.94:80",
   LOCAL: "localhost:8080",
 };
+
+
+export const MSG = {
+  ERROR: "에러가 발생했습니다. 잠시 후 다시 시도해주세요"
+}

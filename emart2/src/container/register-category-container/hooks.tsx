@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import categoryAPI from "@/api/category";
 import { CategoryModel } from "@/model/cateoryModel";
+import { MSG } from "@/asset/constant";
 
 export const useInput = () => {
   const [info, setInfo] = useState({} as CategoryModel);
@@ -51,7 +52,7 @@ export const useSaveButton = (info) => {
       await categoryAPI.createCategory(info);
     } catch (err) {
       setAlert(true);
-      setAlertMsg("에러가 발생했습니다 잠시 후 다시 시도해주세요");
+      setAlertMsg(MSG.ERROR);
       return;
     }
     history.goBack();

@@ -2,15 +2,15 @@ import React from "react";
 import * as S from "./styles";
 import { CommonTitle } from "@/component/common/font-styles";
 import InputBox from "@/component/input-box";
-import { useInputBox, useSignupButton } from "./hooks";
+import { useId, useInputBox, useSignupButton } from "./hooks";
+import Alert from "@/component/alert";
+import Popup from "@/component/pop-up";
 
 const SignUpPage = () => {
   const { empty, pwdValid, handleChange, info } = useInputBox();
-  const { disabled, onKeyPress, onClickSignup } = useSignupButton(
-    empty,
-    pwdValid,
-    info
-  );
+  const { onCheckId, idValid, onPopup, popupMsg } = useId();
+  const { disabled, onKeyPress, onClickSignup, msg, redirect, isAlert } =
+    useSignupButton(empty, pwdValid, idValid, info);
   return (
     <S.SignUpContainer>
       <CommonTitle> 회원가입</CommonTitle>
@@ -23,7 +23,7 @@ const SignUpPage = () => {
             setData={handleChange}
             onKeyPress={onKeyPress}
           />
-          <S.CheckIdButton>중복 확인</S.CheckIdButton>
+          <S.CheckIdButton onClick={onCheckId}>중복 확인</S.CheckIdButton>
         </S.InputBoxWrapper>
         <InputBox
           name="password"
@@ -53,6 +53,8 @@ const SignUpPage = () => {
           회원가입
         </S.SignUpButton>
       </S.SignUpWrapper>
+      {onPopup && <Popup message={popupMsg} />}
+      {isAlert && <Alert redirect={redirect} message={msg} />}
     </S.SignUpContainer>
   );
 };

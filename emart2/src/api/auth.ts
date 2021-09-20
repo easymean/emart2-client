@@ -14,6 +14,11 @@ const authAPI = {
   logout: async () => {
     axios.defaults.headers.common["Authorization"] = "";
   },
+
+  checkId: async(id: string) => {
+    const {data} = await axios.post(`${endpoints.AUTH_API}/id`, id);
+    return data;
+  }
 };
 
 export default authAPI;
