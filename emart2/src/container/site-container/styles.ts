@@ -12,6 +12,7 @@ export const SiteContainer = styled.div`
 export const CategoryHeader = styled.div`
   display: flex;
   flex-direction: column;
+  height: 30rem;
   //position: fixed;
 
   margin: 0.5rem 0;
