@@ -3,8 +3,8 @@ import * as S from "./styles";
 import { CommonTitle } from "@/component/common/font-styles";
 import InputBox from "@/component/input-box";
 import { useId, useInputBox, useSignupButton } from "./hooks";
-import Alert from "@/component/alert";
-import Popup from "@/component/pop-up";
+import Alert from "@/component/common/alert";
+import Popup from "@/component/common/pop-up";
 
 const SignUpPage = () => {
   const { empty, pwdValid, handleChange, info } = useInputBox();

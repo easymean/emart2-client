@@ -4,7 +4,7 @@ import { useInput, useSaveButton, useSelectBox } from "./hooks";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
-import Alert from "@/component/alert";
+import Alert from "@/component/common/alert";
 
 const RegisterSiteForm = ({ show, closeModal }) => {
   const { data, loading, error } = useSelectBox();

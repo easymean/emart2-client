@@ -1,9 +1,27 @@
 import React from "react";
+import * as S from "./styles";
+import { useInput, useLogin } from "./hooks";
 
-import LoginContainer from "@/container/login-container";
+import LoginForm from "@/container/login-container";
+import Alert from "@/component/common/alert";
 
 const LoginPage = () => {
-  return <LoginContainer />;
+  const { setData, empty, account } = useInput();
+  const { onKeyPress, onClickLogin, isAlert, redirectUrl, alertMsg } = useLogin(
+    empty,
+    account
+  );
+
+  return (
+    <S.LoginPage>
+      <LoginForm
+        onKeyPress={onKeyPress}
+        setData={setData}
+        onClickLogin={onClickLogin}
+      />
+      {isAlert && <Alert redirect={redirectUrl} message={alertMsg} />}
+    </S.LoginPage>
+  );
 };
 
 export default LoginPage;

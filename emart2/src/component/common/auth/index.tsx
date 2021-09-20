@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 import { FC } from "react";
 import { useEffect } from "react";
-import Alert from "@/component/alert";
+import Alert from "@/component/common/alert";
 
 const Auth =
   (Component: FC, isMember: boolean): FC =>

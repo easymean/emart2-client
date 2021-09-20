@@ -4,7 +4,7 @@ import { useInput, useSaveButton } from "./hooks";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
-import Alert from "@/component/alert";
+import Alert from "@/component/common/alert";
 
 const RegisterCategoryForm = ({ show, closeModal }) => {
   const { info, onChangeHandler, disabled } = useInput();
