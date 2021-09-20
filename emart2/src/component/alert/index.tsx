@@ -1,7 +1,9 @@
-import React from "react";
-import { AlertProps } from "./type";
-import * as S from "./styles";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+
+import * as S from "./styles";
+import { AlertProps } from "./type";
+
 import Modal from "@component/common/modal";
 
 const Alert = ({ redirect, pop, message }: AlertProps) => {
@@ -13,6 +15,7 @@ const Alert = ({ redirect, pop, message }: AlertProps) => {
       history.goBack();
     }
   };
+
   return (
     <Modal show={true}>
       <S.AlertContainer>
