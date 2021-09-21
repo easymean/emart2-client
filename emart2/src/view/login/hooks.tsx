@@ -39,7 +39,9 @@ export const useInput = () => {
 export const useLogin = (empty, account) => {
   const [isAlert, setAlert] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState("/login");
-  const [alertMsg, setAlertMsg] = useState("");
+  const [alertMsg, setAlertMsg] = useState<any>(null);
+  // const [token] = useCookies(["accessToken"]);
+  // console.log(token);
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
       onClickLogin();
@@ -48,15 +50,20 @@ export const useLogin = (empty, account) => {
 
   const login = async () => {
     try {
-      await authAPI.login(account);
+      const user = await authAPI.login(account);
     } catch (err) {
       setAlert(true);
-      setAlertMsg(MSG.ERROR);
+
+      if (err == "LOGIN_ERROR") {
+        setAlertMsg("아이디와 비밀번호를 확인해주세요");
+      } else {
+        setAlertMsg(MSG.ERROR);
+      }
       return;
     }
     //로그인 후 쿠키에 있는 토큰을 받아서 request 헤더에 넣는다.
-    const token = useCookies(["accessToken"]);
-    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    //const token = useCookies(["accessToken"]);
+    //axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     setRedirectUrl("/"); //메인으로
   };
 
