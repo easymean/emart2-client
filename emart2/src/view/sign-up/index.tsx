@@ -8,7 +8,7 @@ import Popup from "@/component/common/pop-up";
 
 const SignUpPage = () => {
   const { empty, pwdValid, handleChange, info } = useInputBox();
-  const { onCheckId, idValid, onPopup, popupMsg } = useId();
+  const { onCheckId, idValid, onPopup, popupMsg } = useId(info);
   const { disabled, onKeyPress, onClickSignup, msg, redirect, isAlert } =
     useSignupButton(empty, pwdValid, idValid, info);
   return (

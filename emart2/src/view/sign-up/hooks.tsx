@@ -81,7 +81,7 @@ export const useSignupButton = (
 ) => {
   const [disabled, setDisable] = useState<boolean>(true);
   const [msg, setMsg] = useState<string>("");
-  const [redirect, setRedirect] = useState<string>("");
+  const [redirect, setRedirect] = useState<string>("/signup");
   const [isAlert, setAlert] = useState<boolean>(false);
 
   useEffect(() => {
@@ -105,7 +105,7 @@ export const useSignupButton = (
     };
     try {
       setAlert(true);
-      await authAPI.signup(info);
+      await authAPI.signup(input);
     } catch (err) {
       setMsg(MSG.ERROR);
       return;
@@ -131,7 +131,7 @@ export const useSignupButton = (
   };
 };
 
-export const useId = () => {
+export const useId = (info) => {
   const [idValid, setValidId] = useState(false);
   const [popupMsg, setMsg] = useState<string>("");
   const [onPopup, setPopup] = useState<boolean>(false);
@@ -140,7 +140,7 @@ export const useId = () => {
     setPopup(true);
     try {
       const res = await authAPI.checkId(id);
-      if (res === true) {
+      if (!res) {
         setValidId(true);
         setMsg("사용가능한 아이디입니다.");
       } else {
@@ -153,8 +153,8 @@ export const useId = () => {
     }
   };
 
-  const onCheckId = (e) => {
-    checkId(e.value);
+  const onCheckId = () => {
+    checkId(info.id);
   };
   return {
     onCheckId,
