@@ -7,15 +7,19 @@ const instance = axios.create({
   headers: {},
 });
 
+export const setCookie = (token: string) => {
+  instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+};
+
+instance.interceptors.request.use((config) => {
+  return config;
+});
+
 instance.interceptors.response.use(
   (res) => {
     return Promise.resolve(res.data);
   },
   (err) => {
-    //err.response.data -> res.message에 메세지 있음
-    console.log(err);
-    console.log(err.response.data);
-
     try {
       const res = err.response.data;
 
