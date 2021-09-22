@@ -1,9 +1,7 @@
 import authAPI from "@/api/auth";
 import { MSG } from "@/asset/constant";
 import { LoginModel } from "@/model/authModel";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 
 export const useInput = () => {
   const [account, setAccount] = useState({} as LoginModel);
@@ -40,8 +38,6 @@ export const useLogin = (empty, account) => {
   const [isAlert, setAlert] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState("/login");
   const [alertMsg, setAlertMsg] = useState<any>(null);
-  // const [token] = useCookies(["accessToken"]);
-  // console.log(token);
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
       onClickLogin();
@@ -50,20 +46,18 @@ export const useLogin = (empty, account) => {
 
   const login = async () => {
     try {
-      const user = await authAPI.login(account);
-    } catch (err) {
-      setAlert(true);
+      const res = await authAPI.login(account);
 
-      if (err == "LOGIN_ERROR") {
+      setAlert(true);
+      if (res !== true) {
         setAlertMsg("아이디와 비밀번호를 확인해주세요");
-      } else {
-        setAlertMsg(MSG.ERROR);
+        return;
       }
+    } catch (err) {
+      setAlertMsg(MSG.ERROR);
       return;
     }
-    //로그인 후 쿠키에 있는 토큰을 받아서 request 헤더에 넣는다.
-    //const token = useCookies(["accessToken"]);
-    //axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    setAlertMsg("로그인 성공");
     setRedirectUrl("/"); //메인으로
   };
 
