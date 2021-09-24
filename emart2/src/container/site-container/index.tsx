@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
@@ -9,34 +9,52 @@ import { categoryData } from "./data";
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   // const { title, description, siteList } = useSite(categoryId);
   const { title, description, devSiteList, realSiteList } = categoryData;
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollActive, setScrollActive] = useState(false);
 
-  const [onType, setType] = useState("dev");
+  const onScroll = (e) => {
+    setScrollY(e.srcElement.scrollTop);
+    const content = document.getElementById("categoryHeader");
 
-  const typeHandler = (e) => {
-    setType(e.name);
+    if (!content) return;
+    const contentOffsetHeight = content.offsetHeight; // element 자체 높이
+
+    if (scrollY >= contentOffsetHeight) {
+      setScrollActive(true);
+    } else {
+      setScrollActive(false);
+    }
   };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { capture: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollY]);
 
   return (
     <S.SiteContainer>
-      <S.CategoryHeader>
+      <S.CategoryHeader id="categoryHeader">
         <S.CategoryInfo>
           <S.CategoryTitle>{title}</S.CategoryTitle>
           <S.CategoryDescription>{description}</S.CategoryDescription>
         </S.CategoryInfo>
 
-        <S.TypeNav>
-          <S.TypeButton name="dev" onClick={typeHandler}>
-            개발
+        <S.TypeNav scroll={scrollActive}>
+          <S.TypeButton>
+            <a href="#dev">개발</a>
           </S.TypeButton>
-          <S.TypeButton name="real" onClick={typeHandler}>
-            운영
+          <S.TypeButton>
+            <a href="#real">운영</a>
           </S.TypeButton>
-          <S.TypeButton>서버</S.TypeButton>
+          <S.TypeButton>
+            <a href="#server">서버</a>
+          </S.TypeButton>
         </S.TypeNav>
       </S.CategoryHeader>
 
       <S.SiteListContainer>
-        <S.DevList id="dev">
+        <S.SiteListWrapper id="dev">
           {devSiteList.length !== 0 ? (
             devSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;
@@ -44,8 +62,8 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
           ) : (
             <></>
           )}
-        </S.DevList>
-        <S.RealList id="real">
+        </S.SiteListWrapper>
+        <S.SiteListWrapper id="real">
           {realSiteList.length !== 0 ? (
             realSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;
@@ -53,7 +71,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
           ) : (
             <></>
           )}
-        </S.RealList>
+        </S.SiteListWrapper>
       </S.SiteListContainer>
     </S.SiteContainer>
   );
