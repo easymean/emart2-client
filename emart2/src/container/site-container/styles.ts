@@ -59,10 +59,21 @@ export const TypeButton = styled.button`
   font-size: 2rem;
   margin: 0 6rem 0 0;
 
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
   &:hover {
     color: ${THEME_COLOR.MAIN_YELLOW};
     text-decoration: underline;
     text-underline-position: under;
+  }
+
+  &:--scrolled {
+    background: #fff;
+    color: white;
   }
 `;
 

@@ -11,7 +11,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const { title, description, devSiteList, realSiteList } = categoryData;
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
-
+  console.log(scrollActive);
   const onScroll = (e) => {
     setScrollY(e.srcElement.scrollTop);
     const content = document.getElementById("categoryHeader");
@@ -24,6 +24,10 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
     } else {
       setScrollActive(false);
     }
+  };
+
+  const onClick = (e) => {
+    setScrollY(document.documentElement.scrollTop);
   };
 
   useEffect(() => {
@@ -41,10 +45,10 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         </S.CategoryInfo>
 
         <S.TypeNav scroll={scrollActive}>
-          <S.TypeButton>
+          <S.TypeButton onClick={onClick}>
             <a href="#dev">개발</a>
           </S.TypeButton>
-          <S.TypeButton>
+          <S.TypeButton onClick={onClick}>
             <a href="#real">운영</a>
           </S.TypeButton>
           <S.TypeButton>
