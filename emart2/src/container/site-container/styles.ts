@@ -40,6 +40,7 @@ export const TypeNav = styled.div<{ scroll: boolean }>`
   display: flex;
   height: 10rem;
   background-color: ${THEME_COLOR.WHITE};
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 
   ${(props) =>
     props.scroll &&
@@ -69,15 +70,11 @@ export const TypeButton = styled.button`
     color: ${THEME_COLOR.MAIN_YELLOW};
     text-decoration: underline;
     text-underline-position: under;
-  }
-
-  &:--scrolled {
-    background: #fff;
-    color: white;
+    transition: all 0.5s ease;
   }
 `;
 
-export const SiteListContainer = styled.div`
+export const SiteListContainer = styled.section`
   display: flex;
   flex-direction: column;
 `;
