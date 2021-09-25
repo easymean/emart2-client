@@ -1,18 +1,35 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export const useScroll = () => {
+export const useScroll = (targetId: string) => {
   const [scrollY, setScrollY] = useState<number>(0);
+  const [scrollActive, setScrollActive] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const getOffset = () => {
+    const content = document.getElementById(targetId);
+    if (!content) return;
+    setOffset(content.offsetHeight);
+  };
 
-  const listener = () => {
-    setScrollY(window.pageYOffset);
+  const onScroll = () => {
+    getOffset();
+    setScrollY(window.scrollY);
+    if (scrollY > offset) {
+      setScrollActive(true);
+    } else {
+      setScrollActive(false);
+    }
+  };
+
+  const onClick = () => {
+    setScrollY(window.scrollY);
   };
 
   const delay = 15;
-  useEffect(() => {
-    window.addEventListener("scroll");
-    return () => window.addEventListener("scroll", listener);
-  });
+
   return {
     scrollY,
+    scrollActive,
+    onScroll,
+    onClick,
   };
 };
