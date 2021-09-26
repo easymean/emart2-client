@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as S from "./styles";
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
@@ -13,8 +13,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const [buttonclick, setButtonClick] = useState(true);
   const [buttonId, setButtonId] = useState("");
 
-  const { scrollY, scrollActive, onScroll, onClick } =
-    useScroll("categoryHeader");
+  const { scrollY, scrollActive, offsetRef, onScroll, onClick } = useScroll();
 
   const onHandleClick = (e) => {
     //onClick();
@@ -25,14 +24,13 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll, { capture: true });
-
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollY]);
 
   return (
     <S.SiteContainer>
-      <S.CategoryHeader id="categoryHeader">
-        <S.CategoryInfo>
+      <S.CategoryHeader>
+        <S.CategoryInfo ref={offsetRef}>
           <S.CategoryTitle>{title}</S.CategoryTitle>
           <S.CategoryDescription>{description}</S.CategoryDescription>
         </S.CategoryInfo>
