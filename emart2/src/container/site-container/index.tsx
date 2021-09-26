@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
@@ -10,16 +10,22 @@ import { useScroll } from "@/component/common/hooks/scroll";
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   // const { title, description, siteList } = useSite(categoryId);
   const { title, description, devSiteList, realSiteList } = categoryData;
-  const [buttonclick, setButtonClick] = useState(true);
+  const [isClick, setClick] = useState(true);
   const [buttonId, setButtonId] = useState("");
 
-  const { scrollY, scrollActive, offsetRef, onScroll, onClick } = useScroll();
+  const { scrollY, scrollActive, offsetRef, targetRef, onScroll, scrollToRef } =
+    useScroll();
 
-  const onHandleClick = (e) => {
-    //onClick();
-    e.preventDefault();
-    setButtonClick(true);
+  const setButton = (e) => {
+    setClick(true);
+    console.log(e.target.id);
     setButtonId(e.target.id);
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+    setButton(e);
+    scrollToRef();
   };
 
   useEffect(() => {
@@ -36,14 +42,26 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
         </S.CategoryInfo>
 
         <S.TypeNav scroll={scrollActive}>
-          <S.TypeButton onClick={onHandleClick}>
-            <a href="#dev">개발</a>
+          <S.TypeButton
+            id="dev"
+            onClick={onClick}
+            clicked={isClick && buttonId === "dev"}
+          >
+            개발
           </S.TypeButton>
-          <S.TypeButton onClick={onHandleClick}>
-            <a href="#real">운영</a>
+          <S.TypeButton
+            id="real"
+            onClick={onClick}
+            clicked={isClick && buttonId === "real"}
+          >
+            운영
           </S.TypeButton>
-          <S.TypeButton onClick={onHandleClick}>
-            <a href="#server">서버</a>
+          <S.TypeButton
+            id="server"
+            onClick={onClick}
+            clicked={isClick && buttonId === "server"}
+          >
+            서버
           </S.TypeButton>
         </S.TypeNav>
       </S.CategoryHeader>
@@ -58,7 +76,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
             <></>
           )}
         </S.SiteListWrapper>
-        <S.SiteListWrapper id="real">
+        <S.SiteListWrapper id="real" ref={targetRef}>
           {realSiteList.length !== 0 ? (
             realSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;

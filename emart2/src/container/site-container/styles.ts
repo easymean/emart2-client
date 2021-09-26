@@ -39,6 +39,7 @@ export const CategoryDescription = styled.p`
 export const TypeNav = styled.div<{ scroll: boolean }>`
   display: flex;
   height: 10rem;
+  padding: 2rem 0;
   background-color: ${THEME_COLOR.WHITE};
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 
@@ -55,23 +56,24 @@ export const TypeNav = styled.div<{ scroll: boolean }>`
     `}
 `;
 
-export const TypeButton = styled.button`
+export const TypeButton = styled.button<{ clicked: boolean }>`
   background-color: inherit;
   font-size: 2rem;
   margin: 0 6rem 0 0;
 
-  a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
   &:hover {
-    color: ${THEME_COLOR.MAIN_YELLOW};
-    text-decoration: underline;
-    text-underline-position: under;
+    background-color: ${THEME_COLOR.MAIN_YELLOW};
+    color: ${THEME_COLOR.WHITE};
     transition: all 0.5s ease;
   }
+
+  ${(props) =>
+    props.clicked &&
+    css`
+      color: ${THEME_COLOR.MAIN_YELLOW};
+      text-decoration: underline;
+      text-underline-position: under;
+    `}
 `;
 
 export const SiteListContainer = styled.section`
