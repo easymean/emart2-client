@@ -3,11 +3,12 @@ export const BREAKPOINT = 640;
 export const STATIC_URL = {
   LOGO: `https://user-images.githubusercontent.com/44545922/112952843-e55ac900-9177-11eb-98b1-284cfb1e820c.png`,
   GLASS: `https://user-images.githubusercontent.com/44545922/112952626-a88ed200-9177-11eb-97f5-9c4530146725.jpg`,
-  MMS: `https://user-images.githubusercontent.com/44545922/131601160-3f73b089-f62d-4ea3-8315-9fe0fcef8469.png`,
-  AD: `https://user-images.githubusercontent.com/44545922/131601400-0f40113a-472a-4f17-a2ef-194ea4f4b280.png`,
-  BIZTAX: `https://user-images.githubusercontent.com/44545922/131601365-41f44715-1695-4067-a64c-f5adee28ee85.png`,
-  CMS: `https://user-images.githubusercontent.com/44545922/131601437-d47c0a46-871e-4b2a-848e-9243f9a930f7.png`,
-  ALM: `https://user-images.githubusercontent.com/44545922/131601473-35621007-fe1a-423e-a9e7-1e6114a1fef3.png`,
+  MMS: `https://user-images.githubusercontent.com/44545922/135111895-77a106dd-f654-4e2a-a24b-77820c6b2df4.png`,
+  AD: `https://user-images.githubusercontent.com/44545922/135110668-53aa1216-f449-44ce-8f83-f63f17de7a30.png`,
+  BIZTAX: `https://user-images.githubusercontent.com/44545922/135109971-1ed3743b-6b56-4f46-b0a2-74fd77dd2be7.png`,
+  CMS: `https://user-images.githubusercontent.com/44545922/135109355-7f7f3b2e-ef45-4b9e-b35d-4562d8165924.png`,
+  ALM: `https://user-images.githubusercontent.com/44545922/135110870-16572422-6418-4d8e-b462-fc87ed539ef1.png`,
+  CHATBOT: `https://user-images.githubusercontent.com/44545922/135108888-8f4d6a67-1d68-4b08-84ee-d33f7f84d114.png`,
 };
 
 export const THEME_COLOR = {
@@ -38,7 +39,6 @@ export const SERVER = {
   LOCAL: "localhost:8080",
 };
 
-
 export const MSG = {
-  ERROR: "에러가 발생했습니다. 잠시 후 다시 시도해주세요"
-}
+  ERROR: "에러가 발생했습니다. 잠시 후 다시 시도해주세요",
+};

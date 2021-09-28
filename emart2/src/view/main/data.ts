@@ -35,6 +35,6 @@ export const categoryList = [
     serviceName: "CHATBOT",
     description: "ALM",
     id: 5,
-    image: STATIC_URL.ALM,
+    image: STATIC_URL.CHATBOT,
   },
 ];
