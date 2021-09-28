@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as S from "./styles";
 import { useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
@@ -13,19 +13,26 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const [isClick, setClick] = useState(true);
   const [buttonId, setButtonId] = useState("");
 
-  const { scrollY, scrollActive, offsetRef, targetRef, onScroll, scrollToRef } =
+  const refs = useRef([] as any);
+
+  const HASH = {
+    dev: 0,
+    real: 1,
+    server: 2,
+  };
+
+  const { scrollY, scrollActive, offsetRef, onScroll, scrollToRef } =
     useScroll();
 
   const setButton = (e) => {
     setClick(true);
-    console.log(e.target.id);
     setButtonId(e.target.id);
   };
 
   const onClick = (e) => {
     e.preventDefault();
     setButton(e);
-    scrollToRef();
+    scrollToRef(refs.current[HASH[e.target.id]]);
   };
 
   useEffect(() => {
@@ -67,7 +74,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
       </S.CategoryHeader>
 
       <S.SiteListContainer>
-        <S.SiteListWrapper id="dev">
+        <S.SiteListWrapper id="dev" ref={(el) => (refs.current[0] = el)}>
           {devSiteList.length !== 0 ? (
             devSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;
@@ -76,7 +83,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
             <></>
           )}
         </S.SiteListWrapper>
-        <S.SiteListWrapper id="real" ref={targetRef}>
+        <S.SiteListWrapper id="real" ref={(el) => (refs.current[1] = el)}>
           {realSiteList.length !== 0 ? (
             realSiteList.map((site, idx) => {
               return <SiteItem site={site} key={idx} />;

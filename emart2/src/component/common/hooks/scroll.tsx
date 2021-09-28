@@ -6,6 +6,7 @@ export const useScroll = () => {
 
   const offsetRef = useRef(null);
 
+  //offsetRef의 지점부터 스크롤 시작
   const onScroll = () => {
     setScrollY(window.scrollY);
 
@@ -23,7 +24,14 @@ export const useScroll = () => {
     }
   };
 
-  const onClick = () => {
+  //특정 위치로 스크롤 이동
+  const scrollToRef = (ref) => {
+    if (ref) {
+      window.scrollTo({
+        top: ref.offsetTop,
+      });
+    }
+
     setScrollY(window.scrollY);
   };
 
@@ -34,6 +42,6 @@ export const useScroll = () => {
     scrollActive,
     offsetRef,
     onScroll,
-    onClick,
+    scrollToRef,
   };
 };
