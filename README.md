@@ -1,3 +1,5 @@
+이마트2팀 url 및 서버 관리 플랫폼입니다.
+
 # emart2-client
 `cd emart2`
 
