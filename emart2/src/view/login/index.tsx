@@ -7,10 +7,14 @@ import Alert from "@/component/common/alert";
 
 const LoginPage = () => {
   const { setData, empty, account } = useInput();
-  const { onKeyPress, onClickLogin, isAlert, redirectUrl, alertMsg } = useLogin(
-    empty,
-    account
-  );
+  const {
+    onKeyPress,
+    onClickLogin,
+    isAlert,
+    redirectUrl,
+    alertMsg,
+    onClickRedirect,
+  } = useLogin(empty, account);
 
   return (
     <S.LoginPage>
@@ -18,6 +22,7 @@ const LoginPage = () => {
         onKeyPress={onKeyPress}
         setData={setData}
         onClickLogin={onClickLogin}
+        onClickRedirect={onClickRedirect}
       />
       {isAlert && <Alert redirect={redirectUrl} message={alertMsg} />}
     </S.LoginPage>

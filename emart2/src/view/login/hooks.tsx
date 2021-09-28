@@ -68,11 +68,16 @@ export const useLogin = (empty, account) => {
     }
     login();
   };
+
+  const onClickRedirect = () => {
+    window.location.href = "/signup";
+  };
   return {
     onKeyPress,
     onClickLogin,
     isAlert,
     redirectUrl,
     alertMsg,
+    onClickRedirect,
   };
 };

@@ -3,7 +3,7 @@ import * as S from "./styles";
 
 import InputBox from "@/component/input-box";
 
-const LoginForm = ({ onKeyPress, setData, onClickLogin }) => {
+const LoginForm = ({ onKeyPress, setData, onClickLogin, onClickRedirect }) => {
   return (
     <S.LoginContainer>
       <S.LoginWrapper>
@@ -20,6 +20,7 @@ const LoginForm = ({ onKeyPress, setData, onClickLogin }) => {
           onKeyPress={onKeyPress}
         />
         <S.LoginButton onClick={onClickLogin}>로그인</S.LoginButton>
+        <S.LoginButton onClick={onClickRedirect}>회원가입</S.LoginButton>
       </S.LoginWrapper>
     </S.LoginContainer>
   );

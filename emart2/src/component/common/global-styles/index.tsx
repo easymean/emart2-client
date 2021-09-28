@@ -13,9 +13,10 @@ ${reset};
 
 html,
 body {
+  min-height: 100vh;
   font-size: 10px;
   margin: 0;
-  /*scroll-behavior: smooth;  스크롤을 부드럽게 */
+  scroll-behavior: smooth;  //스크롤을 부드럽게 
 }::-webkit-scrollbar { /* 스크롤바 제거 */
   display: none;
 }
