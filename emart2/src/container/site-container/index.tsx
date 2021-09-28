@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "./styles";
-import { useSite } from "./hooks";
+import { useButton, useSite } from "./hooks";
 import { CategoryContainerProps } from "./types";
 
 import SiteItem from "@component/site-item";
@@ -10,30 +10,9 @@ import { useScroll } from "@/component/common/hooks/scroll";
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   // const { title, description, siteList } = useSite(categoryId);
   const { title, description, devSiteList, realSiteList } = categoryData;
-  const [isClick, setClick] = useState(true);
-  const [buttonId, setButtonId] = useState("");
+  const { isClick, buttonId, refs, onClick } = useButton();
 
-  const refs = useRef([] as any);
-
-  const HASH = {
-    dev: 0,
-    real: 1,
-    server: 2,
-  };
-
-  const { scrollY, scrollActive, offsetRef, onScroll, scrollToRef } =
-    useScroll();
-
-  const setButton = (e) => {
-    setClick(true);
-    setButtonId(e.target.id);
-  };
-
-  const onClick = (e) => {
-    e.preventDefault();
-    setButton(e);
-    scrollToRef(refs.current[HASH[e.target.id]]);
-  };
+  const { scrollY, scrollActive, offsetRef, onScroll } = useScroll();
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll, { capture: true });

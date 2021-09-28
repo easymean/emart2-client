@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import siteAPI from "@api/website";
 import categoryAPI from "@api/category";
 import { SiteModel } from "@model/siteModel";
+import { useScroll } from "@/component/common/hooks/scroll";
 
 export const useSite = (categoryId: number) => {
   const [title, setTitle] = useState("");
@@ -28,5 +29,38 @@ export const useSite = (categoryId: number) => {
     title,
     description,
     siteList,
+  };
+};
+
+export const useButton = () => {
+  const [isClick, setClick] = useState(true);
+  const [buttonId, setButtonId] = useState("");
+
+  const refs = useRef([] as any);
+
+  const HASH = {
+    dev: 0,
+    real: 1,
+    server: 2,
+  };
+
+  const { scrollToRef } = useScroll();
+
+  const setButton = (e) => {
+    setClick(true);
+    setButtonId(e.target.id);
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+    setButton(e);
+    scrollToRef(refs.current[HASH[e.target.id]]);
+  };
+
+  return {
+    isClick,
+    buttonId,
+    refs,
+    onClick,
   };
 };
