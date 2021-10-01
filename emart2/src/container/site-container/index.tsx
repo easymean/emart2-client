@@ -12,12 +12,7 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
   const { title, description, devSiteList, realSiteList } = categoryData;
   const { isClick, buttonId, refs, onClick } = useButton();
 
-  const { scrollY, scrollActive, offsetRef, onScroll } = useScroll();
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll, { capture: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [scrollY]);
+  const { scrollActive, offsetRef } = useScroll();
 
   return (
     <S.SiteContainer>

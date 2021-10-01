@@ -3,7 +3,7 @@ export const BREAKPOINT = 640;
 export const STATIC_URL = {
   LOGO: `https://user-images.githubusercontent.com/44545922/112952843-e55ac900-9177-11eb-98b1-284cfb1e820c.png`,
   GLASS: `https://user-images.githubusercontent.com/44545922/112952626-a88ed200-9177-11eb-97f5-9c4530146725.jpg`,
-  MMS: `https://user-images.githubusercontent.com/44545922/135111895-77a106dd-f654-4e2a-a24b-77820c6b2df4.png`,
+  MMS: `https://user-images.githubusercontent.com/44545922/135111895-77a106dd-f654-4e2a-a24b-77820c6b2df4.pngcd e`,
   AD: `https://user-images.githubusercontent.com/44545922/135110668-53aa1216-f449-44ce-8f83-f63f17de7a30.png`,
   BIZTAX: `https://user-images.githubusercontent.com/44545922/135109971-1ed3743b-6b56-4f46-b0a2-74fd77dd2be7.png`,
   CMS: `https://user-images.githubusercontent.com/44545922/135109355-7f7f3b2e-ef45-4b9e-b35d-4562d8165924.png`,

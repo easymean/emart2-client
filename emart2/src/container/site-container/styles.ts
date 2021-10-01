@@ -41,7 +41,6 @@ export const TypeNav = styled.div<{ scroll: boolean }>`
   height: 10rem;
   padding: 2rem 0;
   background-color: ${THEME_COLOR.WHITE};
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 
   ${(props) =>
     props.scroll &&
