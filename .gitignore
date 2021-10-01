@@ -1,13 +1,13 @@
 
 # dependencies
-/emart2/node_modules
+*/node_modules
 
 # testing
-/coverage
+*/coverage
 
 # production
-/emart2/build
-/emart2/dist
+*/build
+*/dist
 
 # misc
 .DS_Store

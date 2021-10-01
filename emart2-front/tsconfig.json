@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "jsx": "react",
+    "sourceMap": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@asset/*": ["asset/*"],
+      "@component/*": ["component/*"],
+      "@container/*": ["container/*"],
+      "@view/*": ["view/*"],
+      "@model/*": ["model/*"],
+      "@api/*": ["api/*"],
+      "@context/*": ["context/*"],
+      "@module/*": ["module/*"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./src/**/*"]
+}
