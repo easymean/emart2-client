@@ -5,6 +5,8 @@ import siteAPI from "@/api/website";
 import { RootState } from "@/module";
 import { SiteModel } from "@/model/siteModel";
 import { getCategoryListAsync } from "@module/category";
+import { MSG } from "@/asset/constant";
+import { useHistory } from "react-router";
 
 export const useSelectBox = () => {
   const dispatch = useDispatch();
@@ -64,6 +66,7 @@ export const useInput = () => {
 };
 
 export const useSaveButton = (info) => {
+  const history = useHistory();
   const [isAlert, setAlert] = useState(false);
   const [alertMsg, setAlertMsg] = useState("");
   const createSiteInfo = async () => {
@@ -72,9 +75,10 @@ export const useSaveButton = (info) => {
       await siteAPI.createWebsite(info);
     } catch (error) {
       setAlert(true);
-      setAlertMsg("에러가 발생했습니다 잠시 후 다시 시도해주세요");
+      setAlertMsg(MSG.ERROR);
       return;
     }
+    history.goBack();
   };
 
   const onClickSave = () => {

@@ -4,11 +4,11 @@ import endpoints from "./endpoints";
 import { SiteModel, SiteListModel } from "@model/siteModel";
 
 const siteAPI = {
-  getSiteList: async (categoryId: number): Promise<SiteModel[]> => {
-    const { data } = await axios.get<SiteListModel>(
-      `${endpoints.SITE_API}?category=${categoryId}`
+  getSiteList: async (): Promise<SiteModel[]> => {
+    const { data: websiteList } = await axios.get<SiteModel[]>(
+      `${endpoints.SITE_API}`
     );
-    return data.websiteList;
+    return websiteList;
   },
 
   searchSitebyKeyword: async (keyword: string): Promise<SiteModel[]> => {
