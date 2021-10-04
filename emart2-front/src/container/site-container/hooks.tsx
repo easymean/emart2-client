@@ -42,6 +42,7 @@ export const useSite = (categoryId: number) => {
 export const useButton = () => {
   const [isClick, setClick] = useState(true);
   const [buttonId, setButtonId] = useState("");
+  const { scrollToRef } = useScroll();
 
   const refs = useRef([] as any);
 
@@ -50,8 +51,6 @@ export const useButton = () => {
     real: 1,
     server: 2,
   };
-
-  const { scrollToRef } = useScroll();
 
   const setButton = (e) => {
     setClick(true);

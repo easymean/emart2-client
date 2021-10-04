@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useScroll = () => {
   const [scrollY, setScrollY] = useState<number>(0);

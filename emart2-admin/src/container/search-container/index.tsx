@@ -1,9 +1,8 @@
 import React from "react";
 import * as S from "./styles";
 
-import HashtagItem from "@component/hashtag-item/index";
 import InputBox from "@/component/input-box/index";
-import { useHashtag, useSearchBar } from "./hooks";
+import { useSearchBar } from "./hooks";
 import {
   DropdownContainer,
   DropdownItem,
@@ -11,7 +10,6 @@ import {
 } from "@component/dropdown/styles";
 
 const SearchContainer = () => {
-  const { hashtags } = useHashtag();
   const { siteList, onKeyup, visible, onKeyPress } = useSearchBar();
 
   return (
@@ -41,20 +39,6 @@ const SearchContainer = () => {
           </DropdownList>
         </DropdownContainer>
       </S.SeachBarContainer>
-
-      <S.HashtagContainer>
-        {hashtags.length !== 0 ? (
-          hashtags.map((el, idx) => {
-            return (
-              <S.HashtagItemWrapper key={idx}>
-                <HashtagItem hashtag={el} />
-              </S.HashtagItemWrapper>
-            );
-          })
-        ) : (
-          <></>
-        )}
-      </S.HashtagContainer>
     </S.SearchContainer>
   );
 };
