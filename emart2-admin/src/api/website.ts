@@ -11,6 +11,13 @@ const siteAPI = {
     return websiteList;
   },
 
+  getSite: async (id: number): Promise<SiteModel> => {
+    const { data: site } = await axios.get<SiteModel>(
+      `${endpoints.SITE_API}/${id}`
+    );
+    return site;
+  },
+
   searchSitebyKeyword: async (keyword: string): Promise<SiteModel[]> => {
     const { data } = await axios.get<SiteListModel>(
       `${endpoints.SITE_API}/search?keyword=${keyword}`
