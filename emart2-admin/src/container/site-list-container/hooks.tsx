@@ -19,3 +19,17 @@ export const useSite = () => {
     siteList,
   };
 };
+
+export const useModal = () => {
+  const [show, setShow] = useState<boolean>(false);
+  const [siteId, setSiteId] = useState<number>(0);
+  const showModal = (id) => {
+    setShow(true);
+    setSiteId(id);
+  };
+  const closeModal = () => {
+    setShow(false);
+  };
+
+  return { show, siteId, showModal, closeModal };
+};

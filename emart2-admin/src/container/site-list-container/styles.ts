@@ -17,3 +17,7 @@ export const SiteListWrapper = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
 `;
+
+export const SiteItem = styled.div`
+  display: flex;
+`;
