@@ -2,8 +2,8 @@ import React from "react";
 import * as S from "./styles";
 import { useSaveButton } from "./hooks";
 
-import RegisterSiteForm from "@/container/register-website-container";
 import SiteListContainer from "@/container/site-list-container";
+import SiteRegisterContainer from "@/container/site-register-container";
 
 const ManageSitePage = () => {
   const { showModal, onShowModal, onCloseModal } = useSaveButton();
@@ -20,7 +20,7 @@ const ManageSitePage = () => {
         </S.ManageInfo>
       </S.ManageHeader>
       {showModal && (
-        <RegisterSiteForm show={showModal} closeModal={onCloseModal} />
+        <SiteRegisterContainer show={showModal} closeModal={onCloseModal} />
       )}
       <SiteListContainer />
     </S.ManageSiteContainer>
