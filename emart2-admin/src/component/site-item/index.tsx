@@ -4,28 +4,26 @@ import * as S from "./styles";
 import { SiteItemProps } from "./types";
 import { CommonItemBox } from "@/component/item-box/styles";
 
-const SiteItem = React.forwardRef(
-  ({ site }: SiteItemProps, ref: React.Ref<HTMLDivElement>) => {
-    const onClick = () => {
-      window.open(site.url, "_blank");
-      return;
-    };
+const SiteItem = ({ site }: SiteItemProps) => {
+  const onClick = () => {};
 
-    return (
-      <CommonItemBox
-        height={"15rem"}
-        width={"20rem"}
-        padding={"1rem 1rem"}
-        margin={"2rem 2rem"}
-        onClick={onClick}
-      >
-        {site.name}
-        <S.Description dev={site.dev}>
-          {site.dev ? "개발" : "운영"}
-        </S.Description>
-      </CommonItemBox>
-    );
-  }
-);
+  return (
+    <CommonItemBox
+      height={"20rem"}
+      width={"20rem"}
+      padding={"1.5em 1.5rem"}
+      margin={"2rem 2rem"}
+      shadow={true}
+      onClick={onClick}
+    >
+      <S.Name>{site.name}</S.Name>
+      <S.DetailWrapper>
+        <S.Url>{site.url}</S.Url>
+        <S.Description>{site.description}</S.Description>
+      </S.DetailWrapper>
+      <S.Tags dev={site.dev}>{site.dev ? "개발" : "운영"}</S.Tags>
+    </CommonItemBox>
+  );
+};
 
 export default SiteItem;

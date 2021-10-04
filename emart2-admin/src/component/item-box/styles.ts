@@ -10,13 +10,11 @@ export interface ItemBoxPropsType {
 }
 
 export const CommonItemBox = styled.div`
-  border-style: solid;
-  border-width: thin;
-  border-radius: 5%;
-  border-color: ${THEME_COLOR.LIGHT_GRAY};
+  border-radius: 10px;
   box-shadow: ${(props: ItemBoxPropsType) =>
     props.shadow
-      ? `0.5rem 0.5rem 0.5rem 0 ${THEME_COLOR.LIGHT_GRAY};`
+      ? `rgba(50, 50, 93, 0.25) 0 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0 3px 7px -3px;`
       : `none`};
 
   height: ${(props: ItemBoxPropsType) =>
