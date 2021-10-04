@@ -1,21 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 import * as S from "./styles";
 import { PopupProps } from "./type";
 
 import Modal from "@component/common/modal";
 
-const Popup = ({ message }: PopupProps) => {
-  const [showPopup, setShow] = useState(true);
-
-  const onCloseAlert = () => {
-    setShow(false);
-  };
+const Popup = ({ message, onClose }: PopupProps) => {
   return (
-    <Modal show={showPopup} onClose={onCloseAlert}>
+    <Modal show={true} onClose={onClose}>
       <S.PopupContainer>
         <S.ModalMessage>{message}</S.ModalMessage>
-        <S.Button onClick={onCloseAlert}>확인</S.Button>
+        <S.Button onClick={onClose}>확인</S.Button>
       </S.PopupContainer>
     </Modal>
   );
