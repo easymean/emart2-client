@@ -4,6 +4,10 @@
 
 ## emart2-front: 유저 페이지
 
+## add new package
+
+`npm install --save <module>`
+
 ### Install
 
 `npm install`
