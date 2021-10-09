@@ -14,7 +14,7 @@ export const RegisterCategoryContainer = styled.div`
 `;
 export const SystemImage = styled.div``;
 
-export const SystemInfo = styled.div`
+export const SystemInfo = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
