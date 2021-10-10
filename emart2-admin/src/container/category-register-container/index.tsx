@@ -6,7 +6,7 @@ import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
 import useInput from "@/component/common/hooks/input";
-import Popup from "@/component/common/pop-up";
+import Toast from "@/component/common/toast";
 
 const CategoryRegisterContainer = ({ show, closeModal }) => {
   const { value: name, onChangeHandler: onChangeName } = useInput("");
@@ -26,12 +26,12 @@ const CategoryRegisterContainer = ({ show, closeModal }) => {
               <InputBox
                 value={name}
                 placeholder="광고제휴"
-                setData={onChangeName}
+                onChange={onChangeName}
               />
             </S.InputBoxWrapper>
             <S.Label> 설명*</S.Label>
             <S.InputBoxWrapper>
-              <InputBox value={description} setData={onChangeDescription} />
+              <InputBox value={description} onChange={onChangeDescription} />
             </S.InputBoxWrapper>
           </S.Table>
           <S.ButtonWrapper>
@@ -40,7 +40,7 @@ const CategoryRegisterContainer = ({ show, closeModal }) => {
         </S.SystemInfo>
       </S.RegisterCategoryContainer>
       {isAlert && <Alert redirect={"/system"} message={alertMsg} />}
-      {isPopup && <Popup message={popupMsg} onClose={closePopup} />}
+      {isPopup && <Toast message={popupMsg} onClose={closePopup} />}
     </Modal>
   );
 };

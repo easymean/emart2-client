@@ -4,7 +4,7 @@ import { CommonTitle } from "@/component/common/font-styles";
 import InputBox from "@/component/input-box";
 import { useId, useInputBox, useSignupButton } from "./hooks";
 import Alert from "@/component/common/alert";
-import Popup from "@/component/common/pop-up";
+import Toast from "@/component/common/toast";
 
 const SignUpPage = () => {
   const { empty, pwdValid, handleChange, info } = useInputBox();
@@ -53,7 +53,7 @@ const SignUpPage = () => {
           회원가입
         </S.SignUpButton>
       </S.SignUpWrapper>
-      {onPopup && <Popup message={popupMsg} />}
+      {onPopup && <Toast message={popupMsg} />}
       {isAlert && <Alert redirect={redirect} message={msg} />}
     </S.SignUpContainer>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { THEME_COLOR } from "@/asset/constant";
 
-export const PopupContainer = styled.div`
+export const ToastContainer = styled.div`
   width: calc(100vw-10rem);
   height: 100%;
   display: flex;

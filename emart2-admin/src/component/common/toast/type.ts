@@ -1,4 +1,4 @@
-export interface PopupProps {
+export interface ToastProps {
   message?: string;
   onClose: (e) => void;
 }

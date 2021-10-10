@@ -25,7 +25,7 @@ instance.interceptors.response.use(
 
       if (res.error_type == "404") {
       }
-      return Promise.reject(res.error_type);
+      return Promise.reject(res.message);
     } catch {
       //못잡으면 err를 리턴
       console.log("못잡은 에러");

@@ -1,18 +1,18 @@
 import React from "react";
 
 import * as S from "./styles";
-import { PopupProps } from "./type";
+import { ToastProps } from "./type";
 
 import Modal from "@component/common/modal";
 
-const Popup = ({ message, onClose }: PopupProps) => {
+const Toast = ({ message, onClose }: ToastProps) => {
   return (
     <Modal show={true} onClose={onClose}>
-      <S.PopupContainer>
+      <S.ToastContainer>
         <S.ModalMessage>{message}</S.ModalMessage>
         <S.Button onClick={onClose}>확인</S.Button>
-      </S.PopupContainer>
+      </S.ToastContainer>
     </Modal>
   );
 };
-export default Popup;
+export default Toast;
