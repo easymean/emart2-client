@@ -11,12 +11,10 @@ import ManageSystemPage from "@/view/manage-system";
 import Auth from "@component/common/auth";
 import { Layout } from "@component/common/layout";
 import GlobalStyles from "@component/common/global-styles";
-import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
 const App: React.FC = () => {
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <GlobalStyles />
       <BrowserRouter>
         <Layout>
@@ -31,7 +29,7 @@ const App: React.FC = () => {
           </Switch>
         </Layout>
       </BrowserRouter>
-    </QueryClientProvider>
+    </>
   );
 };
 

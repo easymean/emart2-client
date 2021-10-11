@@ -4,6 +4,6 @@ import { useQuery } from "react-query";
 
 export const useUser = () => {
   return useQuery<UserModel, Error>("user", () => userAPI.getUserInfo(), {
-    retry: 1,
+    enabled: false,
   });
 };

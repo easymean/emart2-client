@@ -9,7 +9,7 @@ export const useCategory = ({ categoryId }) => {
 };
 
 export const useCategoryList = () => {
-  return useQuery<CategoryModel[], Error>("categoryList", () =>
+  return useQuery<CategoryModel[], Error>("categories", () =>
     categoryAPI.getCategoryList()
   );
 };
