@@ -24,5 +24,5 @@ export const Dimmed = styled.div`
 `;
 
 export const Content = styled.div`
-  z-index: 3; // 가장 위로
+  z-index: 10; // 가장 위로
 `;
