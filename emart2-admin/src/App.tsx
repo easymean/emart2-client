@@ -22,7 +22,7 @@ const App: React.FC = () => {
             <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={SignUpPage} />
             <Route path="/site" component={ManageSitePage} />
-            <Route path="/system" component={ManageSystemPage} />
+            <Route path="/category" component={ManageSystemPage} />
             <Route path="/account" component={ManageAccountPage} />
             <Route path="/" component={MainPage} />
             <Redirect from="*" to="/" />

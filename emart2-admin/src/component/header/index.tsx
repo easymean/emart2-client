@@ -52,7 +52,7 @@ const Header = () => {
       </S.DesktopLink>
       <S.MenuContainer>
         <S.MenuButton>
-          <a href="/system">
+          <a href="/category">
             <S.MenuTitle>시스템 관리</S.MenuTitle>
           </a>
         </S.MenuButton>
