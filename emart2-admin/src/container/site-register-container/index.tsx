@@ -7,7 +7,6 @@ import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
 import { SiteModel } from "@/model/siteModel";
 
-import { makeSite } from "@/query/site";
 import { useCategoryList } from "@/query/category";
 import { useMutation, useQueryClient } from "react-query";
 import siteAPI from "@/api/website";
@@ -22,6 +21,8 @@ interface SiteRegisterProps {
 const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
   const queryClient = useQueryClient();
   const history = useHistory();
+  const [toast, setToast] = useState(false);
+  const [alert, setAlert] = useState({ show: false, message: "" });
 
   const initValue = {
     name: "",
@@ -31,8 +32,6 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
     stage: "",
     description: "",
   };
-
-  const [toast, setToast] = useState(false);
 
   const onValidate = (data: SiteModel) => {
     for (let val of Object.values(data)) {
@@ -52,7 +51,11 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
       history.goBack();
     },
     onError: () => {
-      alert("there was an error");
+      setAlert({
+        ...alert,
+        show: true,
+        message: "에러 발생",
+      });
     },
     onSettled: () => {
       queryClient.invalidateQueries("site");
@@ -85,6 +88,8 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
         show={toast}
         setShow={setToast}
       />
+      <Alert show={alert.show} redirect={"/site"} message={alert.message} />
+
       <S.SiteContainer>
         <S.SiteInfo onSubmit={handleSubmit(onSubmit, onError)}>
           <S.Table>
@@ -150,9 +155,6 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
           </S.ButtonWrapper>
         </S.SiteInfo>
       </S.SiteContainer>
-      {error && error instanceof Error && (
-        <Alert redirect={"/site"} message={error.message} />
-      )}
     </Modal>
   );
 };
