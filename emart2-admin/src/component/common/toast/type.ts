@@ -1,4 +1,5 @@
 export interface ToastProps {
   message?: string;
-  onClose: (e) => void;
+  show: boolean;
+  setShow: (state: boolean) => void;
 }
