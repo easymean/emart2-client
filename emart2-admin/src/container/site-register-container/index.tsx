@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./styles";
-import { useForm, useSelectBox } from "./hooks";
+import { useHistory } from "react-router";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
-import Popup from "@/component/common/pop-up";
-import useInput from "@/component/common/hooks/input";
+import { SiteModel } from "@/model/siteModel";
+
+import { makeSite } from "@/query/site";
+import { useCategoryList } from "@/query/category";
+import { useMutation, useQueryClient } from "react-query";
+import siteAPI from "@/api/website";
+import useForm from "@/component/common/hooks/form";
+import Toast from "@/component/common/toast";
 
 interface SiteRegisterProps {
   show: boolean;
@@ -14,58 +20,115 @@ interface SiteRegisterProps {
 }
 
 const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
-  const { data, loading, error } = useSelectBox();
+  const queryClient = useQueryClient();
+  const history = useHistory();
 
-  const { value: name, onChangeHandler: onChangeName } = useInput("");
-  const { value: url, onChangeHandler: onChangeUrl } = useInput("");
-  const { value: dev, onChangeHandler: onChangeDev } = useInput(false);
-  const { value: categoryId, onChangeHandler: onChangeCategory } = useInput(0);
-  const { value: stage, onChangeHandler: onChangeStage } = useInput("");
-  const { value: description, onChangeHandler: onChangeDescription } =
-    useInput("");
+  const initValue = {
+    name: "",
+    url: "",
+    dev: "",
+    categoryId: "",
+    stage: "",
+    description: "",
+  };
 
-  const { onSubmitHandler, isAlert, alertMsg, isPopup, popupMsg, closePopup } =
-    useForm(name, description, url, categoryId, dev, stage);
+  const [toast, setToast] = useState(false);
+
+  const onValidate = (data: SiteModel) => {
+    for (let val of Object.values(data)) {
+      if (val === null || val === "") return false;
+    }
+    return true;
+  };
+
+  const {
+    values: site,
+    handleChange,
+    handleSubmit,
+  } = useForm<SiteModel>(initValue, onValidate);
+
+  const { mutate, isLoading, error } = useMutation(siteAPI.createWebsite, {
+    onSuccess: (data) => {
+      history.goBack();
+    },
+    onError: () => {
+      alert("there was an error");
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries("site");
+    },
+  });
+
+  const onSubmit = (data: SiteModel, e?) => {
+    const site = {
+      ...data,
+    };
+    mutate(site);
+  };
+
+  const onError = (errors: Object, e?) => {
+    if (errors instanceof Error) {
+      setToast(true);
+    }
+  };
+
+  const {
+    data: categoryList,
+    error: categoryListError,
+    isFetching: categoryListIsFetching,
+  } = useCategoryList();
+
   return (
     <Modal show={show} onClose={closeModal}>
+      <Toast
+        message={"필수 요소를 채워주세요"}
+        show={toast}
+        setShow={setToast}
+      />
       <S.SiteContainer>
-        <S.SiteInfo onSubmit={onSubmitHandler}>
+        <S.SiteInfo onSubmit={handleSubmit(onSubmit, onError)}>
           <S.Table>
             <S.Label>이름*</S.Label>
             <InputBox
-              value={name}
+              name="name"
+              value={site.name}
               placeholder="광고제휴BOS 웹"
-              setData={onChangeName}
+              onChange={handleChange}
             ></InputBox>
             <S.Label>url*</S.Label>
             <S.InputBoxWrapper>
               <InputBox
-                value={url}
+                name="url"
+                value={site.url}
                 placeholder="https://www.naver.com"
-                setData={onChangeUrl}
+                onChange={handleChange}
               />
             </S.InputBoxWrapper>
             <S.Label>개발/운영*</S.Label>
-            <S.Select value={dev} onChange={onChangeDev}>
+            <S.Select name="dev" value={`${site.dev}`} onChange={handleChange}>
               <option value="true">개발</option>
               <option value="false">운영</option>
             </S.Select>
             <S.Label>관련 시스템*</S.Label>
-            <S.Select value={categoryId} onChange={onChangeCategory}>
+            <S.Select
+              name="categoryId"
+              value={site.categoryId}
+              onChange={handleChange}
+            >
               <option value="" hidden={true}>
                 시스템을 골라주세요
               </option>
-              {data &&
-                data.map((system, idx) => {
+              {categoryList &&
+                categoryList.map((category, idx) => {
                   return (
-                    <option value={system.id} key={idx}>
-                      {system.name}
+                    <option value={category.id} key={idx}>
+                      {category.name}
                     </option>
                   );
                 })}
             </S.Select>
             <S.Label>태그*</S.Label>
-            <S.Select value={stage} onChange={onChangeStage}>
+            <S.Select name="stage" value={site.stage} onChange={handleChange}>
               <option value="" hidden={true}>
                 태그를 골라주세요
               </option>
@@ -76,15 +139,20 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
               <option value="ADMIN">관리(제우스)</option>
             </S.Select>
             <S.Label> 설명*</S.Label>
-            <InputBox value={description} setData={onChangeDescription} />
+            <InputBox
+              name="description"
+              value={site.description}
+              onChange={handleChange}
+            />
           </S.Table>
           <S.ButtonWrapper>
             <S.SaveButton type="submit">저장</S.SaveButton>
           </S.ButtonWrapper>
         </S.SiteInfo>
       </S.SiteContainer>
-      {isAlert && <Alert redirect={"/site"} message={alertMsg} />}
-      {isPopup && <Popup message={popupMsg} onClose={closePopup} />}
+      {error && error instanceof Error && (
+        <Alert redirect={"/site"} message={error.message} />
+      )}
     </Modal>
   );
 };
