@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import * as S from "./styles";
-import { useHistory } from "react-router";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
@@ -10,7 +9,8 @@ import { SiteModel } from "@/model/siteModel";
 import { useCategoryList } from "@/query/category";
 import useForm from "@/component/common/hooks/form";
 import Toast from "@/component/common/toast";
-import { createSite } from "@/query/site";
+import { useMutation, useQueryClient } from "react-query";
+import siteAPI from "@/api/website";
 
 interface SiteRegisterProps {
   show: boolean;
@@ -18,18 +18,18 @@ interface SiteRegisterProps {
 }
 
 const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
-  const history = useHistory();
   const [toast, setToast] = useState(false);
   const [alert, setAlert] = useState({ show: false, message: "" });
 
   const initValue = {
     name: "",
     url: "",
-    dev: "",
-    categoryId: "",
+    dev: true,
+    categoryId: 0,
     stage: "",
     description: "",
-  };
+    order: 0,
+  } as SiteModel;
 
   const onValidate = (data: SiteModel) => {
     for (let val of Object.values(data)) {
@@ -44,16 +44,26 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
     handleSubmit,
   } = useForm<SiteModel>(initValue, onValidate);
 
-  const { mutate, status, error } = createSite();
+  const queryClient = useQueryClient();
+  const { mutate, status, error } = useMutation(siteAPI.createWebsite, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("sites");
+      closeModal();
+    },
+    onError: (error) => {
+      setAlert({
+        ...alert,
+        show: true,
+        message: error instanceof Error ? error.message : "에러가 발생했습니다",
+      });
+    },
+  });
 
   const onSubmit = (data: SiteModel, e?) => {
     const site = {
       ...data,
     };
     mutate(site);
-    if (status === "success") {
-      history.goBack();
-    }
   };
 
   const onError = (errors: Object, e?) => {

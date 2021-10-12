@@ -5,10 +5,11 @@ import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
 import { useCategoryList } from "@/query/category";
-import { updateSite } from "@/query/site";
 import useForm from "@/component/common/hooks/form";
 import { SiteModel } from "@/model/siteModel";
 import Toast from "@/component/common/toast";
+import { useMutation, useQueryClient } from "react-query";
+import siteAPI from "@/api/website";
 
 interface SiteModalProps {
   show: boolean;
@@ -46,20 +47,23 @@ const SiteModalContainer = ({
     handleSubmit,
   } = useForm<SiteModel>(site, onValidate);
 
-  const { mutateAsync, error, status } = updateSite();
+  const queryClient = useQueryClient();
+  const { mutate, status, error } = useMutation(siteAPI.updateSite, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("sites");
+      closeModal();
+    },
+    onError: (error) => {
+      setAlert(true);
+    },
+  });
 
   const onSubmit = (data: SiteModel, e?) => {
     const site = {
       ...data,
     };
 
-    try {
-      mutateAsync({ id: siteId, req: site });
-    } catch (e) {
-      setAlert(true);
-      return;
-    }
-    window.location.href = "/site";
+    mutate({ id: siteId, req: site });
   };
 
   const onError = (errors: Object, e?) => {

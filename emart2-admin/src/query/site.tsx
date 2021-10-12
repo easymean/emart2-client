@@ -11,11 +11,3 @@ export const useSite = (siteId: number) => {
 export const useSiteList = () => {
   return useQuery<SiteModel[], Error>("sites", () => siteAPI.getSiteList());
 };
-
-export const createSite = () => {
-  return useMutation(siteAPI.createWebsite);
-};
-
-export const updateSite = () => {
-  return useMutation(siteAPI.updateSite);
-};

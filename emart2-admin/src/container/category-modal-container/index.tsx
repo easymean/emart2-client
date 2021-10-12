@@ -7,7 +7,8 @@ import Alert from "@/component/common/alert";
 import Toast from "@/component/common/toast";
 import useForm from "@/component/common/hooks/form";
 import { CategoryModel } from "@/model/cateoryModel";
-import { updateCategory } from "@/query/category";
+import { useMutation, useQueryClient } from "react-query";
+import categoryAPI from "@/api/category";
 
 interface CategoryModalProps {
   show: boolean;
@@ -38,20 +39,26 @@ const CategoryModalContainer = ({
     handleSubmit,
   } = useForm<CategoryModel>(category, onValidate);
 
-  const { mutateAsync, error, status } = updateCategory();
+  const queryClient = useQueryClient();
+  const { mutateAsync, error, status } = useMutation(
+    categoryAPI.updateCategory,
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("categories");
+        closeModal();
+      },
+      onError: (error) => {
+        setAlert(true);
+      },
+    }
+  );
 
   const onSubmit = (data: CategoryModel, e?) => {
     const category = {
       ...data,
     };
 
-    try {
-      mutateAsync({ id: categoryId, category: category });
-    } catch (e) {
-      setAlert(true);
-      return;
-    }
-    window.location.href = "/category";
+    mutateAsync({ id: categoryId, category: category });
   };
 
   const onError = (errors: Object, e?) => {

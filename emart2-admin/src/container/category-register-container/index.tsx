@@ -19,7 +19,8 @@ const CategoryRegisterContainer = ({ show, closeModal }) => {
 
   const { mutate, isLoading, error } = useMutation(categoryAPI.createCategory, {
     onSuccess: (data) => {
-      history.goBack();
+      queryClient.invalidateQueries("categories");
+      closeModal();
     },
     onError: (error) => {
       setAlert({
@@ -27,9 +28,6 @@ const CategoryRegisterContainer = ({ show, closeModal }) => {
         show: true,
         message: "에러 발생",
       });
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries("site");
     },
   });
 
@@ -80,13 +78,18 @@ const CategoryRegisterContainer = ({ show, closeModal }) => {
             <S.InputBoxWrapper>
               <InputBox
                 value={category.name}
+                name="name"
                 placeholder="광고제휴"
                 onChange={handleChange}
               />
             </S.InputBoxWrapper>
             <S.Label> 설명*</S.Label>
             <S.InputBoxWrapper>
-              <InputBox value={category.description} onChange={handleChange} />
+              <InputBox
+                value={category.description}
+                name="description"
+                onChange={handleChange}
+              />
             </S.InputBoxWrapper>
           </S.Table>
           <S.ButtonWrapper>
