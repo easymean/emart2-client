@@ -10,7 +10,7 @@ export const AlertContainer = styled.div<{ show: boolean }>`
   visibility: ${(props) => (props.show ? "visible" : "hidden")};
 
   width: calc(100vw-10rem);
-  height: 3rem;
+  height: 8rem;
 
   background-color: ${THEME_COLOR.WHITE};
   padding: 2rem 2rem;
@@ -19,7 +19,7 @@ export const AlertContainer = styled.div<{ show: boolean }>`
 
 export const Button = styled.button`
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 export const ModalMessage = styled.p`

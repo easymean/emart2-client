@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import MainPage from "@view/main";
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           </Switch>
         </Layout>
       </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 };
