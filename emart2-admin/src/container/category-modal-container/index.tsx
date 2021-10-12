@@ -1,5 +1,4 @@
-import React, { useCallback, useState } from "react";
-import { useHistory } from "react-router";
+import React, { useState } from "react";
 
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
@@ -78,14 +77,14 @@ const CategoryModalContainer = ({
           <S.Table>
             <S.Label>이름*</S.Label>
             <InputBox
-              defaultValue={updated.name}
+              value={updated.name}
               name="name"
               placeholder="광고제휴BOS 웹"
               onChange={handleChange}
             />
             <S.Label> 설명*</S.Label>
             <InputBox
-              defaultValue={updated.description}
+              value={updated.description}
               onChange={handleChange}
               name="description"
             />

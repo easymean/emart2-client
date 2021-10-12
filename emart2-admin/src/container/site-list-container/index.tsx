@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
+
 import * as S from "./styles";
 import { useModal } from "./hooks";
 
-import SiteItem from "@component/site-item";
-import SiteModalContainer from "@/container/site-modal-container";
-import Alert from "@/component/common/alert";
-import { useSiteList } from "@/query/site";
-import { useMutation, useQueryClient } from "react-query";
 import siteAPI from "@/api/website";
+import { useSiteList } from "@/query/site";
+import SiteItem from "@component/site-item";
+import Alert from "@/component/common/alert";
+import SiteModalContainer from "@/container/site-modal-container";
 
 const SiteListContainer = () => {
   const { data: siteList } = useSiteList();
@@ -25,7 +26,8 @@ const SiteListContainer = () => {
 
   const handleClick = () => {
     mutate(deleted);
-    window.location.href = "/site";
+    setAlert(false);
+    closeModal();
   };
 
   return (

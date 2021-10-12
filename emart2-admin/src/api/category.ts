@@ -41,6 +41,9 @@ const categoryAPI = {
     );
     return categoryData;
   },
+  deleteCategory: async (id: number) => {
+    await axios.delete(`${endpoints.CATEGORY_API}/${id}`);
+  },
 };
 
 export default categoryAPI;

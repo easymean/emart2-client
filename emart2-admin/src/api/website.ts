@@ -44,7 +44,7 @@ const siteAPI = {
   },
 
   deleteSite: async (id: number) => {
-    await axios.delete<SiteModel>(`${endpoints.SITE_API}/${id}`);
+    await axios.delete(`${endpoints.SITE_API}/${id}`);
   },
 };
 

@@ -1,16 +1,41 @@
-import React from "react";
-import * as S from "./styles";
-import { useCategory, useModal } from "./hooks";
+import React, { useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
 
+import * as S from "./styles";
+import { useModal } from "./hooks";
+
+import categoryAPI from "@/api/category";
+import Alert from "@/component/common/alert";
+import { useCategoryList } from "@/query/category";
 import CategoryItem from "@/component/category-item";
 import CategoryModalContainer from "@/container/category-modal-container";
 
 const CategoryListContainer = () => {
-  const { categoryList } = useCategory();
+  const { data: categoryList } = useCategoryList();
   const { show, showModal, closeModal, categoryId, category } = useModal();
 
+  const [alert, setAlert] = useState(false);
+  const [deleted, setDeleted] = useState(0);
+
+  const queryClient = useQueryClient();
+  const { isLoading, mutate } = useMutation(categoryAPI.deleteCategory, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("categories");
+    },
+  });
+
+  const handleClick = () => {
+    mutate(deleted);
+    setAlert(false);
+    closeModal();
+  };
   return (
     <>
+      <Alert
+        show={alert}
+        message="삭제하시겠습니까?"
+        handleClick={handleClick}
+      />
       <S.CategoryListContainer>
         <S.CategoryListWrapper>
           {categoryList &&
@@ -20,7 +45,12 @@ const CategoryListContainer = () => {
                   onClick={() => showModal(category.id, category)}
                   key={category.id}
                 >
-                  <CategoryItem category={category} key={idx} />
+                  <CategoryItem
+                    category={category}
+                    setAlert={setAlert}
+                    setDeleted={setDeleted}
+                    key={idx}
+                  />
                 </S.CategoryItem>
               );
             })}
