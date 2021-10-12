@@ -2,7 +2,6 @@ import { useState } from "react";
 
 function useForm<T>(initValue, validateFunc) {
   const [values, setValues] = useState<T>(initValue);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
@@ -15,13 +14,16 @@ function useForm<T>(initValue, validateFunc) {
     ) =>
     (e) => {
       e.preventDefault();
-
-      if (!validateFunc(values)) {
+      const data = {} as T;
+      for (var i = 0; i < e.currentTarget.length - 1; i++) {
+        const { name, value } = e.currentTarget[i];
+        data[name] = value;
+      }
+      if (!validateFunc(values || data)) {
         submitErrorHandler(new Error("필수요소를 채워주세요"));
         return;
       }
-
-      submitHandler(values);
+      submitHandler(values || data);
     };
 
   return {
