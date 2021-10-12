@@ -1,15 +1,14 @@
 import React, { useCallback, useState } from "react";
-import * as S from "./styles";
 import { useHistory } from "react-router";
-import { useQueryClient } from "react-query";
 
+import * as S from "./styles";
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
-import { updateCategory, useCategory } from "@/query/category";
+import Toast from "@/component/common/toast";
 import useForm from "@/component/common/hooks/form";
-import { SiteModel } from "@/model/siteModel";
 import { CategoryModel } from "@/model/cateoryModel";
+import { updateCategory, useCategory } from "@/query/category";
 
 interface CategoryModalProps {
   show: boolean;
@@ -22,7 +21,6 @@ const CategoryModalContainer = ({
   closeModal,
   categoryId,
 }: CategoryModalProps) => {
-  const history = useHistory();
   const [toast, setToast] = useState(false);
 
   const {
@@ -41,9 +39,8 @@ const CategoryModalContainer = ({
     setUpdated({ ...updated, [e.target.name]: e.target.value });
   };
 
-  const onValidate = (data: SiteModel) => {
+  const onValidate = (data: CategoryModel) => {
     for (let [key, val] of Object.entries(data)) {
-      if (key === "categoryId") continue;
       if (val === null || val === "") return false;
     }
     return true;
@@ -74,12 +71,14 @@ const CategoryModalContainer = ({
 
   const renderByStatus = useCallback(() => {
     switch (categoryStatus) {
+      case "loading":
+        return <Alert show={true} message={"로딩중"} />;
       case "error":
         if (categoryError instanceof Error) {
           return (
             <Alert
               show={true}
-              redirect={"/site"}
+              redirect={"/category"}
               message={categoryError.message}
             />
           );
@@ -115,6 +114,11 @@ const CategoryModalContainer = ({
 
   return (
     <Modal show={show} onClose={closeModal}>
+      <Toast
+        message={"필수 요소를 채워주세요"}
+        show={toast}
+        setShow={setToast}
+      />
       {renderByStatus()}
     </Modal>
   );

@@ -1,14 +1,13 @@
 import React from "react";
 import * as S from "./styles";
-import { useModal } from "./hooks";
+import { useCategory, useModal } from "./hooks";
 
-import { useCategoryList } from "@/query/category";
 import CategoryItem from "@/component/category-item";
-import CategoryModalContainer from "../category-modal-container";
+import CategoryModalContainer from "@/container/category-modal-container";
 
 const CategoryListContainer = () => {
-  const { data: categoryList } = useCategoryList();
-  const { show, showModal, closeModal, siteId: categoryId } = useModal();
+  const { categoryList } = useCategory();
+  const { show, showModal, closeModal, categoryId } = useModal();
 
   return (
     <>

@@ -1,5 +1,3 @@
-import { useHistory } from "react-router";
-import { useQueryClient } from "react-query";
 import React, { useCallback, useState } from "react";
 
 import * as S from "./styles";
@@ -10,6 +8,7 @@ import { useCategoryList } from "@/query/category";
 import { updateSite, useSite } from "@/query/site";
 import useForm from "@/component/common/hooks/form";
 import { SiteModel } from "@/model/siteModel";
+import Toast from "@/component/common/toast";
 
 interface SiteModalProps {
   show: boolean;
@@ -18,8 +17,6 @@ interface SiteModalProps {
 }
 
 const SiteModalContainer = ({ show, closeModal, siteId }: SiteModalProps) => {
-  const queryClient = useQueryClient();
-  const history = useHistory();
   const [toast, setToast] = useState(false);
 
   const {
@@ -169,6 +166,11 @@ const SiteModalContainer = ({ show, closeModal, siteId }: SiteModalProps) => {
 
   return (
     <Modal show={show} onClose={closeModal}>
+      <Toast
+        message={"필수 요소를 채워주세요"}
+        show={toast}
+        setShow={setToast}
+      />
       {renderByStatus()}
     </Modal>
   );

@@ -1,35 +1,34 @@
+import categoryAPI from "@/api/category";
+import { CategoryModel } from "@/model/cateoryModel";
 import { useCallback, useEffect, useState } from "react";
 
-import siteAPI from "@api/website";
-import { SiteModel } from "@model/siteModel";
+export const useCategory = () => {
+  const [categoryList, setCategoryList] = useState([] as CategoryModel[]);
 
-export const useSite = () => {
-  const [siteList, setSiteList] = useState([] as SiteModel[]);
-
-  const getSiteListByCategoryId = useCallback(async () => {
-    const siteList = await siteAPI.getSiteList();
-    setSiteList(siteList);
+  const getCategoryList = useCallback(async () => {
+    const categoryList = await categoryAPI.getCategoryList();
+    setCategoryList(categoryList);
   }, []);
 
   useEffect(() => {
-    getSiteListByCategoryId();
+    getCategoryList();
   }, []);
 
   return {
-    siteList,
+    categoryList,
   };
 };
 
 export const useModal = () => {
   const [show, setShow] = useState<boolean>(false);
-  const [siteId, setSiteId] = useState<number>(0);
+  const [categoryId, setCategoryId] = useState<number>(0);
   const showModal = (id) => {
     setShow(true);
-    setSiteId(id);
+    setCategoryId(id);
   };
   const closeModal = () => {
     setShow(false);
   };
 
-  return { show, siteId, showModal, closeModal };
+  return { show, categoryId, showModal, closeModal };
 };
