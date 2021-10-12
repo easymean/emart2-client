@@ -2,6 +2,16 @@ import styled from "styled-components";
 import { TagProps } from "./types";
 import { TAG_COLOR, THEME_COLOR } from "@asset/constant";
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const DeleteButton = styled.button`
+  background-color: white;
+  font-size: 1.5rem;
+`;
+
 export const Name = styled.div`
   display: flex;
 `;

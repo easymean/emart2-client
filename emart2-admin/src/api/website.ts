@@ -42,6 +42,10 @@ const siteAPI = {
     );
     return data;
   },
+
+  deleteSite: async (id: number) => {
+    await axios.delete<SiteModel>(`${endpoints.SITE_API}/${id}`);
+  },
 };
 
 export default siteAPI;

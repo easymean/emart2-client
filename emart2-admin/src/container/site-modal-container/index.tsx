@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import * as S from "./styles";
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
 import { useCategoryList } from "@/query/category";
-import { updateSite, useSite } from "@/query/site";
+import { updateSite } from "@/query/site";
 import useForm from "@/component/common/hooks/form";
 import { SiteModel } from "@/model/siteModel";
 import Toast from "@/component/common/toast";
@@ -81,7 +81,7 @@ const SiteModalContainer = ({
           <S.Table>
             <S.Label>이름*</S.Label>
             <InputBox
-              defaultValue={updated.name}
+              value={updated.name}
               name="name"
               placeholder="광고제휴BOS 웹"
               onChange={handleChange}
@@ -89,7 +89,7 @@ const SiteModalContainer = ({
             <S.Label>url*</S.Label>
             <S.InputBoxWrapper>
               <InputBox
-                defaultValue={updated.url}
+                value={updated.url}
                 name="url"
                 placeholder="https://www.naver.com"
                 onChange={handleChange}
@@ -97,7 +97,7 @@ const SiteModalContainer = ({
             </S.InputBoxWrapper>
             <S.Label>개발/운영*</S.Label>
             <S.Select
-              defaultValue={`${updated.dev}`}
+              value={`${updated.dev}`}
               onChange={handleChange}
               name="dev"
             >
@@ -106,7 +106,7 @@ const SiteModalContainer = ({
             </S.Select>
             <S.Label>관련 시스템*</S.Label>
             <S.Select
-              defaultValue={updated.categoryId}
+              value={updated.categoryId}
               onChange={handleChange}
               name="categoryId"
             >
@@ -124,7 +124,7 @@ const SiteModalContainer = ({
             </S.Select>
             <S.Label>태그*</S.Label>
             <S.Select
-              defaultValue={updated.stage}
+              value={updated.stage}
               onChange={handleChange}
               name="stage"
             >
@@ -139,7 +139,7 @@ const SiteModalContainer = ({
             </S.Select>
             <S.Label> 설명*</S.Label>
             <InputBox
-              defaultValue={updated.description}
+              value={updated.description}
               onChange={handleChange}
               name="description"
             />

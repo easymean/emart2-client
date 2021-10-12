@@ -4,13 +4,17 @@ import { useHistory } from "react-router-dom";
 import * as S from "./styles";
 import { AlertProps } from "./type";
 
-const Alert = ({ redirect, pop, message, show }: AlertProps) => {
+const Alert = ({ redirect, pop, message, show, handleClick }: AlertProps) => {
   const history = useHistory();
   const onClick = () => {
-    if (redirect) {
-      window.location.href = redirect;
-    } else if (pop) {
-      history.goBack();
+    if (!handleClick) {
+      if (redirect) {
+        window.location.href = redirect;
+      } else if (pop) {
+        history.goBack();
+      }
+    } else {
+      handleClick();
     }
   };
 

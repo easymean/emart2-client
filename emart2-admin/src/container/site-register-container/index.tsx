@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import * as S from "./styles";
 import { useHistory } from "react-router";
-import { useQueryClient } from "react-query";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
