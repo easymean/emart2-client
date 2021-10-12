@@ -1,7 +1,12 @@
 import axios from "./axios";
 
 import endpoints from "./endpoints";
-import { CategoryModel, CategoryListModel } from "@model/cateoryModel";
+import { CategoryModel } from "@model/cateoryModel";
+
+interface UpdateCategoryProps {
+  id: number;
+  category: CategoryModel;
+}
 
 const categoryAPI = {
   getCategoryList: async (): Promise<CategoryModel[]> => {
@@ -21,6 +26,17 @@ const categoryAPI = {
   createCategory: async (category: CategoryModel): Promise<CategoryModel> => {
     const { data: categoryData } = await axios.post<CategoryModel>(
       `${endpoints.CATEGORY_API}`,
+      category
+    );
+    return categoryData;
+  },
+
+  updateCategory: async ({
+    id,
+    category,
+  }: UpdateCategoryProps): Promise<CategoryModel> => {
+    const { data: categoryData } = await axios.put<CategoryModel>(
+      `${endpoints.CATEGORY_API}/${id}`,
       category
     );
     return categoryData;
