@@ -19,7 +19,7 @@
       "@model/*": ["model/*"],
       "@api/*": ["api/*"],
       "@context/*": ["context/*"],
-      "@module/*": ["module/*"]
+      "@query/*": ["query/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

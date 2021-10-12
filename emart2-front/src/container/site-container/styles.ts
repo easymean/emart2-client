@@ -25,7 +25,7 @@ export const CategoryInfo = styled.div`
   display: block;
 `;
 
-export const CategoryTitle = styled.p`
+export const CategoryName = styled.p`
   color: ${THEME_COLOR.MAIN_YELLOW};
   font-size: 8rem;
   margin: 1rem 0;

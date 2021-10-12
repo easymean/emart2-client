@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as S from "./styles";
-import { useButton, useSite } from "./hooks";
+import { useButton } from "./hooks";
 import { CategoryContainerProps } from "./types";
 
 import SiteItem from "@component/site-item";
 import { useScroll } from "@/component/common/hooks/scroll";
+import { useSiteList } from "@/query/site";
+import { SiteModel } from "@/model/siteModel";
+import { useCategory } from "@/query/category";
 
 const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
-  const { title, description, devSiteList, realSiteList } = useSite(categoryId);
   const { isClick, buttonId, refs, onClick } = useButton();
+
+  const { data: category } = useCategory(categoryId);
+  const { data: siteList, status } = useSiteList(categoryId);
+  const [devSiteList, setDevSiteList] = useState([] as SiteModel[]);
+  const [realSiteList, setRealSiteList] = useState([] as SiteModel[]);
+  useCallback(() => {
+    if (status === "success" && siteList) {
+      const tempDev = siteList.filter((el) => el.dev);
+      const tempReal = siteList.filter((el) => !el.dev);
+      setDevSiteList([...devSiteList.concat(tempDev)]);
+      setRealSiteList([...realSiteList.concat(tempReal)]);
+    }
+  }, [status]);
 
   const { scrollActive, offsetRef } = useScroll();
 
@@ -16,8 +31,8 @@ const SiteContainer = ({ categoryId }: CategoryContainerProps) => {
     <S.SiteContainer>
       <S.CategoryHeader>
         <S.CategoryInfo ref={offsetRef}>
-          <S.CategoryTitle>{title}</S.CategoryTitle>
-          <S.CategoryDescription>{description}</S.CategoryDescription>
+          <S.CategoryName>{category?.name}</S.CategoryName>
+          <S.CategoryDescription>{category?.description}</S.CategoryDescription>
         </S.CategoryInfo>
 
         <S.TypeNav scroll={scrollActive}>

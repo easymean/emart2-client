@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+
 import * as S from "./styles";
 import { CONSTANT_URL, STATIC_URL } from "@asset/constant";
 import {
@@ -8,17 +10,21 @@ import {
   DropdownList,
   DropdownTitle,
 } from "@component/dropdown/styles";
-import { categoryList as data } from "@view/main/data";
-import { useUser } from "./hooks";
-import { useHistory } from "react-router-dom";
+import { useCookie } from "./hooks";
+import { useUser } from "@/query/user";
+import { useCategoryList } from "@/query/category";
 
 const Header = () => {
-  const categoryList = data;
+  const { data: categoryList } = useCategoryList();
   const history = useHistory();
   const handleRedirect = (id: number) => {
     history.push(`/category/${id}`);
   };
-  const { user } = useUser();
+
+  useEffect(() => {
+    //useCookie();
+  });
+  const { data: user } = useUser();
   return (
     <S.Header>
       <S.DesktopLink to="/">
@@ -49,8 +55,8 @@ const Header = () => {
           <S.MenuDropdown>
             <DropdownContainer>
               <DropdownList>
-                {categoryList.length != 0 ? (
-                  categoryList.map((el, idx) => {
+                {categoryList &&
+                  categoryList.map((category, idx) => {
                     return (
                       // <DropDownItem
                       //   key={idx}
@@ -58,15 +64,12 @@ const Header = () => {
                       //   redirect={`category/${el.id}`}
                       // />
                       <DropdownItem key={idx}>
-                        <a href={`/category/${el.id}`}>
-                          <DropdownTitle>{el.serviceName}</DropdownTitle>
+                        <a href={`/category/${category.id}`}>
+                          <DropdownTitle>{category.name}</DropdownTitle>
                         </a>
                       </DropdownItem>
                     );
-                  })
-                ) : (
-                  <></>
-                )}
+                  })}
               </DropdownList>
             </DropdownContainer>
           </S.MenuDropdown>

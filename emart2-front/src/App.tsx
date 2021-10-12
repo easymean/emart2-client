@@ -1,7 +1,5 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import createSagaMiddleware from "@redux-saga/core";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import MainPage from "@view/main";
@@ -12,15 +10,11 @@ import AccountListPage from "@view/account-list";
 
 import Auth from "@component/common/auth";
 import { Layout } from "@component/common/layout";
-import rootReducer, { rootSaga } from "@module/index";
 import GlobalStyles from "@component/common/global-styles";
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(rootSaga);
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
+    <>
       <GlobalStyles />
       <BrowserRouter>
         <Layout>
@@ -40,7 +34,8 @@ const App: React.FC = () => {
           </Switch>
         </Layout>
       </BrowserRouter>
-    </Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </>
   );
 };
 

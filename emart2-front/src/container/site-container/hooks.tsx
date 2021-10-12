@@ -1,25 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import siteAPI from "@api/website";
-import categoryAPI from "@api/category";
 import { SiteModel } from "@model/siteModel";
 import { useScroll } from "@/component/common/hooks/scroll";
-import { siteListData } from "./data";
 
 export const useSite = (categoryId: number) => {
-  const [title, setTitle] = useState("");
-  const [description, setDesrcription] = useState("");
   const [devSiteList, setDevSiteList] = useState([] as SiteModel[]);
   const [realSiteList, setRealSiteList] = useState([] as SiteModel[]);
 
-  const getCategoryInfo = useCallback(async () => {
-    const { name, description } = await categoryAPI.getCategory(categoryId);
-    setTitle(name);
-    setDesrcription(description);
-  }, [categoryId]);
   const getSiteListByCategoryId = useCallback(async () => {
-    // const siteList = await siteAPI.getSiteList(categoryId);
-    const siteList = siteListData;
+    const siteList = await siteAPI.getSiteList(categoryId);
     const tempDev = siteList.filter((el) => el.dev);
     const tempReal = siteList.filter((el) => !el.dev);
     setDevSiteList([...devSiteList.concat(tempDev)]);
@@ -27,13 +17,10 @@ export const useSite = (categoryId: number) => {
   }, [categoryId]);
 
   useEffect(() => {
-    getCategoryInfo();
     getSiteListByCategoryId();
   }, [categoryId]);
 
   return {
-    title,
-    description,
     devSiteList,
     realSiteList,
   };
