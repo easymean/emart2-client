@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import * as S from "./styles";
 import { useHistory } from "react-router";
+import { useQueryClient } from "react-query";
 
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
@@ -8,10 +9,9 @@ import Alert from "@/component/common/alert";
 import { SiteModel } from "@/model/siteModel";
 
 import { useCategoryList } from "@/query/category";
-import { useMutation, useQueryClient } from "react-query";
-import siteAPI from "@/api/website";
 import useForm from "@/component/common/hooks/form";
 import Toast from "@/component/common/toast";
+import { createSite } from "@/query/site";
 
 interface SiteRegisterProps {
   show: boolean;
@@ -19,7 +19,6 @@ interface SiteRegisterProps {
 }
 
 const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
-  const queryClient = useQueryClient();
   const history = useHistory();
   const [toast, setToast] = useState(false);
   const [alert, setAlert] = useState({ show: false, message: "" });
@@ -46,27 +45,16 @@ const SiteRegisterContainer = ({ show, closeModal }: SiteRegisterProps) => {
     handleSubmit,
   } = useForm<SiteModel>(initValue, onValidate);
 
-  const { mutate, isLoading, error } = useMutation(siteAPI.createWebsite, {
-    onSuccess: (data) => {
-      history.goBack();
-    },
-    onError: () => {
-      setAlert({
-        ...alert,
-        show: true,
-        message: "에러 발생",
-      });
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries("site");
-    },
-  });
+  const { mutate, status, error } = createSite();
 
   const onSubmit = (data: SiteModel, e?) => {
     const site = {
       ...data,
     };
     mutate(site);
+    if (status === "success") {
+      history.goBack();
+    }
   };
 
   const onError = (errors: Object, e?) => {

@@ -4,6 +4,7 @@ import * as S from "./styles";
 interface InputProps {
   name?: string;
   value?: string;
+  defaultValue?: string;
   placeholder?: string;
   onChange?: (e: any) => void;
   onKeyPress?: (e: any) => void;
@@ -12,6 +13,7 @@ interface InputProps {
 const InputBox = ({
   name,
   value,
+  defaultValue,
   placeholder,
   onChange,
   onKeyPress,
@@ -23,6 +25,7 @@ const InputBox = ({
       onKeyPress={onKeyPress}
       value={value}
       name={name}
+      defaultValue={defaultValue}
     />
   );
 };

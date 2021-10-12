@@ -8,6 +8,10 @@ export const useSite = (siteId: number) => {
   );
 };
 
-export const makeSite = (site) => {
-  return useMutation<SiteModel, Error>(() => siteAPI.createWebsite(site));
+export const createSite = () => {
+  return useMutation(siteAPI.createWebsite);
+};
+
+export const updateSite = () => {
+  return useMutation(siteAPI.updateSite);
 };

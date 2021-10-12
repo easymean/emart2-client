@@ -6,6 +6,7 @@ export interface SiteModel {
   order: number;
   description: string;
   categoryId?: number;
+  categoryName?: string;
   stage: string;
 }
 

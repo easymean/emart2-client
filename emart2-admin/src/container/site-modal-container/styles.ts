@@ -13,7 +13,7 @@ export const SiteContainer = styled.div`
   border-radius: 0.8rem;
 `;
 
-export const SiteInfo = styled.div`
+export const SiteInfo = styled.form`
   display: flex;
   width: 100%;
   flex-direction: column;

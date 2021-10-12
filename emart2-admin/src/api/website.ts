@@ -3,6 +3,11 @@ import axios from "./axios";
 import endpoints from "./endpoints";
 import { SiteModel, SiteListModel } from "@model/siteModel";
 
+interface UpdateSiteProps {
+  req: SiteModel;
+  id: number;
+}
+
 const siteAPI = {
   getSiteList: async (): Promise<SiteModel[]> => {
     const { data: websiteList } = await axios.get<SiteModel[]>(
@@ -27,6 +32,14 @@ const siteAPI = {
 
   createWebsite: async (req: SiteModel): Promise<SiteModel> => {
     const { data } = await axios.post<SiteModel>(`${endpoints.SITE_API}`, req);
+    return data;
+  },
+
+  updateSite: async ({ req, id }: UpdateSiteProps): Promise<SiteModel> => {
+    const { data } = await axios.put<SiteModel>(
+      `${endpoints.SITE_API}/${id}`,
+      req
+    );
     return data;
   },
 };
