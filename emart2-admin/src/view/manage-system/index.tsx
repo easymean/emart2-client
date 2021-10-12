@@ -3,13 +3,14 @@ import * as S from "./styles";
 
 import { useSaveButton } from "@/view/manage-system/hooks";
 import CategoryRegisterContainer from "@/container/category-register-container";
+import CategoryListContainer from "@/container/category-list-container";
 
 const ManageSystemPage = () => {
   const { showModal, onShowModal, onCloseModal } = useSaveButton();
   return (
     <S.ManageSystemContainer>
       <S.ButtonContainer>
-        <S.CreateButton onClick={onShowModal}>사이트 추가하기</S.CreateButton>
+        <S.CreateButton onClick={onShowModal}>시스템 추가하기</S.CreateButton>
       </S.ButtonContainer>
       <S.ManageHeader>
         <S.ManageInfo>
@@ -20,6 +21,7 @@ const ManageSystemPage = () => {
       {showModal && (
         <CategoryRegisterContainer show={showModal} closeModal={onCloseModal} />
       )}
+      <CategoryListContainer />
     </S.ManageSystemContainer>
   );
 };
