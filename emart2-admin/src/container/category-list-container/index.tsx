@@ -7,7 +7,7 @@ import CategoryModalContainer from "@/container/category-modal-container";
 
 const CategoryListContainer = () => {
   const { categoryList } = useCategory();
-  const { show, showModal, closeModal, categoryId } = useModal();
+  const { show, showModal, closeModal, categoryId, category } = useModal();
 
   return (
     <>
@@ -17,7 +17,7 @@ const CategoryListContainer = () => {
             categoryList.map((category, idx) => {
               return (
                 <S.CategoryItem
-                  onClick={() => showModal(category.id)}
+                  onClick={() => showModal(category.id, category)}
                   key={category.id}
                 >
                   <CategoryItem category={category} key={idx} />
@@ -31,6 +31,7 @@ const CategoryListContainer = () => {
           categoryId={categoryId}
           show={show}
           closeModal={closeModal}
+          category={category}
         />
       )}
     </>

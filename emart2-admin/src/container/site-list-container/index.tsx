@@ -7,7 +7,7 @@ import SiteModalContainer from "@/container/site-modal-container";
 
 const SiteListContainer = () => {
   const { siteList } = useSite();
-  const { show, showModal, closeModal, siteId } = useModal();
+  const { show, showModal, closeModal, siteId, site } = useModal();
 
   return (
     <>
@@ -16,7 +16,10 @@ const SiteListContainer = () => {
           {siteList.length !== 0 ? (
             siteList.map((site, idx) => {
               return (
-                <S.SiteItem onClick={() => showModal(site.id)} key={site.id}>
+                <S.SiteItem
+                  onClick={() => showModal(site.id, site)}
+                  key={site.id}
+                >
                   <SiteItem site={site} key={idx} />
                 </S.SiteItem>
               );
@@ -31,6 +34,7 @@ const SiteListContainer = () => {
           siteId={siteId}
           show={show}
           closeModal={closeModal}
+          site={site}
         />
       )}
     </>
