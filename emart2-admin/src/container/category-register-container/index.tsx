@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { useHistory } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
 
+import categoryAPI from "@/api/category";
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
 import Toast from "@/component/common/toast";
-import { CategoryModel } from "@/model/cateoryModel";
 import useForm from "@/component/common/hooks/form";
-import categoryAPI from "@/api/category";
+import { CategoryModel } from "@/model/cateoryModel";
 
 const CategoryRegisterContainer = ({ show, closeModal }) => {
   const queryClient = useQueryClient();
-  const history = useHistory();
   const [toast, setToast] = useState(false);
   const [alert, setAlert] = useState({ show: false, message: "" });
 
@@ -34,7 +32,7 @@ const CategoryRegisterContainer = ({ show, closeModal }) => {
   const initValue = {
     name: "",
     description: "",
-  };
+  } as CategoryModel;
 
   const onValidate = (data: CategoryModel) => {
     for (let val of Object.values(data)) {

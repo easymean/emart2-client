@@ -1,16 +1,15 @@
-import React, { useCallback, useState } from "react";
-import * as S from "./styles";
+import React, { useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
 
+import * as S from "./styles";
+import siteAPI from "@/api/website";
+import Toast from "@/component/common/toast";
 import InputBox from "@/component/input-box";
 import Modal from "@/component/common/modal";
 import Alert from "@/component/common/alert";
 import { SiteModel } from "@/model/siteModel";
-
 import { useCategoryList } from "@/query/category";
 import useForm from "@/component/common/hooks/form";
-import Toast from "@/component/common/toast";
-import { useMutation, useQueryClient } from "react-query";
-import siteAPI from "@/api/website";
 
 interface SiteRegisterProps {
   show: boolean;
