@@ -10,13 +10,13 @@ const LoginForm = ({ onKeyPress, setData, onClickLogin, onClickRedirect }) => {
         <InputBox
           name="username"
           placeholder="아이디"
-          setData={setData}
+          onChange={setData}
           onKeyPress={onKeyPress}
         />
         <InputBox
           name="password"
           placeholder="비밀번호"
-          setData={setData}
+          onChange={setData}
           onKeyPress={onKeyPress}
         />
         <S.LoginButton onClick={onClickLogin}>로그인</S.LoginButton>

@@ -24,7 +24,7 @@ const LoginPage = () => {
         onClickLogin={onClickLogin}
         onClickRedirect={onClickRedirect}
       />
-      {isAlert && <Alert redirect={redirectUrl} message={alertMsg} />}
+      <Alert show={isAlert} redirect={redirectUrl} message={alertMsg} />
     </S.LoginPage>
   );
 };
