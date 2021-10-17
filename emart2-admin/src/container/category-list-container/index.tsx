@@ -5,16 +5,16 @@ import * as S from "./styles";
 import { useModal } from "./hooks";
 
 import categoryAPI from "@/api/category";
-import Alert from "@/component/common/alert";
 import { useCategoryList } from "@/query/category";
 import CategoryItem from "@/component/category-item";
 import CategoryModalContainer from "@/container/category-modal-container";
+import Confirm from "@/component/common/confirm";
 
 const CategoryListContainer = () => {
   const { data: categoryList } = useCategoryList();
   const { show, showModal, closeModal, categoryId, category } = useModal();
 
-  const [alert, setAlert] = useState(false);
+  const [confirm, setConfirm] = useState(false);
   const [deleted, setDeleted] = useState(0);
 
   const queryClient = useQueryClient();
@@ -26,15 +26,21 @@ const CategoryListContainer = () => {
 
   const handleClick = () => {
     mutate(deleted);
-    setAlert(false);
+    setConfirm(false);
+    closeModal();
+  };
+
+  const handleCancel = () => {
+    setConfirm(false);
     closeModal();
   };
   return (
     <>
-      <Alert
-        show={alert}
+      <Confirm
+        show={confirm}
         message="삭제하시겠습니까?"
         handleClick={handleClick}
+        handleCancel={handleCancel}
       />
       <S.CategoryListContainer>
         <S.CategoryListWrapper>
@@ -47,7 +53,7 @@ const CategoryListContainer = () => {
                 >
                   <CategoryItem
                     category={category}
-                    setAlert={setAlert}
+                    setAlert={setConfirm}
                     setDeleted={setDeleted}
                     key={idx}
                   />
@@ -56,7 +62,7 @@ const CategoryListContainer = () => {
             })}
         </S.CategoryListWrapper>
       </S.CategoryListContainer>
-      {show && (
+      {show && !confirm && (
         <CategoryModalContainer
           categoryId={categoryId}
           show={show}

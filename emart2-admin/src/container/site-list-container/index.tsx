@@ -7,14 +7,14 @@ import { useModal } from "./hooks";
 import siteAPI from "@/api/website";
 import { useSiteList } from "@/query/site";
 import SiteItem from "@component/site-item";
-import Alert from "@/component/common/alert";
 import SiteModalContainer from "@/container/site-modal-container";
+import Confirm from "@/component/common/confirm";
 
 const SiteListContainer = () => {
   const { data: siteList } = useSiteList();
   const { show, showModal, closeModal, siteId, site } = useModal();
 
-  const [alert, setAlert] = useState(false);
+  const [confirm, setConfirm] = useState(false);
   const [deleted, setDeleted] = useState(0);
 
   const queryClient = useQueryClient();
@@ -26,16 +26,21 @@ const SiteListContainer = () => {
 
   const handleClick = () => {
     mutate(deleted);
-    setAlert(false);
+    setConfirm(false);
     closeModal();
   };
 
+  const handleCancel = () => {
+    setConfirm(false);
+    closeModal();
+  };
   return (
     <>
-      <Alert
-        show={alert}
+      <Confirm
+        show={confirm}
         message="삭제하시겠습니까?"
         handleClick={handleClick}
+        handleCancel={handleCancel}
       />
       <S.SiteListContainer>
         <S.SiteListWrapper>
@@ -48,7 +53,7 @@ const SiteListContainer = () => {
                 >
                   <SiteItem
                     site={site}
-                    setAlert={setAlert}
+                    setAlert={setConfirm}
                     setDeleted={setDeleted}
                     key={idx}
                   />
@@ -57,7 +62,7 @@ const SiteListContainer = () => {
             })}
         </S.SiteListWrapper>
       </S.SiteListContainer>
-      {show && !alert && (
+      {show && !confirm && (
         <SiteModalContainer
           siteId={siteId}
           show={show}
