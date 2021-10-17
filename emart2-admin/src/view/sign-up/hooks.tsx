@@ -82,7 +82,7 @@ export const useSignupButton = (
   const [disabled, setDisable] = useState<boolean>(true);
   const [msg, setMsg] = useState<string>("");
   const [redirect, setRedirect] = useState<string>("/signup");
-  const [isAlert, setAlert] = useState<boolean>(false);
+  const [alert, setAlert] = useState<boolean>(false);
 
   useEffect(() => {
     if (!empty && pwdValid && idValid) {
@@ -93,7 +93,6 @@ export const useSignupButton = (
   const onKeyPress = (e) => {
     if (e.key == "Enter") {
       onClickSignup();
-      //추후 개발 예정
     }
   };
 
@@ -127,29 +126,29 @@ export const useSignupButton = (
     onClickSignup,
     msg,
     redirect,
-    isAlert,
+    alert,
   };
 };
 
 export const useId = (info) => {
   const [idValid, setValidId] = useState(false);
-  const [popupMsg, setMsg] = useState<string>("");
-  const [onPopup, setPopup] = useState<boolean>(false);
+  const [toast, setToast] = useState<boolean>(false);
+  const [toastMsg, setToastMsg] = useState("");
 
   const checkId = async (id) => {
-    setPopup(true);
+    setToast(true);
     try {
       const res = await authAPI.checkId(id);
       if (!res) {
         setValidId(true);
-        setMsg("사용가능한 아이디입니다.");
+        setToastMsg("사용가능한 id입니다");
       } else {
         setValidId(false);
-        setMsg("사용불가능한 아이디입니다.");
+        setToastMsg("사용불가능합니다.");
       }
     } catch (err) {
       setValidId(false);
-      setMsg(MSG.ERROR);
+      setToastMsg("사용불가능합니다.");
     }
   };
 
@@ -159,7 +158,8 @@ export const useId = (info) => {
   return {
     onCheckId,
     idValid,
-    onPopup,
-    popupMsg,
+    toast,
+    setToast,
+    toastMsg,
   };
 };

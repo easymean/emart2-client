@@ -8,11 +8,13 @@ import Toast from "@/component/common/toast";
 
 const SignUpPage = () => {
   const { empty, pwdValid, handleChange, info } = useInputBox();
-  const { onCheckId, idValid, onPopup, popupMsg } = useId(info);
-  const { disabled, onKeyPress, onClickSignup, msg, redirect, isAlert } =
+  const { onCheckId, idValid, toast, setToast, toastMsg } = useId(info);
+  const { disabled, onKeyPress, onClickSignup, msg, redirect, alert } =
     useSignupButton(empty, pwdValid, idValid, info);
   return (
     <S.SignUpContainer>
+      <Alert show={alert} redirect={redirect} message={msg} />
+      <Toast message={toastMsg} show={toast} setShow={setToast} />
       <CommonTitle> 회원가입</CommonTitle>
 
       <S.SignUpWrapper>
@@ -20,7 +22,7 @@ const SignUpPage = () => {
           <InputBox
             name="id"
             placeholder="아이디"
-            setData={handleChange}
+            onChange={handleChange}
             onKeyPress={onKeyPress}
           />
           <S.CheckIdButton onClick={onCheckId}>중복 확인</S.CheckIdButton>
@@ -28,13 +30,13 @@ const SignUpPage = () => {
         <InputBox
           name="password"
           placeholder="비밀번호"
-          setData={handleChange}
+          onChange={handleChange}
           onKeyPress={onKeyPress}
         />
         <InputBox
           name="password2"
           placeholder="비밀번호 확인"
-          setData={handleChange}
+          onChange={handleChange}
           onKeyPress={onKeyPress}
         />
         <S.PwdCaution valid={pwdValid}>
@@ -44,7 +46,7 @@ const SignUpPage = () => {
           <InputBox
             name="email"
             placeholder="이메일"
-            setData={handleChange}
+            onChange={handleChange}
             onKeyPress={onKeyPress}
           />
           <S.CheckEmailButton>이메일인증</S.CheckEmailButton>
@@ -53,8 +55,6 @@ const SignUpPage = () => {
           회원가입
         </S.SignUpButton>
       </S.SignUpWrapper>
-      {onPopup && <Toast message={popupMsg} />}
-      {isAlert && <Alert redirect={redirect} message={msg} />}
     </S.SignUpContainer>
   );
 };
