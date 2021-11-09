@@ -28,7 +28,6 @@ instance.interceptors.response.use(
       return Promise.reject(res.error_type);
     } catch {
       //못잡으면 err를 리턴
-      console.log("못잡은 에러");
       return Promise.reject(err);
     }
   }

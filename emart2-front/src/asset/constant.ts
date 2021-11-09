@@ -36,8 +36,7 @@ export const TAG_COLOR = {
 
 export const SERVER = {
   DEV: "3.35.22.94:80",
-  LOCAL_FRONT: "localhost:8081",
-  LOCAL_ADMIN: "localhost:8080",
+  LOCAL: "localhost:8080",
 };
 
 export const MSG = {
