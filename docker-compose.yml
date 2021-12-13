@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - redirect-backend-api
+      - redirect-backend-admin
+    restart: "unless-stopped"
+
+  redirect-backend-api:
+    image: m2162003/redirect-api:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    networks:
+      - network_1
+    restart: "unless-stopped"
+
+  redirect-backend-admin:
+    image: m2162003/redirect-admin:latest
+    ports:
+      - 8081:8081
+    depends_on:
+      - db
+    networks:
+      - network_1
+    restart: "unless-stopped"
+
+  db:
+    image: mariadb:10
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    env_file: ./db/.env
+    environment:
+      TZ: Asia/Seoul
+    networks:
+      - network_1
+    restart: "unless-stopped"
+
+networks:
+  network_1:
